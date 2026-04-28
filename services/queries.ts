@@ -832,32 +832,6 @@ export const mainSingleQuery = gql`
   }
 `;
 
-export const allBenefitQuery = gql`
-  query AllBenefit($locale: I18NLocaleCode) {
-    allbenefit(locale: $locale) {
-      data {
-        id
-        attributes {
-          title
-          benefits(
-            sort: ["rank:asc", "id:asc"]
-            pagination: { start: 0, limit: 50 }
-          ) {
-            data {
-              id
-              attributes {
-                title
-                description
-                rank
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 export const storiesQuery = gql`
   query Stories($locale: I18NLocaleCode) {
     stories(locale: $locale, pagination: { start: 0, limit: 30 }, sort: ["id:asc"]) {

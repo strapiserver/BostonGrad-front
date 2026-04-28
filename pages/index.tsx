@@ -1,6 +1,5 @@
 import MainPageContent from "../components/main";
 import {
-  IAllBenefit,
   IMainSingle,
   IProduct,
   IStory,
@@ -11,7 +10,6 @@ import { ISEO } from "../types/general";
 import { Box } from "@chakra-ui/react";
 import gridPattern from "../public/grid.png";
 import {
-  loadAllBenefit,
   loadMainSingle,
   loadStories,
   loadUnis,
@@ -282,7 +280,6 @@ export const getStaticProps = async () => {
       socialNetworks,
       stories,
       products,
-      allBenefit,
     ] = await Promise.all([
       loadMainSingle(),
       loadUnis(),
@@ -290,7 +287,6 @@ export const getStaticProps = async () => {
       loadSocialNetworks(),
       loadStories(),
       loadProducts(),
-      loadAllBenefit(),
     ]);
 
     const seo: ISEO = {
@@ -314,7 +310,6 @@ export const getStaticProps = async () => {
         socialNetworks: socialNetworks || [],
         stories: (stories || []) as IStory[],
         products: (products || []) as IProduct[],
-        allBenefit: (allBenefit || null) as IAllBenefit | null,
       },
       revalidate: TTL.slow,
     };
@@ -335,7 +330,6 @@ export const getStaticProps = async () => {
         socialNetworks: [],
         stories: [],
         products: [],
-        allBenefit: null,
       },
       revalidate: TTL.slow,
     };

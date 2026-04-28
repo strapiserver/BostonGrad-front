@@ -15,8 +15,8 @@ export interface IArticle {
     text: string;
   }[];
 
-  preview?: IImage;
-  wallpaper?: IImage;
+  preview?: IImage | null;
+  wallpaper?: IImage | null;
   text?: string;
 }
 

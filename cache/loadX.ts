@@ -19,7 +19,6 @@ import {
   unisQuery,
   legacyCardsQuery,
   mainSingleQuery,
-  allBenefitQuery,
   storiesQuery,
 } from "../services/queries";
 import { getPmsFromSelector } from "./helper";
@@ -30,7 +29,6 @@ import {
   exchangerSlugToName,
 } from "../components/exchangers/helper";
 import {
-  IAllBenefit,
   IArticle,
   IMainSingle,
   IStory,
@@ -218,51 +216,6 @@ export const loadMainSingle = () =>
     const serviceFallback =
       (await fetchCMSWithServiceFallback(mainSingleQuery)) as IMainSingle[] | null;
     if (serviceFallback?.[0]?.id) return serviceFallback[0];
-
-    return null;
-  });
-
-export const loadAllBenefit = () =>
-  cachedFetch(`all_benefit_${locale}`, TTL.slow, async () => {
-    const normalizeAllBenefit = (
-      input: IAllBenefit | null | undefined,
-    ): IAllBenefit | null => {
-      if (!input?.id) return null;
-      const benefits = (input.benefits || [])
-        .filter((item) => item?.id && item?.title)
-        .sort((a, b) => {
-          const aRank =
-            typeof a.rank === "number" ? a.rank : Number.MAX_SAFE_INTEGER;
-          const bRank =
-            typeof b.rank === "number" ? b.rank : Number.MAX_SAFE_INTEGER;
-          if (aRank !== bRank) return aRank - bRank;
-          return String(a.title).localeCompare(String(b.title), "ru");
-        });
-
-      return { ...input, benefits };
-    };
-
-    const localized = normalizeAllBenefit(
-      (await cmsFetcher(allBenefitQuery, { locale })) as IAllBenefit | null,
-    );
-    if (localized?.benefits?.length) return localized;
-
-    const fallback = normalizeAllBenefit(
-      (await cmsFetcher(allBenefitQuery)) as IAllBenefit | null,
-    );
-    if (fallback?.benefits?.length) return fallback;
-
-    const serviceLocalized = normalizeAllBenefit(
-      (await fetchCMSWithServiceFallback(allBenefitQuery, {
-        locale,
-      })) as IAllBenefit | null,
-    );
-    if (serviceLocalized?.benefits?.length) return serviceLocalized;
-
-    const serviceFallback = normalizeAllBenefit(
-      (await fetchCMSWithServiceFallback(allBenefitQuery)) as IAllBenefit | null,
-    );
-    if (serviceFallback?.benefits?.length) return serviceFallback;
 
     return null;
   });

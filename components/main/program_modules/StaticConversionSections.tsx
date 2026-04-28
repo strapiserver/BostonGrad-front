@@ -19,28 +19,12 @@ import {
   RiTeamLine,
   RiTimeLine,
 } from "react-icons/ri";
-import { IAllBenefit } from "../../../types/pages";
 import { cmsLinkDEV, cmsLinkPROD } from "../../../services/utils";
 import { palette, sectionShell, sectionTitleCommon } from "./shared";
 
 const cardBg =
   "linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(252,246,237,0.94) 100%)";
 const cmsSrc = process.env.NODE_ENV === "production" ? cmsLinkPROD : cmsLinkDEV;
-const benefitIcons = [
-  RiParentLine,
-  RiTimeLine,
-  RiFlag2Line,
-  RiFileList3Line,
-  RiRoadMapLine,
-  RiMapPin2Line,
-  RiStarLine,
-  RiTeamLine,
-  RiChat3Line,
-  RiShieldCheckLine,
-  RiCheckboxCircleLine,
-  RiChat3Line,
-  RiRoadMapLine,
-];
 
 const SectionCard = ({
   icon,
@@ -82,34 +66,6 @@ const SectionCard = ({
     </Text>
   </VStack>
 );
-
-export const AllBenefitsSection = ({
-  allBenefit,
-}: {
-  allBenefit?: IAllBenefit | null;
-}) => {
-  const benefits = (allBenefit?.benefits || []).filter((item) => item?.title);
-
-  if (!benefits.length) return null;
-
-  return (
-    <Box {...sectionShell} p={{ base: 4, md: 6 }}>
-      <Text as="h2" {...sectionTitleCommon}>
-        {allBenefit?.title || "Преимущества программы"}
-      </Text>
-      <SimpleGrid columns={{ base: 1, md: 2, xl: 3 }} spacing="3">
-        {benefits.map((benefit, index) => (
-          <SectionCard
-            key={benefit.id || benefit.title}
-            icon={benefitIcons[index % benefitIcons.length]}
-            title={benefit.title}
-            text={benefit.description || ""}
-          />
-        ))}
-      </SimpleGrid>
-    </Box>
-  );
-};
 
 export const ParentsSection = () => (
   <Box {...sectionShell} p={{ base: 4, md: 6 }}>

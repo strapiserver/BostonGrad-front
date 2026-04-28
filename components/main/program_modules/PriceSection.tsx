@@ -9,7 +9,16 @@ import {
 } from "@chakra-ui/react";
 import {
   RiArrowRightLine,
+  RiBookOpenLine,
+  RiBus2Line,
+  RiCalendarCheckLine,
+  RiFileList3Line,
+  RiGlobalLine,
+  RiHome4Line,
   RiInformationLine,
+  RiLightbulbFlashLine,
+  RiTeamLine,
+  RiUserStarLine,
 } from "react-icons/ri";
 import { palette } from "./shared";
 
@@ -26,10 +35,25 @@ const oneWeekIncluded = [
   "Сопровождение",
 ];
 const twoWeekExtras = [
+  "Все из первой недели",
   "Расширенная программа",
   "Поездка в Нью-Йорк",
   "Финальный план и отчет",
 ];
+
+const pickWeekItemIcon = (text: string) => {
+  const value = String(text || "").toLowerCase();
+  if (value.includes("индивидуаль")) return RiUserStarLine;
+  if (value.includes("практичес")) return RiLightbulbFlashLine;
+  if (value.includes("проживание")) return RiHome4Line;
+  if (value.includes("транспорт")) return RiBus2Line;
+  if (value.includes("сопровожд")) return RiTeamLine;
+  if (value.includes("все из первой")) return RiBookOpenLine;
+  if (value.includes("расширен")) return RiCalendarCheckLine;
+  if (value.includes("нью-йорк")) return RiGlobalLine;
+  if (value.includes("план") || value.includes("отчет")) return RiFileList3Line;
+  return RiInformationLine;
+};
 
 const priceCards = [
   {
@@ -58,9 +82,9 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
       px={{ base: 4, md: 7 }}
       py={{ base: 5, md: 7 }}
       borderRadius={{ base: "18px", md: "22px" }}
-      bg={`radial-gradient(circle at 74% 8%, rgba(235,205,143,0.12), transparent 24%), linear-gradient(145deg, #92272c 0%, #70171b 48%, ${palette.wine900} 100%)`}
-      border={`1px solid rgba(235,205,143,0.55)`}
-      boxShadow="0 22px 44px rgba(79,16,18,0.28)"
+      bg={`radial-gradient(circle at 74% 8%, rgba(235,205,143,0.08), transparent 24%), linear-gradient(145deg, #5a2426 0%, #4a1e1f 46%, #3b1718 100%)`}
+      border={`1px solid rgba(235,205,143,0.42)`}
+      boxShadow="0 22px 44px rgba(40,12,13,0.36)"
       color={palette.gold400}
       position="relative"
       overflow="hidden"
@@ -135,8 +159,8 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
                 p={{ base: 3, md: 3.5 }}
                 minH={{ base: "150px", md: "165px" }}
                 borderRadius="16px"
-                border="1px solid rgba(235,205,143,0.62)"
-                bg="linear-gradient(180deg, rgba(82,18,21,0.78) 0%, rgba(65,13,16,0.82) 100%)"
+                border="1px solid rgba(235,205,143,0.52)"
+                bg="linear-gradient(180deg, rgba(74,30,31,0.92) 0%, rgba(58,23,24,0.94) 100%)"
                 boxShadow="inset 0 1px 0 rgba(255,255,255,0.14)"
                 h="100%"
               >
@@ -183,9 +207,9 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4">
           {[
-            ["Базовый пакет", "входит в оба формата", oneWeekIncluded],
+            ["Первая неделя", "входит в оба формата", oneWeekIncluded],
             [
-              "2 недели",
+              "Вторая неделя",
               "дополнительно к базовому пакету",
               twoWeekExtras,
             ],
@@ -194,8 +218,8 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
               key={title as string}
               p={{ base: 4, md: 5 }}
               borderRadius="16px"
-              border="1px solid rgba(235,205,143,0.24)"
-              bg="rgba(255,255,255,0.055)"
+              border="1px solid rgba(235,205,143,0.2)"
+              bg="rgba(74,30,31,0.5)"
               boxShadow="inset 0 1px 0 rgba(255,255,255,0.08)"
               h="100%"
             >
@@ -238,13 +262,12 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
                     px="3"
                     py="2.5"
                     borderRadius="10px"
-                    bg="rgba(79,16,18,0.2)"
+                    bg="rgba(58,23,24,0.72)"
                   >
                     <Box
-                      w="7px"
-                      h="7px"
-                      borderRadius="full"
-                      bg={palette.gold400}
+                      as={pickWeekItemIcon(item)}
+                      color={palette.gold400}
+                      fontSize="lg"
                       flexShrink={0}
                     />
                     <Text

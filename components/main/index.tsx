@@ -4,7 +4,6 @@ import { useAppDispatch } from "../../redux/hooks";
 import { clean } from "../../redux/mainReducer";
 import { useRouter } from "next/router";
 import {
-  IAllBenefit,
   IMainSingle,
   IProduct,
   IStory,
@@ -18,12 +17,10 @@ import MockStoryline from "./mockStoryline";
 import Forms from "./form";
 import Products from "../products";
 import {
-  AllBenefitsSection,
   BostonValueSection,
   FaqSection,
   NewYorkValueSection,
   PriceSection,
-  ProgramWeeksSection,
   ReasonsSection,
 } from "./program_modules";
 
@@ -44,7 +41,6 @@ const MainPageContent = ({
   socialNetworks,
   stories,
   products,
-  allBenefit,
 }: {
   unis?: IUni[] | null;
   mainSingle?: IMainSingle | null;
@@ -52,7 +48,6 @@ const MainPageContent = ({
   socialNetworks?: SocialNetworkItem[] | null;
   stories?: IStory[] | null;
   products?: IProduct[] | null;
-  allBenefit?: IAllBenefit | null;
 }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -99,8 +94,6 @@ const MainPageContent = ({
             priceTitle={mainSingle?.price_title}
             priceButtonText={mainSingle?.price_button_text}
           />
-          <AllBenefitsSection allBenefit={allBenefit} />
-          <ProgramWeeksSection programTitle={mainSingle?.program_title} />
           <ReasonsSection reasonsTitle={mainSingle?.reasons_title} />
           <BostonValueSection />
           <NewYorkValueSection />
