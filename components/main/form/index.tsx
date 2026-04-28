@@ -1,4 +1,13 @@
-import { Box, Button, Grid, Input, Text, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Grid,
+  Input,
+  Text,
+  InputGroup,
+  InputLeftElement,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import { RiSendPlaneFill } from "react-icons/ri";
 import {
   RiChat1Line,
@@ -28,6 +37,7 @@ export default function Forms({
 }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
+  const showSelectIcons = useBreakpointValue({ base: false, md: true });
   const submitCooldownMs = 20_000;
   const ageOptions = [
     { value: "12", label: "до 14" },
@@ -228,7 +238,6 @@ export default function Forms({
         fontWeight="700"
         lineHeight="1.15"
         mb={{ base: "4", md: "3" }}
-        textShadow="0 0 14px rgba(246,216,148,0.35)"
       >
         {title}
       </Text>
@@ -284,7 +293,11 @@ export default function Forms({
           h={{ base: "52px", md: "56px" }}
           fontSize={{ base: "md", md: "2xl" }}
           options={ageOptions}
-          leftIcon={<RiListSettingsLine color={fieldIconColor} size={fieldIconSize} />}
+          leftIcon={
+            showSelectIcons ? (
+              <RiListSettingsLine color={fieldIconColor} size={fieldIconSize} />
+            ) : undefined
+          }
           bg="white"
           color="#2d1a1a"
           borderColor="rgba(255,255,255,0.65)"
@@ -303,7 +316,11 @@ export default function Forms({
           autoSelectFirst={false}
           h={{ base: "52px", md: "56px" }}
           fontSize={{ base: "md", md: "2xl" }}
-          leftIcon={<RiMapPin2Line color={fieldIconColor} size={fieldIconSize} />}
+          leftIcon={
+            showSelectIcons ? (
+              <RiMapPin2Line color={fieldIconColor} size={fieldIconSize} />
+            ) : undefined
+          }
           bg="white"
           color="#2d1a1a"
           borderColor="rgba(255,255,255,0.65)"
@@ -321,7 +338,11 @@ export default function Forms({
           autoSelectFirst={false}
           h={{ base: "52px", md: "56px" }}
           fontSize={{ base: "md", md: "2xl" }}
-          leftIcon={<RiChat1Line color={fieldIconColor} size={fieldIconSize} />}
+          leftIcon={
+            showSelectIcons ? (
+              <RiChat1Line color={fieldIconColor} size={fieldIconSize} />
+            ) : undefined
+          }
           showSelectedIcon={false}
           bg="white"
           color="#2d1a1a"

@@ -36,7 +36,7 @@ export default function Products({ products }: ProductsProps) {
         </Text>
       </Box> */}
 
-      <SimpleGrid columns={{ base: 1, md: 2, lg: 3, xl: 4 }} spacing="5">
+      <SimpleGrid columns={{ base: 2, md: 2, lg: 3, xl: 4 }} spacing="5">
         {items.map((product) => (
           <Product key={product.id} product={product} />
         ))}

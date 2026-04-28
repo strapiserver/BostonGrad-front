@@ -21,6 +21,7 @@ import {
   AllBenefitsSection,
   BostonValueSection,
   FaqSection,
+  NewYorkValueSection,
   PriceSection,
   ProgramWeeksSection,
   ReasonsSection,
@@ -102,6 +103,7 @@ const MainPageContent = ({
           <ProgramWeeksSection programTitle={mainSingle?.program_title} />
           <ReasonsSection reasonsTitle={mainSingle?.reasons_title} />
           <BostonValueSection />
+          <NewYorkValueSection />
 
           <FaqSection />
         </VStack>

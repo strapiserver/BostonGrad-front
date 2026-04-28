@@ -166,6 +166,19 @@ const articleToText = (article: IArticle): IArticle => {
   return { ...article, text: fallbackText };
 };
 
+const articleWithResolvedMedia = (article: IArticle, baseUrl: string): IArticle => {
+  const resolveImage = (img?: IImage | null): IImage | null => {
+    if (!img?.url) return img || null;
+    return { ...img, url: resolveMediaUrl(baseUrl, img.url) };
+  };
+
+  return {
+    ...article,
+    preview: resolveImage(article.preview),
+    wallpaper: resolveImage(article.wallpaper),
+  };
+};
+
 const ArticlePage = (props: {
   seo: ISEO;
   article: IArticle | null;
@@ -208,11 +221,12 @@ export async function getStaticProps({ params }: { params: { code: string } }) {
     ]);
     const linkedArticle = await addArticleCrossLinking(article, articleCodes);
     const textArticle = articleToText(linkedArticle);
+    const readyArticle = articleWithResolvedMedia(textArticle, getCmsBase());
 
     return {
       props: {
         seo: seo || nullSeo,
-        article: textArticle || null,
+        article: readyArticle || null,
         countries,
         socialNetworks,
       },

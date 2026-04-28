@@ -3,8 +3,6 @@ import {
   ButtonProps,
   Box,
   HStack,
-  InputGroup,
-  InputLeftElement,
   Menu,
   MenuButton,
   MenuItem,
@@ -90,11 +88,22 @@ export default function CustomSelect({
     <>
       <input type="hidden" name={name} value={value} />
       {isMobile ? (
-        <InputGroup>
+        <Box position="relative" w="100%">
           {leftIcon ? (
-            <InputLeftElement h={sharedProps.h || sharedProps.height || "100%"}>
+            <Box
+              position="absolute"
+              left="12px"
+              top="50%"
+              transform="translateY(-50%)"
+              zIndex={1}
+              pointerEvents="none"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              color="inherit"
+            >
               {leftIcon}
-            </InputLeftElement>
+            </Box>
           ) : null}
           <Select
             w="100%"
@@ -115,45 +124,80 @@ export default function CustomSelect({
               </option>
             ))}
           </Select>
-        </InputGroup>
+        </Box>
       ) : !mounted ? (
-        <Button
-          w="100%"
-          justifyContent="space-between"
-          textAlign="left"
-          rightIcon={<RiArrowDownSLine />}
-          fontWeight="normal"
-          {...sharedProps}
-        >
-          <HStack spacing="2" minW={0}>
-            {leftIcon || null}
-            <Text noOfLines={1}>{placeholder || ""}</Text>
-          </HStack>
-        </Button>
-      ) : (
-        <Menu matchWidth placement="bottom-start">
-          <MenuButton
-            as={Button}
+        <Box position="relative" w="100%">
+          {leftIcon ? (
+            <Box
+              position="absolute"
+              left="12px"
+              top="50%"
+              transform="translateY(-50%)"
+              zIndex={1}
+              pointerEvents="none"
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              color="inherit"
+            >
+              {leftIcon}
+            </Box>
+          ) : null}
+          <Button
             w="100%"
             justifyContent="space-between"
             textAlign="left"
             rightIcon={<RiArrowDownSLine />}
             fontWeight="normal"
+            pl={leftIcon ? "10" : undefined}
             {...sharedProps}
           >
-            {selectedOption ? (
-              <HStack spacing="2" minW={0}>
-                {leftIcon || null}
-                {showSelectedIcon ? renderIcon(selectedOption.icon) : null}
-                <Text noOfLines={1}>{selectedOption.label}</Text>
-              </HStack>
-            ) : (
-              <HStack spacing="2" minW={0}>
-                {leftIcon || null}
-                <Text noOfLines={1}>{placeholder || ""}</Text>
-              </HStack>
-            )}
-          </MenuButton>
+            <HStack spacing="2" minW={0}>
+              <Text noOfLines={1}>{placeholder || ""}</Text>
+            </HStack>
+          </Button>
+        </Box>
+      ) : (
+        <Menu matchWidth placement="bottom-start">
+          <Box position="relative" w="100%">
+            {leftIcon ? (
+              <Box
+                position="absolute"
+                left="12px"
+                top="50%"
+                transform="translateY(-50%)"
+                zIndex={1}
+                pointerEvents="none"
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                color="inherit"
+              >
+                {leftIcon}
+              </Box>
+            ) : null}
+            <MenuButton
+              as={Button}
+              w="100%"
+              justifyContent="space-between"
+              textAlign="left"
+              rightIcon={<RiArrowDownSLine />}
+              fontWeight="normal"
+              pl={leftIcon ? "10" : undefined}
+              {...sharedProps}
+            >
+              {selectedOption ? (
+                <HStack spacing="2" minW={0}>
+                  {showSelectedIcon ? renderIcon(selectedOption.icon) : null}
+                  <Text noOfLines={1}>{selectedOption.label}</Text>
+                </HStack>
+              ) : (
+                <HStack spacing="2" minW={0}>
+                  <Text noOfLines={1}>{placeholder || ""}</Text>
+                </HStack>
+              )}
+            </MenuButton>
+          </Box>
           <Portal>
             <MenuList bg="white" borderColor="red.400" textAlign="left" zIndex={2000}>
               {options.map((option) => (

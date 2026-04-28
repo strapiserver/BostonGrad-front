@@ -21,17 +21,17 @@ export default function ArticleStats({ article }: { article?: IArticle | null })
   return (
     <HStack spacing="2">
       {article.updatedAt ? (
-        <ResponsiveText size="sm" variant="primary" color="white">
+        <ResponsiveText size="sm" variant="primary" color="inherit">
           {formatDate(article.updatedAt)}
         </ResponsiveText>
       ) : null}
       {article.updatedAt && minToRead ? (
-        <ResponsiveText size="sm" variant="primary" color="white">
+        <ResponsiveText size="sm" variant="primary" color="inherit">
           •
         </ResponsiveText>
       ) : null}
       {minToRead ? (
-        <ResponsiveText size="sm" variant="primary" color="white">
+        <ResponsiveText size="sm" variant="primary" color="inherit">
           {`${minToRead} мин чтения`}
         </ResponsiveText>
       ) : null}

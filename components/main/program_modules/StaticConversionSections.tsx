@@ -197,18 +197,18 @@ export const BostonValueSection = () => (
       <Box
         position="absolute"
         inset="0"
-        bg="linear-gradient(0deg, rgba(79,16,18,0.82) 0%, rgba(79,16,18,0.48) 42%, rgba(79,16,18,0.12) 100%)"
+        bg="linear-gradient(0deg, rgba(79,16,18,0.62) 0%, rgba(79,16,18,0.34) 42%, rgba(79,16,18,0.08) 100%)"
       />
       <Text
         as="h2"
         position="absolute"
         left={{ base: 5, md: 8 }}
         bottom={{ base: 5, md: 7 }}
-        color="white"
+        color="#f6d894"
         fontSize={{ base: "3xl", md: "5xl" }}
         fontWeight="900"
         lineHeight="1.05"
-        textShadow="0 8px 24px rgba(0,0,0,0.35)"
+        textShadow="0 2px 0 rgba(70,20,20,0.5), 0 8px 18px rgba(0,0,0,0.45)"
       >
         Погружение в Бостон
       </Text>
@@ -223,6 +223,55 @@ export const BostonValueSection = () => (
       участники видят разные типы университетов: исследовательские,
       технологические, частные, городские и кампусные. Это помогает понять,
       какая среда подходит ребенку.
+    </Text>
+  </Box>
+);
+
+export const NewYorkValueSection = () => (
+  <Box {...sectionShell} p="0">
+    <Box
+      position="relative"
+      w="100%"
+      minH={{ base: "220px", md: "320px" }}
+      overflow="hidden"
+    >
+      <Box
+        as="img"
+        src={`${cmsSrc}/uploads/ny_03ce208133.jpg?updated_at=2026-04-28T05:55:18.741Z`}
+        alt="Нью-Йорк"
+        w="100%"
+        h="100%"
+        minH={{ base: "220px", md: "320px" }}
+        objectFit="cover"
+        display="block"
+      />
+      <Box
+        position="absolute"
+        inset="0"
+        bg="linear-gradient(0deg, rgba(79,16,18,0.62) 0%, rgba(79,16,18,0.34) 42%, rgba(79,16,18,0.08) 100%)"
+      />
+      <Text
+        as="h2"
+        position="absolute"
+        left={{ base: 5, md: 8 }}
+        bottom={{ base: 5, md: 7 }}
+        color="#f6d894"
+        fontSize={{ base: "3xl", md: "5xl" }}
+        fontWeight="900"
+        lineHeight="1.05"
+        textShadow="0 2px 0 rgba(70,20,20,0.5), 0 8px 18px rgba(0,0,0,0.45)"
+      >
+        Поездка в Нью-Йорк
+      </Text>
+    </Box>
+    <Text
+      color={palette.ink}
+      fontSize={{ base: "md", md: "lg" }}
+      p={{ base: 5, md: 6 }}
+      lineHeight="1.65"
+    >
+      Насыщенный день в Нью-Йорке: знакомство с академической средой, ритмом
+      города и тем, как выглядит учеба и жизнь студента в большом мегаполисе.
     </Text>
   </Box>
 );

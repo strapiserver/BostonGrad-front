@@ -7,6 +7,7 @@ export {
   BostonValueSection,
   FaqSection,
   FinalCtaIntro,
+  NewYorkValueSection,
   NotTourSection,
   OutcomesSection,
   ParentsSection,

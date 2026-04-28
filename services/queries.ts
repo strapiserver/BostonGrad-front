@@ -639,6 +639,16 @@ export const articleQuery = gql`
           chapters
           stats
           text
+          preview {
+            data {
+              id
+              attributes {
+                name
+                alternativeText
+                url
+              }
+            }
+          }
           wallpaper {
             data {
               id
