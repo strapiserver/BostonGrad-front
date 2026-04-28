@@ -158,7 +158,7 @@ export default function Product({ product }: { product: IProduct }) {
       </VStack>
     </Box>
   );
-
+  // -
   return href ? (
     <LinkWrapper url={href} exists fullWidth>
       {card}
