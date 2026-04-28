@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "target": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "react": ["./node_modules/@types/react"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "next-seo.config.ts",
+    "next-sitemap.config.js",
+    "cache/index.js",
+    "components/p2p/edit/editOffers/offer/course/helper.ts",
+    "components/p2p/edit/editOffers/offer/course/CourseWrapper.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

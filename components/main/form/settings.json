@@ -1,0 +1,11 @@
+{
+  "fieldCommon": {
+    "bg": "bg.200",
+    "borderColor": "white",
+    "color": "bg.800",
+    "placeholderColor": "bg.800",
+    "fontWeight": "bold",
+    "_hover": { "borderColor": "gray" },
+    "_focus": { "borderColor": "white", "boxShadow": "0 0 0 1px white" }
+  }
+}

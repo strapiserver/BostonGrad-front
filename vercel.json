@@ -1,0 +1,9 @@
+{
+  "framework": "nextjs",
+  "functions": {
+    "pages/api/whatsapp/webhook.ts": {
+      "maxDuration": 10
+    }
+  }
+}
+

@@ -1,0 +1,7 @@
+User-agent: Yandex
+Clean-param: utm_medium&utm_source&utm_campaign&ybaip&ctime
+Sitemap: https://bostongrad.com/sitemap.xml
+Disallow: /cdn-cgi/
+
+User-agent: *
+Sitemap: https://bostongrad.com/sitemap.xml

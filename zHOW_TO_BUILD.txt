@@ -1,0 +1,6 @@
+ rates.map(r => {
+  const min = (Date.now() - r.last_time_updated) / 1000 / 60
+  if(min > 1) console.log(min)
+});
+
+to check expiration rates in jsfiddle
