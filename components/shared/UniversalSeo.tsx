@@ -1,12 +1,18 @@
 import { NextSeo, BreadcrumbJsonLd } from "next-seo";
 import { ISEO, BreadcrumbItem } from "../../types/general";
 export const nullSeo = {
-  title: null,
-  description: null,
-  canonicalSlug: null,
+  title: "BostonGrad",
+  description: "Летние образовательные программы в США",
+  canonicalSlug: "",
   breadcrumbs: [],
   updatedAt: null,
 };
+
+const siteUrl = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  process.env.SITE_URL ||
+  "https://bostongrad.com"
+).replace(/\/+$/, "");
 
 const UniversalSeo = ({ seo }: { seo: ISEO }) => {
   const {
@@ -16,7 +22,10 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
     updatedAt = new Date().toISOString(),
     breadcrumbs,
   } = seo;
-  const fullCanonicalUrl = `https://${process.env.NEXT_PUBLIC_NAME}.com/${canonicalSlug}`;
+  const canonicalPath = String(canonicalSlug || "").replace(/^\/+/, "");
+  const fullCanonicalUrl = canonicalPath
+    ? `${siteUrl}/${canonicalPath}`
+    : siteUrl;
   const ogType = updatedAt ? "article" : "website";
 
   const openGraph = {
@@ -24,7 +33,7 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
     url: fullCanonicalUrl,
     title,
     description,
-    site_name: `${process.env.NEXT_PUBLIC_NAME}`,
+    site_name: "BostonGrad",
     locale: "ru_RU",
     ...(updatedAt
       ? {
@@ -40,7 +49,7 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
     {
       position: 1,
       name: "Главная",
-      item: `https://${process.env.NEXT_PUBLIC_NAME}.com`,
+      item: siteUrl,
     },
     {
       position: 2,

@@ -3,12 +3,7 @@ import { VStack, Box } from "@chakra-ui/react";
 import { useAppDispatch } from "../../redux/hooks";
 import { clean } from "../../redux/mainReducer";
 import { useRouter } from "next/router";
-import {
-  IMainSingle,
-  IProduct,
-  IStory,
-  IUni,
-} from "../../types/pages";
+import { IMainSingle, IProduct, IStory, IUni } from "../../types/pages";
 import CustomTitle from "../shared/CustomTitle";
 import UniPreview from "./uni_preview";
 import GreetingImage from "./greeting";
@@ -16,6 +11,7 @@ import { IImage } from "../../types/selector";
 import MockStoryline from "./mockStoryline";
 import Forms from "./form";
 import Products from "../products";
+import Connection from "./Connection";
 import {
   BostonValueSection,
   FaqSection,
@@ -79,11 +75,12 @@ const MainPageContent = ({
       </Box>
 
       <Box id="programs">
-        <CustomTitle as="h2" title={"Наши услуги"} />
+        <CustomTitle as="h2" title={"Что входит в программу"} />
       </Box>
       <Box id="products">
         <Products products={products || []} />
       </Box>
+      <Connection socialNetworks={socialNetworks || []} />
       <Box id="program-modules">
         <VStack
           spacing={{ base: 5, md: 7 }}

@@ -43,7 +43,7 @@ export default function HashAdvantage({ hovering }: { hovering: boolean }) {
         icon={<FaShield size="1rem" />}
         hovering={hovering}
         title="Безопасность"
-        subtitle="Мы отвечаем за надежность обменников"
+        subtitle="Сопровождение и понятные правила на каждом этапе программы"
       />
     </>
   );

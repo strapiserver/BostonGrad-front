@@ -10,7 +10,14 @@ import {
 import type { GetStaticProps } from "next";
 import { useRouter } from "next/router";
 import { FormEvent, useState } from "react";
-import { RiCheckLine, RiMailLine, RiSendPlaneFill } from "react-icons/ri";
+import {
+  RiCheckLine,
+  RiListSettingsLine,
+  RiMailLine,
+  RiMapPin2Line,
+  RiSendPlaneFill,
+  RiUser3Line,
+} from "react-icons/ri";
 import CustomSelect from "../components/shared/CustomSelect";
 import {
   cmsLinkDEV,
@@ -90,6 +97,16 @@ export default function QuizPage({ countries }: Props) {
   const email = String(router.query.email || "").trim();
   const kidAgeRaw = String(router.query.kid_age || "").trim();
   const country = String(router.query.country || "").trim();
+  const countryOptions = countries.map((item) => ({
+    value: item.id,
+    label: item.name,
+  }));
+  const ageOptions = [
+    { value: "12", label: "до 14" },
+    { value: "16", label: "14-17" },
+    { value: "20", label: "18-22" },
+    { value: "23", label: "22+" },
+  ];
 
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -97,14 +114,19 @@ export default function QuizPage({ countries }: Props) {
     setError("");
 
     const formData = new FormData(e.currentTarget);
+    const formName = String(formData.get("name") || name).trim();
+    const formKidAge = String(formData.get("kid_age") || kidAgeRaw).trim();
+    const formCountry = String(formData.get("country") || country).trim();
+    const formEmail = String(formData.get("email") || email).trim();
     const together = String(formData.get("together") || "").trim();
     const education = String(formData.get("education") || "").trim();
     const contactValue = String(formData.get("contact") || "").trim();
 
     if (
-      !name ||
-      !kidAgeRaw ||
-      !country ||
+      !formName ||
+      !formKidAge ||
+      !formCountry ||
+      !formEmail ||
       !together ||
       !education ||
       !contactValue
@@ -119,14 +141,14 @@ export default function QuizPage({ countries }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name,
-          kid_age: Number(kidAgeRaw),
-          country,
+          name: formName,
+          kid_age: Number(formKidAge),
+          country: formCountry,
           together,
           education,
           contactChannel: channel,
           contactValue,
-          emailContact: email,
+          emailContact: formEmail,
         }),
       });
       if (!response.ok) throw new Error("submit_failed");
@@ -207,6 +229,87 @@ export default function QuizPage({ countries }: Props) {
           </Text>
           <Box as="form" onSubmit={onSubmit}>
             <Grid gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap={4}>
+              <InputGroup>
+                <InputLeftElement
+                  h={{ base: "58px", md: "52px" }}
+                  color="#5a2a2a"
+                >
+                  <RiUser3Line />
+                </InputLeftElement>
+                <Input
+                  name="name"
+                  placeholder="Имя участника"
+                  defaultValue={name}
+                  required
+                  h={{ base: "58px", md: "52px" }}
+                  pl="10"
+                  fontSize={{ base: "lg", md: "md" }}
+                  bg="white"
+                  color="#2d1a1a"
+                  borderColor="rgba(255,255,255,0.65)"
+                  _hover={{ borderColor: "rgba(255,255,255,0.9)" }}
+                  _focus={{
+                    borderColor: "#f6d894",
+                    boxShadow: "0 0 0 1px rgba(246,216,148,0.9)",
+                  }}
+                />
+              </InputGroup>
+
+              <InputGroup>
+                <InputLeftElement
+                  h={{ base: "58px", md: "52px" }}
+                  color="#5a2a2a"
+                >
+                  <RiMailLine />
+                </InputLeftElement>
+                <Input
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                  defaultValue={email}
+                  required
+                  h={{ base: "58px", md: "52px" }}
+                  pl="10"
+                  fontSize={{ base: "lg", md: "md" }}
+                  bg="white"
+                  color="#2d1a1a"
+                  borderColor="rgba(255,255,255,0.65)"
+                  _hover={{ borderColor: "rgba(255,255,255,0.9)" }}
+                  _focus={{
+                    borderColor: "#f6d894",
+                    boxShadow: "0 0 0 1px rgba(246,216,148,0.9)",
+                  }}
+                />
+              </InputGroup>
+
+              <CustomSelect
+                name="kid_age"
+                placeholder="Возраст ребенка"
+                defaultValue={kidAgeRaw}
+                autoSelectFirst={false}
+                h={{ base: "58px", md: "52px" }}
+                fontSize={{ base: "lg", md: "md" }}
+                options={ageOptions}
+                leftIcon={<RiListSettingsLine color="#5a2a2a" />}
+                bg="white"
+                color="#2d1a1a"
+                borderColor="rgba(255,255,255,0.65)"
+              />
+
+              <CustomSelect
+                name="country"
+                placeholder="Страна проживания"
+                defaultValue={country}
+                autoSelectFirst={false}
+                h={{ base: "58px", md: "52px" }}
+                fontSize={{ base: "lg", md: "md" }}
+                options={countryOptions}
+                leftIcon={<RiMapPin2Line color="#5a2a2a" />}
+                bg="white"
+                color="#2d1a1a"
+                borderColor="rgba(255,255,255,0.65)"
+              />
+
               <CustomSelect
                 name="together"
                 placeholder="Планируете ехать с ребенком?"

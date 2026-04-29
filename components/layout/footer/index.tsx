@@ -36,13 +36,13 @@ const aboutLinks = [
 ];
 
 const programLinks = [
-  { label: "Поиск программ", href: "/#programs" },
+  { label: "Услуги", href: "/#programs" },
   { label: "Как проходит обучение", href: "/#program-modules" },
-  { label: "Анкета участника", href: "/quiz" },
+  { label: "Консультация", href: "/#lead-form" },
 ];
 
 const navigationLinks = [
-  { label: "Карта университетов", href: "/#universities-map" },
+  { label: "Проживание", href: "/articles/living" },
   { label: "Оставить заявку", href: "/#lead-form" },
-  { label: "Анкета", href: "/quiz" },
+  { label: "Летняя школа", href: "/articles/summer-school" },
 ];

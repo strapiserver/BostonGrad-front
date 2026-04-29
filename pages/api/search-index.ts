@@ -29,19 +29,19 @@ export default async function handler(
     const fallbackData: SearchIndexEntry[] = [
       { slug: "", header: "Главная", wordsToSearchFrom: "главная home" },
       {
-        slug: "universities",
+        slug: "#universities",
         header: "Университеты",
-        wordsToSearchFrom: "университеты universities programs",
+        wordsToSearchFrom: "университеты campuses programs вузы кампусы",
       },
       {
-        slug: "living",
+        slug: "articles/living",
         header: "Проживание",
         wordsToSearchFrom: "проживание living housing",
       },
       {
-        slug: "contacts",
-        header: "Контакты",
-        wordsToSearchFrom: "контакты contacts",
+        slug: "#lead-form",
+        header: "Оставить заявку",
+        wordsToSearchFrom: "заявка контакты консультация pdf анкета",
       },
     ];
 

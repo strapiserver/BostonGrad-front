@@ -15,30 +15,6 @@ type StorylineProps = {
   stories?: IStory[] | null;
 };
 
-const fallbackStories: IStory[] = [
-  {
-    id: "mock-1",
-    name: "Александр",
-    age: 16,
-    city: "Москва",
-    short_description: "Летняя программа в Northeastern + дальнейшая подача в США",
-  },
-  {
-    id: "mock-2",
-    name: "Майя",
-    age: 15,
-    city: "Тбилиси",
-    short_description: "2 недели академического английского и профильных воркшопов",
-  },
-  {
-    id: "mock-3",
-    name: "Даниэль",
-    age: 17,
-    city: "Алматы",
-    short_description: "Подготовка портфолио и учебный трек по business analytics",
-  },
-];
-
 const presentName = (story: IStory) => {
   const rawName = String(story.name || "").trim();
   if (!rawName) return "Ученик";
@@ -48,12 +24,12 @@ const presentName = (story: IStory) => {
 
 export default function MockStoryline({ stories }: StorylineProps) {
   const cards = (stories || []).filter((story) => story?.name?.trim()) as IStory[];
-  const data = cards.length ? cards : fallbackStories;
+  if (!cards.length) return null;
 
   return (
     <VStack align="stretch" spacing={{ base: 4, md: 5 }} px={{ base: 4, md: 8 }} pb={{ base: 8, md: 10 }}>
       <Grid templateColumns={{ base: "1fr", md: "repeat(2, 1fr)", xl: "repeat(3, 1fr)" }} gap={5}>
-        {data.map((item) => {
+        {cards.map((item) => {
           const href = item.article?.code
             ? `/articles/${String(item.article.code).toLowerCase()}`
             : null;

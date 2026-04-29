@@ -16,7 +16,7 @@ import {
   PopoverContent,
   PopoverBody,
 } from "@chakra-ui/react";
-import { BiSearch, BiX, BiStore, BiMap, BiTransfer } from "react-icons/bi";
+import { BiSearch, BiX, BiBookOpen, BiMap, BiHomeAlt2 } from "react-icons/bi";
 import useSWR from "swr";
 import NavButton from "../NavButton";
 import { Box3D } from "../../../../styles/theme/custom";
@@ -65,11 +65,11 @@ const GlobalSearch = () => {
   };
 
   const renderResult = (r: any) => {
-    const isExchanger = r.slug?.startsWith("exchangers/");
-    const isCity = r.slug?.startsWith("map/");
+    const isArticle = r.slug?.startsWith("articles/");
+    const isSection = r.slug?.startsWith("#");
     const text =
       r.header.length > 32 ? r.header.slice(0, 32) + "..." : r.header;
-    const Icon = isExchanger ? BiStore : isCity ? BiMap : BiTransfer;
+    const Icon = isArticle ? BiBookOpen : isSection ? BiMap : BiHomeAlt2;
 
     return (
       <HStack spacing="2" alignItems="center">
@@ -110,7 +110,7 @@ const GlobalSearch = () => {
                   h="10"
                   color={color}
                   border="none"
-                  placeholder="Поиск направления, обменника или города"
+                  placeholder="Поиск программы, статьи или раздела"
                   value={value}
                   onChange={(e) => setValue(e.target.value)}
                   autoFocus
@@ -157,7 +157,7 @@ const GlobalSearch = () => {
                 borderRadius="md"
                 _hover={{ bg: "bg.900", cursor: "pointer" }}
                 onClick={() => {
-                  router.push("/" + r.slug);
+                  router.push(r.slug ? "/" + r.slug : "/");
                   handleClose();
                 }}
               >

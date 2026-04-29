@@ -35,13 +35,7 @@ export default function MyDocument() {
           href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;600;700&family=Montserrat:wght@300;600;700&family=Arvo:wght@400;700&display=swap"
           rel="stylesheet"
         />
-
-        {/* Meta tags */}
         <meta name="google" content="notranslate" />
-        {/* <meta
-          name="keywords"
-          content="обмен, наличные, крипта, биткойн, криптовалюта, п2п, обменять, p2p, exchange, bitcoin, crypto, monitoring, rate"
-        /> */}
 
         {/* Yandex Metrika */}
         <script

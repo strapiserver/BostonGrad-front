@@ -13,9 +13,9 @@ function escapeRegex(str: string): string {
 
 const getEntryType = (entry: any) => {
   const slug = String(entry?.slug || "");
-  if (slug.startsWith("exchangers/")) return "exchanger";
-  if (slug.startsWith("map/")) return "city";
-  return "exchange";
+  if (slug.startsWith("articles/")) return "article";
+  if (slug.startsWith("#")) return "section";
+  return "page";
 };
 
 export function filterSearchResults(entries: any[] = [], query: string): any[] {
@@ -69,9 +69,9 @@ export function filterSearchResults(entries: any[] = [], query: string): any[] {
     });
 
   const grouped: Record<string, any[]> = {
-    exchanger: [],
-    city: [],
-    exchange: [],
+    section: [],
+    article: [],
+    page: [],
   };
 
   for (const entry of sorted) {
@@ -80,5 +80,5 @@ export function filterSearchResults(entries: any[] = [], query: string): any[] {
     if (grouped[type].length < 3) grouped[type].push(entry);
   }
 
-  return [...grouped.exchanger, ...grouped.city, ...grouped.exchange];
+  return [...grouped.section, ...grouped.article, ...grouped.page];
 }

@@ -115,8 +115,8 @@ export default function Product({ product }: { product: IProduct }) {
             </VStack>
           ) : null}
 
-          <Box mt="auto">
-            {href ? (
+          {href ? (
+            <Box mt="auto">
               <HStack
                 px="4"
                 py="3"
@@ -137,28 +137,12 @@ export default function Product({ product }: { product: IProduct }) {
                 </Text>
                 <RiArrowRightLine />
               </HStack>
-            ) : (
-              <Box
-                px="4"
-                py="3"
-                borderRadius="14px"
-                bg="rgba(126,31,36,0.08)"
-                color="#7e1f24"
-                fontSize="sm"
-                fontWeight="700"
-                textTransform="uppercase"
-                letterSpacing="0.04em"
-                textAlign="center"
-              >
-                Без страницы статьи
-              </Box>
-            )}
-          </Box>
+            </Box>
+          ) : null}
         </VStack>
       </VStack>
     </Box>
   );
-  // -
   return href ? (
     <LinkWrapper url={href} exists fullWidth>
       {card}

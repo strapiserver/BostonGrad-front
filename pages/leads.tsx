@@ -1,7 +1,14 @@
 import { Box, Button, Heading, Input, Spinner, Text, VStack } from "@chakra-ui/react";
 import { FormEvent, useCallback, useEffect, useState } from "react";
+import Head from "next/head";
 import Lead from "../components/lead";
 import { CountryOption, LeadItem } from "../types/lead";
+
+const LeadsNoIndex = () => (
+  <Head>
+    <meta name="robots" content="noindex,nofollow" />
+  </Head>
+);
 
 export default function LeadsPage() {
   const [password, setPassword] = useState("");
@@ -84,50 +91,59 @@ export default function LeadsPage() {
 
   if (isLoading) {
     return (
-      <VStack py="20">
-        <Spinner />
-      </VStack>
+      <>
+        <LeadsNoIndex />
+        <VStack py="20">
+          <Spinner />
+        </VStack>
+      </>
     );
   }
 
   if (!leads) {
     return (
-      <VStack py="20" px="4">
-        <Box as="form" onSubmit={onLogin} w="100%" maxW="420px">
-          <VStack align="stretch" spacing="4">
-            <Heading size="md">Leads Login</Heading>
-            <Input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="Password"
-            />
-            <Button type="submit" isLoading={isLoginLoading}>
-              Войти
-            </Button>
-            {error ? <Text color="red.500">{error}</Text> : null}
-          </VStack>
-        </Box>
-      </VStack>
+      <>
+        <LeadsNoIndex />
+        <VStack py="20" px="4">
+          <Box as="form" onSubmit={onLogin} w="100%" maxW="420px">
+            <VStack align="stretch" spacing="4">
+              <Heading size="md">Leads Login</Heading>
+              <Input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Password"
+              />
+              <Button type="submit" isLoading={isLoginLoading}>
+                Войти
+              </Button>
+              {error ? <Text color="red.500">{error}</Text> : null}
+            </VStack>
+          </Box>
+        </VStack>
+      </>
     );
   }
 
   return (
-    <VStack align="stretch" px="4" py="6" spacing="4">
-      <Box display="flex" alignItems="center" justifyContent="space-between" gap="3">
-        <Heading size="md">Leads ({leads.length})</Heading>
-        <Button variant="outline" onClick={onLogout}>
-          Выйти
-        </Button>
-      </Box>
+    <>
+      <LeadsNoIndex />
+      <VStack align="stretch" px="4" py="6" spacing="4">
+        <Box display="flex" alignItems="center" justifyContent="space-between" gap="3">
+          <Heading size="md">Leads ({leads.length})</Heading>
+          <Button variant="outline" onClick={onLogout}>
+            Выйти
+          </Button>
+        </Box>
 
-      {error ? <Text color="red.500">{error}</Text> : null}
+        {error ? <Text color="red.500">{error}</Text> : null}
 
-      <VStack align="stretch" spacing="4">
-        {leads.map((lead) => (
-          <Lead key={lead.id} lead={lead} countries={countries} />
-        ))}
+        <VStack align="stretch" spacing="4">
+          {leads.map((lead) => (
+            <Lead key={lead.id} lead={lead} countries={countries} />
+          ))}
+        </VStack>
       </VStack>
-    </VStack>
+    </>
   );
 }
