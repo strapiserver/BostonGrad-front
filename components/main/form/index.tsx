@@ -35,10 +35,8 @@ export default function Forms({
   socialNetworks?: { name: string; icon: IImage | null; url: string }[];
   title?: string;
 }) {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const showSelectIcons = useBreakpointValue({ base: false, md: true });
-  const submitCooldownMs = 20_000;
   const ageOptions = [
     { value: "12", label: "до 14" },
     { value: "16", label: "14-17" },
@@ -78,62 +76,8 @@ export default function Forms({
     return `https://${trimmed}`;
   };
 
-  const withTelegramStartCode = (url: string, startCode?: string) => {
-    if (!startCode) return url;
-    try {
-      const parsed = new URL(url);
-      const host = parsed.hostname.toLowerCase();
-      if (host !== "t.me" && host !== "telegram.me" && !host.endsWith(".t.me")) {
-        return url;
-      }
-      parsed.searchParams.set("start", startCode);
-      return parsed.toString();
-    } catch {
-      return url;
-    }
-  };
-
-  const withWhatsAppStartCode = (url: string, startCode?: string) => {
-    if (!startCode) return url;
-    try {
-      const parsed = new URL(url);
-      const host = parsed.hostname.toLowerCase();
-      const isWhatsapp =
-        host === "wa.me" ||
-        host === "api.whatsapp.com" ||
-        host.endsWith(".whatsapp.com");
-      if (!isWhatsapp) return url;
-      const existing = parsed.searchParams.get("text");
-      const prefix = existing ? `${existing}\n` : "";
-      parsed.searchParams.set("text", `${prefix}START ${startCode}`);
-      return parsed.toString().replace(/\+/g, "%20");
-    } catch {
-      return url;
-    }
-  };
-
-  const withFacebookStartCode = (url: string, startCode?: string) => {
-    if (!startCode) return url;
-    try {
-      const parsed = new URL(url);
-      const host = parsed.hostname.toLowerCase();
-      const isMessenger =
-        host === "m.me" ||
-        host === "www.m.me" ||
-        host.endsWith(".facebook.com") ||
-        host === "messenger.com" ||
-        host.endsWith(".messenger.com");
-      if (!isMessenger) return url;
-      parsed.searchParams.set("ref", startCode);
-      return parsed.toString();
-    } catch {
-      return url;
-    }
-  };
-
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (isSubmitting) return;
     setError("");
 
     const formData = new FormData(e.currentTarget);
@@ -156,26 +100,29 @@ export default function Forms({
       setError("Выберите социальную сеть");
       return;
     }
-    if (!kidAgeRaw) {
-      setError("Выберите возраст ребенка");
-      return;
-    }
-    if (!name || !email || !country) {
+
+    if (honeypot) {
       return;
     }
 
     if (typeof window !== "undefined") {
-      const lastSubmitTs = Number(window.localStorage.getItem("lead_submit_ts") || "0");
-      if (Date.now() - lastSubmitTs < submitCooldownMs) {
-        setError("Подождите немного перед повторной отправкой");
+      const botChannel = ["telegram", "facebook", "whatsapp"].includes(selectedChannel);
+      if (botChannel) {
+        window.location.href = socialNetworkUrl;
         return;
       }
     }
 
     if (typeof window !== "undefined") {
       const noBotChannel =
-        selectedChannel === "email" || selectedChannel === "instagram" || selectedChannel === "vk";
+        selectedChannel === "email" ||
+        selectedChannel === "instagram" ||
+        selectedChannel === "vk";
       if (noBotChannel) {
+        if (!name || !email || !kidAgeRaw || !country) {
+          setError("Заполните имя, email, страну и возраст ребенка");
+          return;
+        }
         const params = new URLSearchParams({
           channel: selectedChannel,
           target: socialNetworkUrl,
@@ -187,46 +134,8 @@ export default function Forms({
         window.location.href = `/quiz?${params.toString()}`;
         return;
       }
-    }
 
-    setIsSubmitting(true);
-    try {
-      const response = await fetch("/api/lead-submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          kid_age: Number(kidAgeRaw),
-          country,
-          honeypot,
-        }),
-      });
-      if (!response.ok) {
-        throw new Error("Lead submit failed");
-      }
-      const payload = (await response.json()) as {
-        leadStartCode?: string;
-        telegramStartCode?: string;
-      };
-      if (typeof window !== "undefined") {
-        window.localStorage.setItem("lead_submit_ts", String(Date.now()));
-      }
-      if (typeof window !== "undefined") {
-        const startCode = payload?.leadStartCode || payload?.telegramStartCode;
-        const targetUrl = withFacebookStartCode(
-          withWhatsAppStartCode(
-            withTelegramStartCode(socialNetworkUrl, startCode),
-            startCode,
-          ),
-          startCode,
-        );
-        window.location.href = targetUrl;
-      }
-    } catch {
-      setError("Не удалось открыть чат. Попробуйте снова.");
-    } finally {
-      setIsSubmitting(false);
+      window.location.href = socialNetworkUrl;
     }
   };
 
@@ -256,7 +165,6 @@ export default function Forms({
             name="name"
             borderRadius="lg"
             placeholder="Ваше имя"
-            required
             h={{ base: "52px", md: "56px" }}
             pl="10"
             fontSize={{ base: "md", md: "2xl" }}
@@ -362,7 +270,6 @@ export default function Forms({
             name="email"
             borderRadius="lg"
             placeholder="Email"
-            required
             h={{ base: "52px", md: "56px" }}
             pl="10"
             fontSize={{ base: "md", md: "2xl" }}
@@ -389,7 +296,6 @@ export default function Forms({
           w="100%"
           rightIcon={<RiSendPlaneFill />}
           type="submit"
-          isLoading={isSubmitting}
         >
           Отправить
         </Button>

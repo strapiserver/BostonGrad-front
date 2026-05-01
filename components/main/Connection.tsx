@@ -26,18 +26,20 @@ type ConnectionProps = {
 
 const email = "info@bostongrad.com";
 
-const iconPulse = keyframes`
-  0% {
-    opacity: 0.78;
-    transform: scale(1);
+const connectionGlowPulse = keyframes`
+  0%, 100% {
+    box-shadow:
+      0 14px 30px rgba(79,16,18,0.14),
+      0 0 0 3px ${palette.gold500},
+      0 0 0 9px rgba(235,205,143,0.32),
+      0 0 28px 8px rgba(235,205,143,0.44);
   }
   50% {
-    opacity: 0.22;
-    transform: scale(1.045);
-  }
-  100% {
-    opacity: 0.78;
-    transform: scale(1);
+    box-shadow:
+      0 14px 30px rgba(79,16,18,0.14),
+      0 0 0 3px ${palette.gold500},
+      0 0 0 12px rgba(235,205,143,0.48),
+      0 0 42px 14px rgba(235,205,143,0.68);
   }
 `;
 
@@ -159,18 +161,6 @@ export default function Connection({ socialNetworks }: ConnectionProps) {
       isolation="isolate"
       overflow="visible"
     >
-      <Box
-        position="absolute"
-        inset="-12px"
-        borderRadius="28px"
-        border={`3px solid ${palette.gold500}`}
-        boxShadow={`0 0 0 8px rgba(235,205,143,0.38), 0 0 34px 10px rgba(235,205,143,0.58)`}
-        opacity={0.78}
-        transform="scale(1)"
-        animation={`${iconPulse} 2.4s ease-in-out infinite`}
-        pointerEvents="none"
-        zIndex={0}
-      />
       <HStack
         as="section"
         aria-label="Связаться с нами"
@@ -181,7 +171,9 @@ export default function Connection({ socialNetworks }: ConnectionProps) {
         borderRadius="16px"
         bg={`linear-gradient(135deg, #fff1c9 0%, ${palette.gold400} 100%)`}
         border="1px solid rgba(79,16,18,0.14)"
-        boxShadow="0 14px 30px rgba(79,16,18,0.14), 0 0 0 1px rgba(212,173,99,0.24)"
+        boxShadow={`0 14px 30px rgba(79,16,18,0.14), 0 0 0 3px ${palette.gold500}, 0 0 0 10px rgba(235,205,143,0.38), 0 0 34px 10px rgba(235,205,143,0.58)`}
+        animation={`${connectionGlowPulse} 2.4s ease-in-out infinite`}
+        willChange="box-shadow"
         position="relative"
         zIndex={1}
         justify={{ base: "center", md: "space-between" }}
