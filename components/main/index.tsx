@@ -3,12 +3,13 @@ import { VStack, Box } from "@chakra-ui/react";
 import { useAppDispatch } from "../../redux/hooks";
 import { clean } from "../../redux/mainReducer";
 import { useRouter } from "next/router";
-import { IMainSingle, IProduct, IStory, IUni } from "../../types/pages";
+import { IMainSingle, IProduct, IStory, IUni, IVisa } from "../../types/pages";
 import CustomTitle from "../shared/CustomTitle";
 import UniPreview from "./uni_preview";
 import GreetingImage from "./greeting";
 import { IImage } from "../../types/selector";
 import MockStoryline from "./mockStoryline";
+import SummerInvite from "./summer_invite";
 import Forms from "./form";
 import Products from "../products";
 import Connection from "./Connection";
@@ -37,6 +38,7 @@ const MainPageContent = ({
   socialNetworks,
   stories,
   products,
+  visa,
 }: {
   unis?: IUni[] | null;
   mainSingle?: IMainSingle | null;
@@ -44,6 +46,7 @@ const MainPageContent = ({
   socialNetworks?: SocialNetworkItem[] | null;
   stories?: IStory[] | null;
   products?: IProduct[] | null;
+  visa?: IVisa | null;
 }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -101,6 +104,10 @@ const MainPageContent = ({
 
       <Box id="stories" mt={{ base: "8", md: "12" }}>
         <MockStoryline stories={stories || []} />
+      </Box>
+
+      <Box id="summer-invite" mt={{ base: "2", md: "4" }}>
+        <SummerInvite visa={visa} />
       </Box>
 
       <Box

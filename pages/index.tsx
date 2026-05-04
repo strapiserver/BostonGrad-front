@@ -4,6 +4,7 @@ import {
   IProduct,
   IStory,
   IUni,
+  IVisa,
 } from "../types/pages";
 import UniversalSeo, { nullSeo } from "../components/shared/UniversalSeo";
 import { ISEO } from "../types/general";
@@ -271,6 +272,48 @@ const loadSocialNetworks = async (): Promise<SocialNetworkItem[]> => {
   }
 };
 
+const loadVisaFrom = async (cmsBase: string): Promise<IVisa | null> => {
+  const apiUrl = `${cmsBase}/api/visa?locale=ru&populate=*`;
+
+  try {
+    const apiRes = await fetch(apiUrl);
+    if (!apiRes.ok) return null;
+    const apiJson = await apiRes.json();
+    const item = apiJson?.data || null;
+    const attrs = item?.attributes || item || {};
+    const header = typeof attrs?.header === "string" ? attrs.header : null;
+    const subheader =
+      typeof attrs?.subheader === "string" ? attrs.subheader : null;
+
+    if (!header && !subheader && !attrs?.icon && !attrs?.image) return null;
+
+    return {
+      id: String(item?.id || attrs?.id || "visa"),
+      header,
+      subheader,
+      icon: extractImage(attrs?.icon, cmsBase),
+      image: extractImage(attrs?.image, cmsBase),
+      article: extractArticle(attrs?.article),
+    };
+  } catch {
+    return null;
+  }
+};
+
+const loadVisa = async (): Promise<IVisa | null> => {
+  const env = process.env.NODE_ENV;
+  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
+  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
+  const primary = await loadVisaFrom(cmsBase);
+  if (primary) return primary;
+
+  if (env !== "production" && internalCmsLink && internalCmsLink !== cmsBase) {
+    return loadVisaFrom(internalCmsLink);
+  }
+
+  return null;
+};
+
 export const getStaticProps = async () => {
   try {
     const [
@@ -280,6 +323,7 @@ export const getStaticProps = async () => {
       socialNetworks,
       stories,
       products,
+      visa,
     ] = await Promise.all([
       loadMainSingle(),
       loadUnis(),
@@ -287,6 +331,7 @@ export const getStaticProps = async () => {
       loadSocialNetworks(),
       loadStories(),
       loadProducts(),
+      loadVisa(),
     ]);
 
     const seo: ISEO = {
@@ -310,6 +355,7 @@ export const getStaticProps = async () => {
         socialNetworks: socialNetworks || [],
         stories: (stories || []) as IStory[],
         products: (products || []) as IProduct[],
+        visa: (visa || null) as IVisa | null,
       },
       revalidate: TTL.slow,
     };
@@ -330,6 +376,7 @@ export const getStaticProps = async () => {
         socialNetworks: [],
         stories: [],
         products: [],
+        visa: null,
       },
       revalidate: TTL.slow,
     };

@@ -94,6 +94,19 @@ export interface IMainSingle {
   price_button_text?: string;
 }
 
+export interface IVisa {
+  id: string;
+  header?: string | null;
+  subheader?: string | null;
+  icon?: IImage | null;
+  image?: IImage | null;
+  article?: {
+    id: string;
+    code?: string | null;
+    header?: string | null;
+  } | null;
+}
+
 export interface IBenefit {
   id: string;
   title: string;
