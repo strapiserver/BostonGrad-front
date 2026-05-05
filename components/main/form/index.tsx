@@ -99,6 +99,12 @@ export default function Forms({
     trackContactClick(channel, normalizeExternalUrl(option.value), "lead_form_select");
   };
 
+  const redirectAfterPixel = (url: string) => {
+    window.setTimeout(() => {
+      window.location.href = url;
+    }, 300);
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
@@ -135,7 +141,7 @@ export default function Forms({
           source: "lead_form_external_handoff",
           channel: selectedChannel,
         });
-        window.location.href = socialNetworkUrl;
+        redirectAfterPixel(socialNetworkUrl);
         return;
       }
     }
@@ -166,7 +172,7 @@ export default function Forms({
         source: "lead_form_external_handoff",
         channel: selectedChannel,
       });
-      window.location.href = socialNetworkUrl;
+      redirectAfterPixel(socialNetworkUrl);
     }
   };
 

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Script from "next/script";
-import { fbqTrack } from "../../services/metaPixel";
+import { fbqTrack, flushMetaPixelQueue } from "../../services/metaPixel";
 
 const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID || "";
 
@@ -33,6 +33,7 @@ export default function MetaPixel() {
       <Script
         id="meta-pixel"
         strategy="afterInteractive"
+        onLoad={flushMetaPixelQueue}
         dangerouslySetInnerHTML={{
           __html: `
             !function(f,b,e,v,n,t,s)
@@ -43,6 +44,7 @@ export default function MetaPixel() {
             t.src=v;s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)}(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('set', 'autoConfig', false, ${JSON.stringify(metaPixelId)});
             fbq('init', ${JSON.stringify(metaPixelId)});
             fbq('track', 'PageView');
           `,
