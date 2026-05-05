@@ -21,6 +21,7 @@ import {
 } from "react-icons/ri";
 import { cmsLinkDEV, cmsLinkPROD } from "../../../services/utils";
 import { palette, sectionShell, sectionTitleCommon } from "./shared";
+import { fbqTrackCustom } from "../../../services/metaPixel";
 
 const cardBg =
   "linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(252,246,237,0.94) 100%)";
@@ -385,6 +386,12 @@ export const FinalCtaIntro = () => (
     <Button
       as="a"
       href="#lead-form"
+      onClick={() =>
+        fbqTrackCustom("ClickProgram", {
+          source: "final_cta",
+          label: "Получить программу",
+        })
+      }
       alignSelf="start"
       mt="2"
       bg={`linear-gradient(180deg, ${palette.gold400} 0%, ${palette.gold500} 100%)`}

@@ -24,7 +24,7 @@ type Option = {
   icon?: IImage | null;
 };
 
-type CustomSelectProps = Omit<ButtonProps, "children"> & {
+type CustomSelectProps = Omit<ButtonProps, "children" | "onChange"> & {
   name: string;
   options: Option[];
   placeholder?: string;
@@ -32,6 +32,7 @@ type CustomSelectProps = Omit<ButtonProps, "children"> & {
   autoSelectFirst?: boolean;
   leftIcon?: ReactNode;
   showSelectedIcon?: boolean;
+  onValueChange?: (option: Option) => void;
 };
 
 export default function CustomSelect({
@@ -42,9 +43,10 @@ export default function CustomSelect({
   autoSelectFirst = true,
   leftIcon,
   showSelectedIcon = true,
+  onValueChange,
   ...props
 }: CustomSelectProps) {
-  const { onChange: _unusedOnChange, ...sharedProps } = props;
+  const sharedProps = props;
   const initialValue = defaultValue || "";
   const [value, setValue] = useState(initialValue);
   const [mounted, setMounted] = useState(false);
@@ -84,6 +86,14 @@ export default function CustomSelect({
       </Box>
     ) : null;
 
+  const handleValueChange = (nextValue: string) => {
+    setValue(nextValue);
+    const nextOption = options.find((option) => option.value === nextValue);
+    if (nextOption) {
+      onValueChange?.(nextOption);
+    }
+  };
+
   return (
     <>
       <input type="hidden" name={name} value={value} />
@@ -109,7 +119,7 @@ export default function CustomSelect({
             w="100%"
             name={`${name}_visible`}
             value={value}
-            onChange={(e) => setValue(e.target.value)}
+            onChange={(e) => handleValueChange(e.target.value)}
             icon={<RiArrowDownSLine />}
             fontWeight="normal"
             pl={leftIcon ? "10" : undefined}
@@ -207,7 +217,7 @@ export default function CustomSelect({
                   color="black"
                   _hover={{ bg: "red.500", color: "white" }}
                   _focus={{ bg: "red.500", color: "white" }}
-                  onClick={() => setValue(option.value)}
+                  onClick={() => handleValueChange(option.value)}
                 >
                   <HStack spacing="2" minW={0}>
                     {renderIcon(option.icon)}

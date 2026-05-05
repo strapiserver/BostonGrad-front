@@ -26,6 +26,7 @@ import {
   resolveCmsUrl,
 } from "../services/utils";
 import gridPattern from "../public/grid.png";
+import { fbqTrack } from "../services/metaPixel";
 
 type CountryOption = {
   id: string;
@@ -151,8 +152,16 @@ export default function QuizPage({ countries }: Props) {
           emailContact: formEmail,
         }),
       });
+      const result = (await response.json().catch(() => null)) as {
+        leadId?: string;
+      } | null;
       if (!response.ok) throw new Error("submit_failed");
       setIsSent(true);
+      fbqTrack("Lead", {
+        source: "quiz",
+        channel,
+        lead_id: result?.leadId,
+      });
 
       if (channel !== "email" && target) {
         setTimeout(() => {

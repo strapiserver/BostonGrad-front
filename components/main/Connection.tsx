@@ -13,6 +13,7 @@ import { IconType } from "react-icons";
 import { IImage } from "../../types/selector";
 import CustomImage from "../shared/CustomImage";
 import { palette } from "./program_modules/shared";
+import { fbqTrackCustom } from "../../services/metaPixel";
 
 type SocialNetworkItem = {
   name: string;
@@ -68,6 +69,13 @@ const getFallbackIcon = (name: string, href: string): IconType => {
     return FaVk;
   if (value.includes("mailto:") || value.includes("email")) return FaEnvelope;
   return FaLink;
+};
+
+const getContactClickEvent = (name: string, href: string) => {
+  const value = `${name} ${href}`.toLowerCase();
+  if (value.includes("telegram") || value.includes("t.me")) return "ClickTelegram";
+  if (value.includes("whatsapp") || value.includes("wa.me")) return "ClickWhatsApp";
+  return "";
 };
 
 const getTelegramFallbackUrl = () => {
@@ -199,11 +207,20 @@ export default function Connection({ socialNetworks }: ConnectionProps) {
           {links.map(({ label, href, cmsIcon }) => {
             const Icon = getFallbackIcon(label, href);
             const isExternal = !href.startsWith("mailto:");
+            const clickEvent = getContactClickEvent(label, href);
 
             return (
               <Link
                 key={`${label}-${href}`}
                 href={href}
+                onClick={() => {
+                  if (!clickEvent) return;
+                  fbqTrackCustom(clickEvent, {
+                    source: "connection",
+                    label,
+                    url: href,
+                  });
+                }}
                 isExternal={isExternal}
                 target={isExternal ? "_blank" : undefined}
                 rel={isExternal ? "noopener noreferrer" : undefined}

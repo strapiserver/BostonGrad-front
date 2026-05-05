@@ -21,6 +21,7 @@ import {
   RiUserStarLine,
 } from "react-icons/ri";
 import { palette } from "./shared";
+import { fbqTrackCustom } from "../../../services/metaPixel";
 
 type PriceSectionProps = {
   priceTitle?: string;
@@ -70,6 +71,11 @@ const priceCards = [
 
 const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
   const scrollToPageEnd = () => {
+    fbqTrackCustom("ClickApply", {
+      source: "price_section",
+      label: priceButtonText || "Узнать точную стоимость",
+    });
+
     if (typeof window === "undefined") return;
     window.scrollTo({
       top: document.documentElement.scrollHeight,

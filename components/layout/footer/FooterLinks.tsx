@@ -2,6 +2,7 @@ import { VStack, Link, Text } from "@chakra-ui/react";
 import React from "react";
 import NextLink from "next/link";
 import { ResponsiveText } from "../../../styles/theme/custom";
+import { fbqTrackCustom } from "../../../services/metaPixel";
 
 type FooterLink = { label: string; href: string };
 
@@ -22,6 +23,14 @@ export default function FooterLinks({
           as={NextLink}
           key={link.href + link.label}
           href={link.href}
+          onClick={() => {
+            if (link.label.toLowerCase() !== "оставить заявку") return;
+            fbqTrackCustom("ClickApply", {
+              source: "footer",
+              label: link.label,
+              url: link.href,
+            });
+          }}
           color="bg.700"
           _hover={{ color: "bg.500" }}
           fontSize="sm"

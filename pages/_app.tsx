@@ -12,6 +12,7 @@ import Head from "next/head";
 import { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { setLoadingStatus } from "../redux/mainReducer";
+import MetaPixel from "../components/meta/MetaPixel";
 
 const RouteLoadingHandler = () => {
   const router = useRouter();
@@ -187,6 +188,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
         />
       </Head>
+      <MetaPixel />
       <ChakraProvider
         theme={theme}
         colorModeManager={lightOnlyColorModeManager as any}

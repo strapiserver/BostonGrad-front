@@ -20,6 +20,7 @@ import CustomSelect from "../../shared/CustomSelect";
 import { IImage } from "../../../types/selector";
 import settings from "./settings.json";
 import { FormEvent, useState } from "react";
+import { fbqTrack, fbqTrackCustom } from "../../../services/metaPixel";
 
 const { fieldCommon } = settings;
 const { placeholderColor, ...fieldCommonInputStyles } = fieldCommon;
@@ -76,6 +77,28 @@ export default function Forms({
     return `https://${trimmed}`;
   };
 
+  const trackContactClick = (channel: string, url: string, source = "lead_form") => {
+    if (channel === "telegram") {
+      fbqTrackCustom("ClickTelegram", {
+        source,
+        url,
+      });
+      return;
+    }
+
+    if (channel === "whatsapp") {
+      fbqTrackCustom("ClickWhatsApp", {
+        source,
+        url,
+      });
+    }
+  };
+
+  const trackSocialNetworkSelect = (option: { value: string; label: string }) => {
+    const channel = getSocialChannel(option.label, option.value);
+    trackContactClick(channel, normalizeExternalUrl(option.value), "lead_form_select");
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
@@ -108,6 +131,10 @@ export default function Forms({
     if (typeof window !== "undefined") {
       const botChannel = ["telegram", "facebook", "whatsapp"].includes(selectedChannel);
       if (botChannel) {
+        fbqTrack("Lead", {
+          source: "lead_form_external_handoff",
+          channel: selectedChannel,
+        });
         window.location.href = socialNetworkUrl;
         return;
       }
@@ -135,6 +162,10 @@ export default function Forms({
         return;
       }
 
+      fbqTrack("Lead", {
+        source: "lead_form_external_handoff",
+        channel: selectedChannel,
+      });
       window.location.href = socialNetworkUrl;
     }
   };
@@ -243,6 +274,7 @@ export default function Forms({
           name="socialnetwork"
           placeholder="Способ связи"
           options={socialNetworkOptions}
+          onValueChange={trackSocialNetworkSelect}
           autoSelectFirst={false}
           h={{ base: "52px", md: "56px" }}
           fontSize={{ base: "md", md: "2xl" }}

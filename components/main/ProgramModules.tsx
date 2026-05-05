@@ -28,6 +28,7 @@ import {
   RiTeamLine,
   RiUserStarLine,
 } from "react-icons/ri";
+import { fbqTrackCustom } from "../../services/metaPixel";
 
 type ProgramModulesProps = {
   programTitle?: string;
@@ -389,6 +390,12 @@ const ProgramModules = ({
               </Text>
             ) : null}
             <Button
+              onClick={() =>
+                fbqTrackCustom("ClickApply", {
+                  source: "program_modules_price",
+                  label: priceButtonText || "Узнать точную стоимость",
+                })
+              }
               bg={`linear-gradient(180deg, ${palette.gold400} 0%, ${palette.gold500} 100%)`}
               color={palette.wine900}
               _hover={{

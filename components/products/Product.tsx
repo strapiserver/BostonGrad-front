@@ -4,6 +4,7 @@ import { IImage } from "../../types/selector";
 import CustomImage from "../shared/CustomImage";
 import { LinkWrapper } from "../shared/LinkWrapper";
 import { RiArrowRightLine } from "react-icons/ri";
+import { fbqTrackCustom } from "../../services/metaPixel";
 
 const iconToImage = (value?: IImage | null) => value || null;
 
@@ -40,6 +41,17 @@ export default function Product({ product }: { product: IProduct }) {
       mx="auto"
       height="100%"
       cursor={href ? "pointer" : "default"}
+      onClick={
+        href
+          ? () =>
+              fbqTrackCustom("ClickProgram", {
+                source: "product_card",
+                program_id: product.id,
+                program_title: product.title,
+                url: href,
+              })
+          : undefined
+      }
     >
       <VStack align="stretch" spacing="0" height="100%">
         <Box position="relative" w="100%" aspectRatio="340 / 480">
