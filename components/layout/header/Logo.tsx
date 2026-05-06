@@ -1,6 +1,6 @@
 import { Box, Flex, Text } from "@chakra-ui/react";
 import logoLQ from "../../../public/logoLQ.png";
-import lightPie from "../../../public/lightPie.svg";
+
 import { useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/router";
 import { useAppDispatch } from "../../../redux/hooks";
@@ -9,7 +9,7 @@ import { clean } from "../../../redux/mainReducer";
 const Logo = () => {
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const logoSrc = useColorModeValue(logoLQ.src, lightPie.src);
+  const logoSrc = logoLQ.src;
   return (
     <Flex
       flexDir="row"

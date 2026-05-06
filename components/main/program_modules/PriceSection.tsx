@@ -29,17 +29,18 @@ type PriceSectionProps = {
 };
 
 const oneWeekIncluded = [
-  "Индивидуальная программа",
-  "Практические сессии",
-  "Проживание",
-  "Транспорт по программе",
-  "Сопровождение",
+  "Поездка в Boston, New Heaven и New-York",
+  "Встречи с сотрудниками и студентами университетов",
+  "Проживание в двухместных номерах",
+  "Полное сопровождение",
+  "Культурная программа и экскурсии",
 ];
 const twoWeekExtras = [
   "Все из первой недели",
-  "Расширенная программа",
-  "Поездка в Нью-Йорк",
-  "Финальный план и отчет",
+  "Тренировка сдачи SAT и TOEFL",
+  "Тренировка написания эссе",
+  "Изучение стипендий и грантов",
+  "Изучение систем подачи документов",
 ];
 
 const pickWeekItemIcon = (text: string) => {
@@ -58,13 +59,13 @@ const pickWeekItemIcon = (text: string) => {
 
 const priceCards = [
   {
-    title: "1 неделя",
-    subtitle: "Базовый формат",
+    title: "Недельная программа",
+    subtitle: "Погружение в университеты",
     price: "$5800",
   },
   {
-    title: "2 недели",
-    subtitle: "Расширенный формат",
+    title: "Двухнедельная программа",
+    subtitle: "Включает неделю обучения",
     price: "$7800",
   },
 ];
@@ -157,12 +158,16 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
             </Button>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4" alignItems="stretch">
+          <SimpleGrid
+            columns={{ base: 1, md: 2 }}
+            spacing="4"
+            alignItems="stretch"
+          >
             {priceCards.map((card) => (
               <Box
                 key={card.title}
                 position="relative"
-                p={{ base: 3, md: 3.5 }}
+                p={{ base: 3, md: 2 }}
                 minH={{ base: "150px", md: "165px" }}
                 borderRadius="16px"
                 border="1px solid rgba(235,205,143,0.52)"
@@ -177,6 +182,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
                       fontSize={{ base: "xl", md: "2xl", xl: "3xl" }}
                       fontWeight="900"
                       lineHeight="1"
+                      textAlign="center"
                     >
                       {card.title}
                     </Text>
@@ -191,7 +197,11 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
                   </VStack>
                   <Box w="100%" h="1px" bg="rgba(235,205,143,0.24)" />
                   <HStack align="baseline" justify="center" spacing="2">
-                    <Text color={palette.gold400} fontSize={{ base: "md", md: "lg" }} fontWeight="900">
+                    <Text
+                      color={palette.gold400}
+                      fontSize={{ base: "md", md: "lg" }}
+                      fontWeight="900"
+                    >
                       от
                     </Text>
                     <Text
@@ -214,11 +224,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4">
           {[
             ["Первая неделя", "входит в оба формата", oneWeekIncluded],
-            [
-              "Вторая неделя",
-              "дополнительно к базовому пакету",
-              twoWeekExtras,
-            ],
+            ["Вторая неделя", "дополнительно к базовому пакету", twoWeekExtras],
           ].map(([title, subtitle, items], index) => (
             <Box
               key={title as string}

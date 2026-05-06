@@ -13,6 +13,7 @@ const siteUrl = (
   process.env.SITE_URL ||
   "https://bostongrad.com"
 ).replace(/\/+$/, "");
+const socialImageUrl = `${siteUrl}/logoLQ.png`;
 
 const UniversalSeo = ({ seo }: { seo: ISEO }) => {
   const {
@@ -35,6 +36,14 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
     description,
     site_name: "BostonGrad",
     locale: "ru_RU",
+    images: [
+      {
+        url: socialImageUrl,
+        width: 200,
+        height: 200,
+        alt: "BostonGrad",
+      },
+    ],
     ...(updatedAt
       ? {
           article: {
@@ -65,6 +74,24 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
         description={description}
         canonical={fullCanonicalUrl}
         openGraph={openGraph}
+        twitter={{
+          cardType: "summary_large_image",
+          image: socialImageUrl,
+        }}
+        additionalMetaTags={[
+          {
+            property: "og:image",
+            content: socialImageUrl,
+          },
+          {
+            property: "og:image:width",
+            content: "200",
+          },
+          {
+            property: "og:image:height",
+            content: "200",
+          },
+        ]}
       />
       <BreadcrumbJsonLd
         itemListElements={

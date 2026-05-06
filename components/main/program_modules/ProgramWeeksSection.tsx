@@ -1,38 +1,21 @@
 import { Box, HStack, SimpleGrid, Text, VStack } from "@chakra-ui/react";
-import {
-  palette,
-  riseIn,
-  sectionTitleCommon,
-} from "./shared";
+import { palette, riseIn, sectionTitleCommon } from "./shared";
 
 type ProgramWeeksSectionProps = {
   programTitle?: string;
 };
 
-const ProgramWeeksSection = ({
-  programTitle,
-}: ProgramWeeksSectionProps) => {
+const ProgramWeeksSection = ({ programTitle }: ProgramWeeksSectionProps) => {
   const weeks = [
     {
       title: "Первая неделя",
       subtitle: "входит в оба формата",
-      items: [
-        "Индивидуальная программа",
-        "Практические сессии",
-        "Проживание",
-        "Транспорт по программе",
-        "Сопровождение",
-      ],
+      items: [],
     },
     {
       title: "Вторая неделя",
       subtitle: "дополнительно к базовому пакету",
-      items: [
-        "Все из первой недели",
-        "Расширенная программа",
-        "Поездка в Нью-Йорк",
-        "Финальный план и отчет",
-      ],
+      items: [],
     },
   ];
 
@@ -95,7 +78,10 @@ const ProgramWeeksSection = ({
                 >
                   {week.title}
                 </Text>
-                <Text color="rgba(248,243,235,0.74)" fontSize={{ base: "sm", md: "md" }}>
+                <Text
+                  color="rgba(248,243,235,0.74)"
+                  fontSize={{ base: "sm", md: "md" }}
+                >
                   {week.subtitle}
                 </Text>
               </VStack>

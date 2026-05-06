@@ -71,7 +71,7 @@ export default function Product({ product }: { product: IProduct }) {
           <Box position="absolute" left="4" right="4" bottom="4" zIndex={2}>
             <Text
               color="white"
-              fontSize={{ base: "lg", md: "xl" }}
+              fontSize={{ base: "md", md: "xl" }}
               fontWeight="700"
               lineHeight="1.1"
               textShadow="0 3px 14px rgba(0,0,0,0.35)"
@@ -83,18 +83,18 @@ export default function Product({ product }: { product: IProduct }) {
 
         <VStack align="stretch" spacing="4" px="5" py="5" flex="1">
           {subtitles.length ? (
-            <VStack align="stretch" spacing="3">
+            <VStack align="stretch" spacing={{ base: "2.5", md: "3" }}>
               {subtitles.map((item, index) => (
                 <HStack
                   key={`${product.id}-${index}`}
                   align="center"
-                  spacing="3"
-                  minH="36px"
+                  spacing={{ base: "2.5", md: "3" }}
+                  minH={{ base: "32px", md: "36px" }}
                 >
                   <Box
                     flexShrink={0}
-                    w="36px"
-                    h="36px"
+                    w={{ base: "32px", md: "36px" }}
+                    h={{ base: "32px", md: "36px" }}
                     borderRadius="full"
                     bg="rgba(181,58,63,0.08)"
                     border="1px solid rgba(181,58,63,0.18)"
@@ -104,20 +104,27 @@ export default function Product({ product }: { product: IProduct }) {
                     overflow="hidden"
                   >
                     {item.icon ? (
-                      <CustomImage
-                        img={item.icon}
-                        w="auto"
-                        h="20px"
-                        objectFit="contain"
-                        customAlt=""
-                      />
+                      <Box h={{ base: "16px", md: "20px" }}>
+                        <CustomImage
+                          img={item.icon}
+                          w="auto"
+                          h="100%"
+                          objectFit="contain"
+                          customAlt=""
+                        />
+                      </Box>
                     ) : (
-                      <Box w="8px" h="8px" borderRadius="full" bg="#b53a3f" />
+                      <Box
+                        w={{ base: "6px", md: "8px" }}
+                        h={{ base: "6px", md: "8px" }}
+                        borderRadius="full"
+                        bg="#b53a3f"
+                      />
                     )}
                   </Box>
                   <Text
                     color="rgba(58,37,37,0.96)"
-                    fontSize={{ base: "md", md: "lg" }}
+                    fontSize={{ base: "sm", md: "lg" }}
                     lineHeight="1.45"
                   >
                     {item.text}
@@ -130,8 +137,8 @@ export default function Product({ product }: { product: IProduct }) {
           {href ? (
             <Box mt="auto">
               <HStack
-                px="4"
-                py="3"
+                px={{ base: "3.5", md: "4" }}
+                py={{ base: "2.5", md: "3" }}
                 borderRadius="14px"
                 bg="linear-gradient(135deg, #7e1f24 0%, #b53a3f 100%)"
                 color="white"
@@ -140,14 +147,14 @@ export default function Product({ product }: { product: IProduct }) {
                 _hover={{ filter: "brightness(1.04)" }}
               >
                 <Text
-                  fontSize="sm"
+                  fontSize={{ base: "xs", md: "sm" }}
                   fontWeight="700"
                   letterSpacing="0.04em"
                   textTransform="uppercase"
                 >
                   Подробнее
                 </Text>
-                <RiArrowRightLine />
+                <Box as={RiArrowRightLine} boxSize={{ base: "16px", md: "20px" }} />
               </HStack>
             </Box>
           ) : null}
