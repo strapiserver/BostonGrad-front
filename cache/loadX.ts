@@ -148,8 +148,6 @@ export const TTL = {
   never: -1,
 };
 
-const blockingRefresh = { staleRefresh: "blocking" as const };
-
 export const loadRootText = () =>
   cachedFetch(`root_text_${locale}`, TTL.slow, async () => {
     const res = (await cmsFetcher(TextBoxQuery, {
@@ -164,109 +162,98 @@ export const loadMainTexts = () =>
     cmsFetcher(MainTextsQuery, { locale }),
   );
 
-export const loadUnis = (refreshStale = false) =>
-  cachedFetch(
-    `unis_${locale}`,
-    TTL.slow,
-    async () => {
-      const normalizeUnis = (input: IUni[] | null | undefined) =>
-        (input || []).filter((uni) =>
-          Boolean(
-            uni?.id &&
-              (uni?.header ||
-                uni?.article?.header ||
-                uni?.image ||
-                uni?.article?.code ||
-                uni?.slug),
-          ),
-        );
+export const fetchUnisFresh = async () => {
+  const normalizeUnis = (input: IUni[] | null | undefined) =>
+    (input || []).filter((uni) =>
+      Boolean(
+        uni?.id &&
+          (uni?.header ||
+            uni?.article?.header ||
+            uni?.image ||
+            uni?.article?.code ||
+            uni?.slug),
+      ),
+    );
 
-      const primary = (await cmsFetcher(unisQuery)) as IUni[] | null;
-      const normalizedPrimary = normalizeUnis(primary);
-      if (normalizedPrimary.length > 0) return normalizedPrimary;
+  const primary = (await cmsFetcher(unisQuery)) as IUni[] | null;
+  const normalizedPrimary = normalizeUnis(primary);
+  if (normalizedPrimary.length > 0) return normalizedPrimary;
 
-      const serviceFallback =
-        (await fetchCMSWithServiceFallback(unisQuery)) as IUni[] | null;
-      const normalizedServiceFallback = normalizeUnis(serviceFallback);
-      if (normalizedServiceFallback.length > 0) return normalizedServiceFallback;
+  const serviceFallback =
+    (await fetchCMSWithServiceFallback(unisQuery)) as IUni[] | null;
+  const normalizedServiceFallback = normalizeUnis(serviceFallback);
+  if (normalizedServiceFallback.length > 0) return normalizedServiceFallback;
 
-      const legacyCards = (await cmsFetcher(legacyCardsQuery)) as IUni[] | null;
-      const normalizedLegacyCards = normalizeUnis(legacyCards);
-      if (normalizedLegacyCards.length > 0) return normalizedLegacyCards;
+  const legacyCards = (await cmsFetcher(legacyCardsQuery)) as IUni[] | null;
+  const normalizedLegacyCards = normalizeUnis(legacyCards);
+  if (normalizedLegacyCards.length > 0) return normalizedLegacyCards;
 
-      const legacyServiceFallback =
-        (await fetchCMSWithServiceFallback(legacyCardsQuery)) as IUni[] | null;
-      const normalizedLegacyServiceFallback = normalizeUnis(legacyServiceFallback);
-      if (normalizedLegacyServiceFallback.length > 0)
-        return normalizedLegacyServiceFallback;
+  const legacyServiceFallback =
+    (await fetchCMSWithServiceFallback(legacyCardsQuery)) as IUni[] | null;
+  const normalizedLegacyServiceFallback = normalizeUnis(legacyServiceFallback);
+  if (normalizedLegacyServiceFallback.length > 0)
+    return normalizedLegacyServiceFallback;
 
-      return [];
-    },
-    refreshStale ? blockingRefresh : undefined,
-  );
+  return [];
+};
 
-export const loadMainSingle = (refreshStale = false) =>
-  cachedFetch(
-    `main_single_${locale}`,
-    TTL.slow,
-    async () => {
-      const localized = (await cmsFetcher(mainSingleQuery, {
-        locale,
-      })) as IMainSingle[] | null;
-      if (localized?.[0]?.id) return localized[0];
+export const loadUnis = () =>
+  cachedFetch(`unis_${locale}`, TTL.slow, fetchUnisFresh);
 
-      const fallback = (await cmsFetcher(mainSingleQuery)) as IMainSingle[] | null;
-      if (fallback?.[0]?.id) return fallback[0];
+export const fetchMainSingleFresh = async () => {
+  const localized = (await cmsFetcher(mainSingleQuery, {
+    locale,
+  })) as IMainSingle[] | null;
+  if (localized?.[0]?.id) return localized[0];
 
-      const serviceLocalized = (await fetchCMSWithServiceFallback(mainSingleQuery, {
-        locale,
-      })) as IMainSingle[] | null;
-      if (serviceLocalized?.[0]?.id) return serviceLocalized[0];
+  const fallback = (await cmsFetcher(mainSingleQuery)) as IMainSingle[] | null;
+  if (fallback?.[0]?.id) return fallback[0];
 
-      const serviceFallback =
-        (await fetchCMSWithServiceFallback(
-          mainSingleQuery,
-        )) as IMainSingle[] | null;
-      if (serviceFallback?.[0]?.id) return serviceFallback[0];
+  const serviceLocalized = (await fetchCMSWithServiceFallback(mainSingleQuery, {
+    locale,
+  })) as IMainSingle[] | null;
+  if (serviceLocalized?.[0]?.id) return serviceLocalized[0];
 
-      return null;
-    },
-    refreshStale ? blockingRefresh : undefined,
-  );
+  const serviceFallback =
+    (await fetchCMSWithServiceFallback(mainSingleQuery)) as IMainSingle[] | null;
+  if (serviceFallback?.[0]?.id) return serviceFallback[0];
 
-export const loadStories = (refreshStale = false) =>
-  cachedFetch(
-    `stories_${locale}`,
-    TTL.slow,
-    async () => {
-      const normalizeStories = (input: IStory[] | null | undefined) =>
-        (input || []).filter((story) => !!story?.id && !!story?.name);
+  return null;
+};
 
-      const localized = (await cmsFetcher(storiesQuery, {
-        locale,
-      })) as IStory[] | null;
-      const normalizedLocalized = normalizeStories(localized);
-      if (normalizedLocalized.length > 0) return normalizedLocalized;
+export const loadMainSingle = () =>
+  cachedFetch(`main_single_${locale}`, TTL.slow, fetchMainSingleFresh);
 
-      const fallback = (await cmsFetcher(storiesQuery)) as IStory[] | null;
-      const normalizedFallback = normalizeStories(fallback);
-      if (normalizedFallback.length > 0) return normalizedFallback;
+export const fetchStoriesFresh = async () => {
+  const normalizeStories = (input: IStory[] | null | undefined) =>
+    (input || []).filter((story) => !!story?.id && !!story?.name);
 
-      const serviceLocalized = (await fetchCMSWithServiceFallback(storiesQuery, {
-        locale,
-      })) as IStory[] | null;
-      const normalizedServiceLocalized = normalizeStories(serviceLocalized);
-      if (normalizedServiceLocalized.length > 0) return normalizedServiceLocalized;
+  const localized = (await cmsFetcher(storiesQuery, {
+    locale,
+  })) as IStory[] | null;
+  const normalizedLocalized = normalizeStories(localized);
+  if (normalizedLocalized.length > 0) return normalizedLocalized;
 
-      const serviceFallback =
-        (await fetchCMSWithServiceFallback(storiesQuery)) as IStory[] | null;
-      const normalizedServiceFallback = normalizeStories(serviceFallback);
-      if (normalizedServiceFallback.length > 0) return normalizedServiceFallback;
+  const fallback = (await cmsFetcher(storiesQuery)) as IStory[] | null;
+  const normalizedFallback = normalizeStories(fallback);
+  if (normalizedFallback.length > 0) return normalizedFallback;
 
-      return [];
-    },
-    refreshStale ? blockingRefresh : undefined,
-  );
+  const serviceLocalized = (await fetchCMSWithServiceFallback(storiesQuery, {
+    locale,
+  })) as IStory[] | null;
+  const normalizedServiceLocalized = normalizeStories(serviceLocalized);
+  if (normalizedServiceLocalized.length > 0) return normalizedServiceLocalized;
+
+  const serviceFallback =
+    (await fetchCMSWithServiceFallback(storiesQuery)) as IStory[] | null;
+  const normalizedServiceFallback = normalizeStories(serviceFallback);
+  if (normalizedServiceFallback.length > 0) return normalizedServiceFallback;
+
+  return [];
+};
+
+export const loadStories = () =>
+  cachedFetch(`stories_${locale}`, TTL.slow, fetchStoriesFresh);
 
 export const loadParserExchangers = () =>
   cachedFetch("exchangers", TTL.fast, () => parserFetcher("exchangers"));

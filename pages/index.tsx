@@ -11,9 +11,9 @@ import { ISEO } from "../types/general";
 import { Box } from "@chakra-ui/react";
 import gridPattern from "../public/grid.png";
 import {
-  loadMainSingle,
-  loadStories,
-  loadUnis,
+  fetchMainSingleFresh,
+  fetchStoriesFresh,
+  fetchUnisFresh,
   TTL,
 } from "../cache/loadX";
 import {
@@ -327,11 +327,11 @@ export const getStaticProps = async () => {
       products,
       visa,
     ] = await Promise.all([
-      loadMainSingle(true),
-      loadUnis(true),
+      fetchMainSingleFresh(),
+      fetchUnisFresh(),
       loadCountries(),
       loadSocialNetworks(),
-      loadStories(true),
+      fetchStoriesFresh(),
       loadProducts(),
       loadVisa(),
     ]);
