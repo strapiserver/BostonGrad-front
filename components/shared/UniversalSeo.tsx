@@ -76,7 +76,6 @@ const UniversalSeo = ({ seo }: { seo: ISEO }) => {
         openGraph={openGraph}
         twitter={{
           cardType: "summary_large_image",
-          image: socialImageUrl,
         }}
         additionalMetaTags={[
           {

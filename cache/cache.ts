@@ -5,7 +5,8 @@ import { redisGet, redisSet } from "./redisClient";
 export async function cachedFetch<T>(
   key: string,
   ttlSeconds: number,
-  fetcher: () => Promise<T>
+  fetcher: () => Promise<T>,
+  options: { staleRefresh?: "background" | "blocking" } = {}
 ): Promise<T> {
   let cached: { data: T; updatedAt: number } | null = null;
 
@@ -16,16 +17,27 @@ export async function cachedFetch<T>(
       ttlSeconds > 0 && Date.now() - cached.updatedAt > ttlSeconds * 1000;
 
     if (isStale) {
-      // Refresh in background
-      fetcher()
-        .then((data) => {
+      if (options.staleRefresh === "blocking") {
+        try {
+          const data = await fetcher();
           if (data !== null && data !== undefined) {
-            return redisSet(key, { data, updatedAt: Date.now() });
+            await redisSet(key, { data, updatedAt: Date.now() });
+            return data;
           }
-        })
-        .catch((err) =>
-          console.error(`SWR refresh failed for key "${key}":`, err)
-        );
+        } catch (err) {
+          console.error(`Blocking refresh failed for key "${key}":`, err);
+        }
+      } else {
+        fetcher()
+          .then((data) => {
+            if (data !== null && data !== undefined) {
+              return redisSet(key, { data, updatedAt: Date.now() });
+            }
+          })
+          .catch((err) =>
+            console.error(`SWR refresh failed for key "${key}":`, err)
+          );
+      }
     }
 
     return cached.data;

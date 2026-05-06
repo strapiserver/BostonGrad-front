@@ -314,6 +314,8 @@ const loadVisa = async (): Promise<IVisa | null> => {
   return null;
 };
 
+const MAIN_PAGE_REVALIDATE_SECONDS = TTL.slow;
+
 export const getStaticProps = async () => {
   try {
     const [
@@ -325,11 +327,11 @@ export const getStaticProps = async () => {
       products,
       visa,
     ] = await Promise.all([
-      loadMainSingle(),
-      loadUnis(),
+      loadMainSingle(true),
+      loadUnis(true),
       loadCountries(),
       loadSocialNetworks(),
-      loadStories(),
+      loadStories(true),
       loadProducts(),
       loadVisa(),
     ]);
@@ -357,7 +359,7 @@ export const getStaticProps = async () => {
         products: (products || []) as IProduct[],
         visa: (visa || null) as IVisa | null,
       },
-      revalidate: TTL.slow,
+      revalidate: MAIN_PAGE_REVALIDATE_SECONDS,
     };
   } catch (e) {
     console.error("Error during getStaticProps:", e);
@@ -378,7 +380,7 @@ export const getStaticProps = async () => {
         products: [],
         visa: null,
       },
-      revalidate: TTL.slow,
+      revalidate: MAIN_PAGE_REVALIDATE_SECONDS,
     };
   }
 };
