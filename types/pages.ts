@@ -107,6 +107,14 @@ export interface IVisa {
   } | null;
 }
 
+export interface IRealPicture {
+  id: string;
+  title?: string | null;
+  subtitle?: string | null;
+  main_image?: IImage | null;
+  small_images?: IImage[] | null;
+}
+
 export interface IBenefit {
   id: string;
   title: string;

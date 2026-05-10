@@ -2,6 +2,7 @@ import MainPageContent from "../components/main";
 import {
   IMainSingle,
   IProduct,
+  IRealPicture,
   IStory,
   IUni,
   IVisa,
@@ -17,23 +18,15 @@ import {
   TTL,
 } from "../cache/loadX";
 import {
-  cmsLinkDEV,
-  cmsLinkPROD,
-  internalCmsLink,
-  resolveCmsUrl,
-} from "../services/utils";
+  CountryOption,
+  SocialNetworkItem,
+  getCmsBase,
+  loadCountries,
+  loadRealPicture,
+  loadSocialNetworks,
+  resolveMediaUrl,
+} from "../services/cmsPublic";
 import { IImage } from "../types/selector";
-
-type SocialNetworkItem = {
-  name: string;
-  icon: IImage | null;
-  url: string;
-};
-
-type CountryOption = {
-  id: string;
-  name: string;
-};
 
 type ProductArticle = {
   id: string;
@@ -42,12 +35,6 @@ type ProductArticle = {
 } | null;
 
 type ProductImage = IImage | null;
-
-const resolveMediaUrl = (baseUrl: string, url: string) => {
-  if (!url) return url;
-  if (/^https?:\/\//i.test(url)) return url;
-  return `${baseUrl}${url.startsWith("/") ? "" : "/"}${url}`;
-};
 
 const extractImage = (raw: any, baseUrl: string): ProductImage => {
   const candidate = raw?.data?.attributes || raw?.attributes || raw || {};
@@ -86,9 +73,7 @@ const extractArticle = (raw: any): ProductArticle => {
 };
 
 const loadProducts = async (): Promise<IProduct[]> => {
-  const env = process.env.NODE_ENV;
-  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
+  const cmsBase = getCmsBase();
   const adminUrl = `${cmsBase}/admin/content-manager/collectionType/api::product.product?page=1&pageSize=10&plugins[i18n][locale]=ru`;
   const apiUrl = `${cmsBase}/api/products?locale=ru&pagination[page]=1&pagination[pageSize]=10&populate=*`;
 
@@ -164,114 +149,6 @@ const loadProducts = async (): Promise<IProduct[]> => {
   }
 };
 
-const loadCountries = async (): Promise<CountryOption[]> => {
-  const env = process.env.NODE_ENV;
-  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
-  const adminUrl = `${cmsBase}/admin/content-manager/collectionType/api::country.country?page=1&pageSize=200&sort=name:ASC`;
-  const apiUrl = `${cmsBase}/api/countries?pagination[page]=1&pagination[pageSize]=200&sort=name:ASC`;
-
-  const extractCountries = (payload: any): CountryOption[] => {
-    const candidates = [
-      ...(Array.isArray(payload?.results) ? payload.results : []),
-      ...(Array.isArray(payload?.data) ? payload.data : []),
-    ];
-
-    return candidates
-      .map((item: any) => {
-        const id = item?.id || item?.documentId || item?.attributes?.id;
-        const name = item?.name || item?.attributes?.name;
-        if (!id || typeof name !== "string" || !name.trim()) return null;
-        return { id: String(id), name };
-      })
-      .filter((country: any): country is CountryOption => Boolean(country));
-  };
-
-  try {
-    const adminRes = await fetch(adminUrl);
-    if (adminRes.ok) {
-      const adminJson = await adminRes.json();
-      const countries = extractCountries(adminJson);
-      if (countries.length) return countries;
-    }
-  } catch {}
-
-  try {
-    const apiRes = await fetch(apiUrl);
-    if (!apiRes.ok) return [] as CountryOption[];
-    const apiJson = await apiRes.json();
-    return extractCountries(apiJson);
-  } catch {
-    return [] as CountryOption[];
-  }
-};
-
-const loadSocialNetworks = async (): Promise<SocialNetworkItem[]> => {
-  const env = process.env.NODE_ENV;
-  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
-  const adminUrl = `${cmsBase}/admin/content-manager/collectionType/api::socialnetwork.socialnetwork?page=1&pageSize=200&sort=name:ASC`;
-  const apiUrl = `${cmsBase}/api/socialnetworks?pagination[page]=1&pagination[pageSize]=200&sort=name:ASC&populate=logo`;
-
-  const extractItems = (payload: any): SocialNetworkItem[] => {
-    const candidates = [
-      ...(Array.isArray(payload?.results) ? payload.results : []),
-      ...(Array.isArray(payload?.data) ? payload.data : []),
-    ];
-
-    return candidates
-      .map((item: any) => {
-        const attrs = item?.attributes || item || {};
-        const name = attrs?.name;
-        const url = attrs?.url;
-        const iconRaw = attrs?.logo;
-        const iconAttrs = iconRaw?.data?.attributes || iconRaw || {};
-        const iconUrl =
-          typeof iconAttrs?.url === "string"
-            ? iconAttrs.url
-            : typeof iconRaw === "string"
-              ? iconRaw
-              : null;
-        const icon = iconUrl
-          ? ({
-              id: String(iconAttrs?.id || iconRaw?.data?.id || ""),
-              url: iconUrl,
-              alternativeText:
-                typeof iconAttrs?.alternativeText === "string"
-                  ? iconAttrs.alternativeText
-                  : null,
-            } as IImage)
-          : null;
-        return { name, icon, url: typeof url === "string" ? url : "" };
-      })
-      .filter(
-        (item: any): item is SocialNetworkItem =>
-          typeof item?.name === "string" &&
-          !!item.name.trim() &&
-          typeof item?.url === "string" &&
-          !!item.url.trim(),
-      );
-  };
-
-  try {
-    const adminRes = await fetch(adminUrl);
-    if (adminRes.ok) {
-      const adminJson = await adminRes.json();
-      const items = extractItems(adminJson);
-      if (items.length) return items;
-    }
-  } catch {}
-
-  try {
-    const apiRes = await fetch(apiUrl);
-    if (!apiRes.ok) return [];
-    const apiJson = await apiRes.json();
-    return extractItems(apiJson);
-  } catch {
-    return [];
-  }
-};
-
 const loadVisaFrom = async (cmsBase: string): Promise<IVisa | null> => {
   const apiUrl = `${cmsBase}/api/visa?locale=ru&populate=*`;
 
@@ -302,11 +179,11 @@ const loadVisaFrom = async (cmsBase: string): Promise<IVisa | null> => {
 
 const loadVisa = async (): Promise<IVisa | null> => {
   const env = process.env.NODE_ENV;
-  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
+  const cmsBase = getCmsBase();
   const primary = await loadVisaFrom(cmsBase);
   if (primary) return primary;
 
+  const internalCmsLink = process.env.INTERNAL_CMS_URL?.trim();
   if (env !== "production" && internalCmsLink && internalCmsLink !== cmsBase) {
     return loadVisaFrom(internalCmsLink);
   }
@@ -326,6 +203,7 @@ export const getStaticProps = async () => {
       stories,
       products,
       visa,
+      realPicture,
     ] = await Promise.all([
       fetchMainSingleFresh(),
       fetchUnisFresh(),
@@ -334,6 +212,7 @@ export const getStaticProps = async () => {
       fetchStoriesFresh(),
       loadProducts(),
       loadVisa(),
+      loadRealPicture(),
     ]);
 
     const seo: ISEO = {
@@ -358,6 +237,7 @@ export const getStaticProps = async () => {
         stories: (stories || []) as IStory[],
         products: (products || []) as IProduct[],
         visa: (visa || null) as IVisa | null,
+        realPicture: (realPicture || null) as IRealPicture | null,
       },
       revalidate: MAIN_PAGE_REVALIDATE_SECONDS,
     };
@@ -379,6 +259,7 @@ export const getStaticProps = async () => {
         stories: [],
         products: [],
         visa: null,
+        realPicture: null,
       },
       revalidate: MAIN_PAGE_REVALIDATE_SECONDS,
     };

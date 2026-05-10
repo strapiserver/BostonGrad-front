@@ -1,19 +1,13 @@
 import { VStack, Box, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
-import { cmsLinkPROD, cmsLinkDEV } from "../../../services/utils";
 import { IMainSingle } from "../../../types/pages";
-import { IImage } from "../../../types/selector";
+import {
+  CountryOption,
+  SocialNetworkItem,
+  getCmsBase,
+  resolveMediaUrl,
+} from "../../../services/cmsPublic";
 import OverlayContent from "./OverlayContent";
-
-type SocialNetworkItem = {
-  name: string;
-  icon: IImage | null;
-  url: string;
-};
-type CountryOption = {
-  id: string;
-  name: string;
-};
 
 export default function GreetingImage({
   mainSingle,
@@ -28,13 +22,7 @@ export default function GreetingImage({
     "rgba(243, 71, 71, 0.2)",
     "rgba(247, 197, 177, 0.1)",
   );
-  const env = process.env.NODE_ENV;
-  const CMS_SRC = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-
-  const resolveMediaUrl = (url?: string | null) => {
-    if (!url) return "";
-    return url.startsWith("http") ? url : `${CMS_SRC}${url}`;
-  };
+  const cmsBase = getCmsBase();
   const mediaShiftTop = {
     base: 0,
     md: "-250px",
@@ -63,7 +51,7 @@ export default function GreetingImage({
             <Box position="relative" mt={mediaShiftTop}>
               <Box
                 as="img"
-                src={resolveMediaUrl(mainSingle.image.url)}
+                src={resolveMediaUrl(cmsBase, mainSingle.image.url)}
                 alt={mainSingle.title || "Main image"}
                 w="100%"
                 h="auto"
@@ -93,10 +81,11 @@ export default function GreetingImage({
                   bgGradient="linear(to-r, transparent 0%, rgba(246,216,148,0.85) 50%, transparent 100%)"
                 />
                 <Text
+                  maxW="70%"
                   px="6"
                   pt="7"
                   color="#f6d894"
-                  fontSize="4xl"
+                  fontSize="3xl"
                   fontWeight="800"
                   lineHeight="1.04"
                   textTransform="uppercase"
@@ -106,13 +95,17 @@ export default function GreetingImage({
                 </Text>
                 <Text
                   px="6"
+                  mt="20"
                   pt="2"
                   color="rgba(255,255,255,0.95)"
                   fontSize="lg"
                   fontWeight="500"
                   letterSpacing="0.02em"
                   textTransform="uppercase"
-                  textShadow="0 1px 8px rgba(0,0,0,0.35)"
+                  textShadow="0 1px 8px rgba(0,0,0,0.55)"
+                  bg="blackAlpha.700"
+                  borderRightRadius="lg"
+                  maxW="80%"
                 >
                   {mainSingle.subtitle}
                   {mainSingle.subtitle ? (
@@ -123,7 +116,8 @@ export default function GreetingImage({
                       display="inline-block"
                       w="26px"
                       h="16px"
-                      ml="1"
+                      ml="3"
+                      mb="0.5"
                       borderRadius="0"
                       objectFit="cover"
                       verticalAlign="middle"

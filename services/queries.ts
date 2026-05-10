@@ -747,32 +747,6 @@ export const unisQuery = gql`
   }
 `;
 
-export const legacyCardsQuery = gql`
-  query LegacyCards {
-    cards(pagination: { start: 0, limit: 2000 }) {
-      data {
-        id
-        attributes {
-          header
-          subheader
-          slug
-          image {
-            data {
-              id
-              attributes {
-                name
-                alternativeText
-                url
-                formats
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
-
 export const mainSingleQuery = gql`
   query Main($locale: I18NLocaleCode) {
     mains(locale: $locale, pagination: { start: 0, limit: 1 }, sort: "id:asc") {

@@ -17,7 +17,6 @@ import {
   FAQsQuery,
   allReviewsQuery,
   unisQuery,
-  legacyCardsQuery,
   mainSingleQuery,
   storiesQuery,
 } from "../services/queries";
@@ -178,21 +177,6 @@ export const fetchUnisFresh = async () => {
   const primary = (await cmsFetcher(unisQuery)) as IUni[] | null;
   const normalizedPrimary = normalizeUnis(primary);
   if (normalizedPrimary.length > 0) return normalizedPrimary;
-
-  const serviceFallback =
-    (await fetchCMSWithServiceFallback(unisQuery)) as IUni[] | null;
-  const normalizedServiceFallback = normalizeUnis(serviceFallback);
-  if (normalizedServiceFallback.length > 0) return normalizedServiceFallback;
-
-  const legacyCards = (await cmsFetcher(legacyCardsQuery)) as IUni[] | null;
-  const normalizedLegacyCards = normalizeUnis(legacyCards);
-  if (normalizedLegacyCards.length > 0) return normalizedLegacyCards;
-
-  const legacyServiceFallback =
-    (await fetchCMSWithServiceFallback(legacyCardsQuery)) as IUni[] | null;
-  const normalizedLegacyServiceFallback = normalizeUnis(legacyServiceFallback);
-  if (normalizedLegacyServiceFallback.length > 0)
-    return normalizedLegacyServiceFallback;
 
   return [];
 };

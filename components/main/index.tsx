@@ -3,13 +3,21 @@ import { VStack, Box } from "@chakra-ui/react";
 import { useAppDispatch } from "../../redux/hooks";
 import { clean } from "../../redux/mainReducer";
 import { useRouter } from "next/router";
-import { IMainSingle, IProduct, IStory, IUni, IVisa } from "../../types/pages";
+import {
+  IMainSingle,
+  IProduct,
+  IRealPicture,
+  IStory,
+  IUni,
+  IVisa,
+} from "../../types/pages";
 import CustomTitle from "../shared/CustomTitle";
 import UniPreview from "./uni_preview";
 import GreetingImage from "./greeting";
-import { IImage } from "../../types/selector";
+import { CountryOption, SocialNetworkItem } from "../../services/cmsPublic";
 import MockStoryline from "./mockStoryline";
 import SummerInvite from "./summer_invite";
+import RealPictureSection from "./real_picture";
 import Forms from "./form";
 import Products from "../products";
 import Connection from "./Connection";
@@ -21,16 +29,6 @@ import {
   ReasonsSection,
 } from "./program_modules";
 
-type SocialNetworkItem = {
-  name: string;
-  icon: IImage | null;
-  url: string;
-};
-type CountryOption = {
-  id: string;
-  name: string;
-};
-
 const MainPageContent = ({
   unis,
   mainSingle,
@@ -39,6 +37,7 @@ const MainPageContent = ({
   stories,
   products,
   visa,
+  realPicture,
 }: {
   unis?: IUni[] | null;
   mainSingle?: IMainSingle | null;
@@ -47,6 +46,7 @@ const MainPageContent = ({
   stories?: IStory[] | null;
   products?: IProduct[] | null;
   visa?: IVisa | null;
+  realPicture?: IRealPicture | null;
 }) => {
   const router = useRouter();
   const dispatch = useAppDispatch();
@@ -83,7 +83,14 @@ const MainPageContent = ({
       <Box id="products">
         <Products products={products || []} />
       </Box>
-      <Connection socialNetworks={socialNetworks || []} />
+      <Box id="real-picture">
+        <RealPictureSection realPicture={realPicture} />
+      </Box>
+
+      <Box id="summer-invite" mt={{ base: "2", md: "4" }}>
+        <SummerInvite visa={visa} />
+      </Box>
+
       <Box id="program-modules">
         <VStack
           spacing={{ base: 5, md: 7 }}
@@ -95,6 +102,7 @@ const MainPageContent = ({
             priceButtonText={mainSingle?.price_button_text}
           />
           <ReasonsSection reasonsTitle={mainSingle?.reasons_title} />
+          <Connection socialNetworks={socialNetworks || []} />
           <BostonValueSection />
           <NewYorkValueSection />
 
@@ -102,13 +110,9 @@ const MainPageContent = ({
         </VStack>
       </Box>
 
-      <Box id="stories" mt={{ base: "8", md: "12" }}>
+      {/* <Box id="stories" mt={{ base: "8", md: "12" }}>
         <MockStoryline stories={stories || []} />
-      </Box>
-
-      <Box id="summer-invite" mt={{ base: "2", md: "4" }}>
-        <SummerInvite visa={visa} />
-      </Box>
+      </Box> */}
 
       <Box
         id="lead-form"

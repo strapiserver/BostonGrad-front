@@ -59,12 +59,21 @@ export default function Forms({
     const url = String(networkUrl || "").toLowerCase();
     if (name.includes("email") || url.startsWith("mailto:")) return "email";
     if (name.includes("instagram") || name.includes("инст")) return "instagram";
-    if (name === "vk" || name.includes("вк") || url.includes("vk.com")) return "vk";
+    if (name === "vk" || name.includes("вк") || url.includes("vk.com"))
+      return "vk";
     if (name.includes("telegram") || url.includes("t.me")) return "telegram";
-    if (name.includes("whatsapp") || url.includes("wa.me") || url.includes("whatsapp")) {
+    if (
+      name.includes("whatsapp") ||
+      url.includes("wa.me") ||
+      url.includes("whatsapp")
+    ) {
       return "whatsapp";
     }
-    if (name.includes("facebook") || url.includes("m.me") || url.includes("facebook.com")) {
+    if (
+      name.includes("facebook") ||
+      url.includes("m.me") ||
+      url.includes("facebook.com")
+    ) {
       return "facebook";
     }
     return "other";
@@ -77,7 +86,11 @@ export default function Forms({
     return `https://${trimmed}`;
   };
 
-  const trackContactClick = (channel: string, url: string, source = "lead_form") => {
+  const trackContactClick = (
+    channel: string,
+    url: string,
+    source = "lead_form",
+  ) => {
     if (channel === "telegram") {
       fbqTrackCustom("ClickTelegram", {
         source,
@@ -94,9 +107,16 @@ export default function Forms({
     }
   };
 
-  const trackSocialNetworkSelect = (option: { value: string; label: string }) => {
+  const trackSocialNetworkSelect = (option: {
+    value: string;
+    label: string;
+  }) => {
     const channel = getSocialChannel(option.label, option.value);
-    trackContactClick(channel, normalizeExternalUrl(option.value), "lead_form_select");
+    trackContactClick(
+      channel,
+      normalizeExternalUrl(option.value),
+      "lead_form_select",
+    );
   };
 
   const redirectAfterPixel = (url: string) => {
@@ -115,7 +135,9 @@ export default function Forms({
     const kidAgeRaw = String(formData.get("kid_age") || "").trim();
     const country = String(formData.get("country") || "").trim();
     const honeypot = String(formData.get("contact_time") || "").trim();
-    const socialNetworkUrlRaw = String(formData.get("socialnetwork") || "").trim();
+    const socialNetworkUrlRaw = String(
+      formData.get("socialnetwork") || "",
+    ).trim();
     const socialNetworkUrl = normalizeExternalUrl(socialNetworkUrlRaw);
     const selectedNetwork = socialNetworks.find(
       (item) => normalizeExternalUrl(item.url) === socialNetworkUrl,
@@ -135,7 +157,9 @@ export default function Forms({
     }
 
     if (typeof window !== "undefined") {
-      const botChannel = ["telegram", "facebook", "whatsapp"].includes(selectedChannel);
+      const botChannel = ["telegram", "facebook", "whatsapp"].includes(
+        selectedChannel,
+      );
       if (botChannel) {
         fbqTrack("Lead", {
           source: "lead_form_external_handoff",
@@ -180,7 +204,7 @@ export default function Forms({
     <Box w="100%" as="form" onSubmit={onSubmit} textTransform="none">
       <Text
         color="#f6d894"
-        fontSize={{ base: "2xl", md: "4xl" }}
+        fontSize={{ base: "lg", md: "2xl" }}
         fontWeight="700"
         lineHeight="1.15"
         mb={{ base: "4", md: "3" }}
@@ -194,7 +218,10 @@ export default function Forms({
         gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }}
       >
         <InputGroup>
-          <InputLeftElement h={{ base: "52px", md: "56px" }} color={fieldIconColor}>
+          <InputLeftElement
+            h={{ base: "52px", md: "56px" }}
+            color={fieldIconColor}
+          >
             <RiUser3Line size={fieldIconSize} />
           </InputLeftElement>
           <Input
@@ -300,7 +327,10 @@ export default function Forms({
           }}
         />
         <InputGroup>
-          <InputLeftElement h={{ base: "52px", md: "56px" }} color={fieldIconColor}>
+          <InputLeftElement
+            h={{ base: "52px", md: "56px" }}
+            color={fieldIconColor}
+          >
             <RiMailLine size={fieldIconSize} />
           </InputLeftElement>
           <Input
@@ -324,8 +354,9 @@ export default function Forms({
         </InputGroup>
 
         <Button
-          size="md"
-          h={{ base: "48px", md: "50px" }}
+          size="lg"
+          borderRadius="lg"
+          h={{ base: "44px", md: "56px" }}
           fontSize={{ base: "lg", md: "2xl" }}
           bgGradient="linear(to-r, #f6d894 0%, #eebc57 100%)"
           color="#4a1c1c"
@@ -338,7 +369,12 @@ export default function Forms({
           Отправить
         </Button>
         {error ? (
-          <Text gridColumn="1 / -1" color="red.300" fontSize="sm" textTransform="none">
+          <Text
+            gridColumn="1 / -1"
+            color="red.300"
+            fontSize="sm"
+            textTransform="none"
+          >
             {error}
           </Text>
         ) : null}
@@ -346,8 +382,5 @@ export default function Forms({
     </Box>
   );
 
-  return (
-    <Box w="100%">
-    </Box>
-  );
+  return <Box w="100%"></Box>;
 }

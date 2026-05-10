@@ -23,27 +23,24 @@ export default function Benefits({ benefits }: { benefits?: IMainBenefit[] }) {
           .map((item, idx) => {
             const Icon = icons[idx % icons.length];
             return (
-            <ListItem key={item.id || item.text} listStyleType="none">
-              <HStack align="center" spacing={{ base: "3", md: "2" }}>
-                <Icon
-                  color="#f6d894"
-                  size={22}
-                  style={{ flexShrink: 0 }}
-                />
-                <Text
-                  color="white"
-                  fontSize={{ base: "lg", md: "2xl" }}
-                  lineHeight={{ base: "1.3", md: "1.3" }}
-                  textShadow="0 1px 8px rgba(0,0,0,0.35)"
-                  textTransform="none"
-                  letterSpacing="normal"
-                  fontWeight="700"
-                >
-                  {item.text}
-                </Text>
-              </HStack>
-            </ListItem>
-          )})}
+              <ListItem key={item.id || item.text} listStyleType="none">
+                <HStack align="center" spacing={{ base: "3", md: "2" }}>
+                  <Icon color="#f6d894" size={22} style={{ flexShrink: 0 }} />
+                  <Text
+                    color="white"
+                    fontSize={{ base: "lg", md: "xl" }}
+                    lineHeight={{ base: "1.3", md: "1.3" }}
+                    textShadow="0 1px 8px rgba(0,0,0,0.35)"
+                    textTransform="none"
+                    letterSpacing="normal"
+                    fontWeight="700"
+                  >
+                    {item.text}
+                  </Text>
+                </HStack>
+              </ListItem>
+            );
+          })}
       </List>
     </Box>
   );

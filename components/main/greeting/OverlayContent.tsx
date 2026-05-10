@@ -1,19 +1,9 @@
 import { Box, Text, VStack } from "@chakra-ui/react";
 import React from "react";
+import { CountryOption, SocialNetworkItem } from "../../../services/cmsPublic";
 import { IMainBenefit } from "../../../types/pages";
-import { IImage } from "../../../types/selector";
 import Benefits from "./Benefits";
 import Forms from "../form";
-
-type SocialNetworkItem = {
-  name: string;
-  icon: IImage | null;
-  url: string;
-};
-type CountryOption = {
-  id: string;
-  name: string;
-};
 
 export default function OverlayContent({
   title,
@@ -101,7 +91,7 @@ export default function OverlayContent({
           <Text
             textAlign="left"
             color="#f6d894"
-            fontSize={{ base: "3xl", md: "5xl", lg: "6xl" }}
+            fontSize={{ base: "2xl", md: "3xl", lg: "4xl" }}
             fontWeight="800"
             lineHeight={{ base: "1.1", md: "1.06" }}
             letterSpacing={{ base: "0.015em", md: "0.01em" }}
@@ -110,21 +100,7 @@ export default function OverlayContent({
             display={{ base: "none", md: "block" }}
           >
             {title}
-          </Text>
-          <Text
-            textAlign="left"
-            whiteSpace="normal"
-            color="rgba(255,255,255,0.94)"
-            fontSize={{ base: "lg", md: "4xl", lg: "4xl" }}
-            fontWeight="400"
-            lineHeight={{ base: "1.35", md: "1.25" }}
-            letterSpacing={{ base: "0.025em", md: "0.02em" }}
-            textTransform="uppercase"
-            textShadow="0 1px 8px rgba(0,0,0,0.35)"
-            display={{ base: "none", md: "block" }}
-          >
-            {subtitle}
-            {subtitle ? (
+            {title ? (
               <Box
                 as="img"
                 src="/flag.jpg"
@@ -140,6 +116,20 @@ export default function OverlayContent({
                 boxShadow="0 4px 12px rgba(0,0,0,0.22)"
               />
             ) : null}
+          </Text>
+          <Text
+            textAlign="left"
+            whiteSpace="normal"
+            color="rgba(255,255,255,0.94)"
+            fontSize={{ base: "lg", md: "xl", lg: "xl" }}
+            fontWeight="400"
+            lineHeight={{ base: "1.35", md: "1.25" }}
+            letterSpacing={{ base: "0.025em", md: "0.02em" }}
+            textTransform="uppercase"
+            textShadow="0 1px 8px rgba(0,0,0,0.35)"
+            display={{ base: "none", md: "block" }}
+          >
+            {subtitle}
           </Text>
           <Benefits benefits={benefits} />
           <Forms

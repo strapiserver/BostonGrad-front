@@ -11,15 +11,10 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons";
 import { IImage } from "../../types/selector";
+import { SocialNetworkItem } from "../../services/cmsPublic";
 import CustomImage from "../shared/CustomImage";
 import { palette } from "./program_modules/shared";
 import { fbqTrackCustom } from "../../services/metaPixel";
-
-type SocialNetworkItem = {
-  name: string;
-  icon: IImage | null;
-  url: string;
-};
 
 type ConnectionProps = {
   socialNetworks?: SocialNetworkItem[] | null;

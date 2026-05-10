@@ -20,59 +20,11 @@ import {
 } from "react-icons/ri";
 import CustomSelect from "../components/shared/CustomSelect";
 import {
-  cmsLinkDEV,
-  cmsLinkPROD,
-  internalCmsLink,
-  resolveCmsUrl,
-} from "../services/utils";
+  CountryOption,
+  loadCountries,
+} from "../services/cmsPublic";
 import gridPattern from "../public/grid.png";
 import { fbqTrack } from "../services/metaPixel";
-
-type CountryOption = {
-  id: string;
-  name: string;
-};
-
-const loadCountries = async (): Promise<CountryOption[]> => {
-  const env = process.env.NODE_ENV;
-  const publicBase = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-  const cmsBase = resolveCmsUrl(publicBase, internalCmsLink);
-  const adminUrl = `${cmsBase}/admin/content-manager/collectionType/api::country.country?page=1&pageSize=200&sort=name:ASC`;
-  const apiUrl = `${cmsBase}/api/countries?pagination[page]=1&pagination[pageSize]=200&sort=name:ASC`;
-
-  const extractCountries = (payload: any): CountryOption[] => {
-    const candidates = [
-      ...(Array.isArray(payload?.results) ? payload.results : []),
-      ...(Array.isArray(payload?.data) ? payload.data : []),
-    ];
-    return candidates
-      .map((item: any) => {
-        const id = item?.id || item?.documentId || item?.attributes?.id;
-        const name = item?.name || item?.attributes?.name;
-        if (!id || typeof name !== "string" || !name.trim()) return null;
-        return { id: String(id), name };
-      })
-      .filter((country: any): country is CountryOption => Boolean(country));
-  };
-
-  try {
-    const adminRes = await fetch(adminUrl);
-    if (adminRes.ok) {
-      const json = await adminRes.json();
-      const countries = extractCountries(json);
-      if (countries.length) return countries;
-    }
-  } catch {}
-
-  try {
-    const apiRes = await fetch(apiUrl);
-    if (!apiRes.ok) return [];
-    const apiJson = await apiRes.json();
-    return extractCountries(apiJson);
-  } catch {
-    return [];
-  }
-};
 
 type Props = {
   countries: CountryOption[];
