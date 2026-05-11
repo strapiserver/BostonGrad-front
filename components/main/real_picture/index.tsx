@@ -23,7 +23,7 @@ export default function RealPictureSection({
   return (
     <>
       <Box id="programs">
-        <CustomTitle as="h2" title={title} />
+        {title ? <CustomTitle as="h2" title={title} /> : null}
       </Box>
       <ViewportWidthWrapper mt={{ base: 6, md: 8 }}>
         <Box

@@ -16,8 +16,8 @@ function NotFound() {
           <Box />
         </ErrorWrapper>
         <Center w="100%" h="20">
-          <Link href={`/`}>
-            <Button p="2" m="2">
+          <Link href={`/`} passHref legacyBehavior>
+            <Button as="a" p="2" m="2">
               <Back size={30} style={{ margin: 5 }} />
             </Button>
           </Link>

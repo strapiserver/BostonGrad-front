@@ -32,8 +32,10 @@ export const TextToHTML = ({
 
       if (isInternal) {
         return (
-          <Link href={href} {...props}>
-            <b>{children}</b>
+          <Link href={href} passHref legacyBehavior>
+            <a {...props}>
+              <b>{children}</b>
+            </a>
           </Link>
         );
       }
