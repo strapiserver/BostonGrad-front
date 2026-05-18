@@ -1,35 +1,45 @@
 import {
   Badge,
-  Box,
+  Button,
   Card,
   CardBody,
   Divider,
+  Editable,
+  EditableInput,
+  EditablePreview,
   FormControl,
   FormLabel,
   HStack,
   IconButton,
   Input,
+  Link,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
   Select,
   SimpleGrid,
   Stack,
   Text,
-  Textarea,
+  Tooltip,
   Switch,
   VStack,
 } from "@chakra-ui/react";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   MdCheckCircle,
   MdCancel,
   MdHelpOutline,
   MdHourglassTop,
   MdNewReleases,
+  MdOpenInNew,
   MdSave,
 } from "react-icons/md";
 import UserAgent from "../shared/UserAgent";
 import {
   CountryOption,
   LeadDraft,
+  LeadEditorState,
   LeadItem,
   LeadStatus,
 } from "../../types/lead";
@@ -101,6 +111,49 @@ const boolFromAnswer = (answer: string) => {
   return ["true", "1", "yes", "да"].includes(normalized);
 };
 
+const normalizeHandle = (value: string) => String(value || "").trim().replace(/^@+/, "");
+const isExternalUrl = (value: string) => /^https?:\/\//i.test(String(value || "").trim());
+const looksNumeric = (value: string) => /^\d+$/.test(String(value || "").trim());
+
+const buildContactHref = (lead: LeadItem) => {
+  for (const contact of lead.lead_contacts) {
+    const network = String(contact.socialnetworkName || "").trim().toLowerCase();
+    const username = normalizeHandle(contact.username);
+    const userId = String(contact.user_id || "").trim();
+    const rawValue = username || userId;
+    if (!rawValue) continue;
+
+    if (isExternalUrl(contact.username)) return String(contact.username).trim();
+    if (isExternalUrl(contact.user_id)) return String(contact.user_id).trim();
+
+    if (network.includes("telegram")) {
+      const slug = username || normalizeHandle(userId);
+      if (slug && !looksNumeric(slug)) return `https://t.me/${slug}`;
+    }
+
+    if (network.includes("facebook")) {
+      const slug = username || normalizeHandle(userId);
+      if (slug && !looksNumeric(slug)) return `https://facebook.com/${slug}`;
+    }
+
+    if (network.includes("instagram")) {
+      const slug = username || normalizeHandle(userId);
+      if (slug && !looksNumeric(slug)) return `https://instagram.com/${slug}`;
+    }
+
+    if (network.includes("email")) {
+      return `mailto:${rawValue}`;
+    }
+
+    if (network.includes("whatsapp") || network === "wa") {
+      const phone = rawValue.replace(/[^\d+]/g, "");
+      if (phone) return `https://wa.me/${phone.replace(/^\+/, "")}`;
+    }
+  }
+
+  return "";
+};
+
 const buildDraft = (lead: LeadItem): LeadDraft => ({
   name: lead.name || "",
   status: lead.status || "new",
@@ -121,23 +174,58 @@ const areDraftsEqual = (a: LeadDraft, b: LeadDraft) =>
 export default function Lead({
   lead,
   countries,
+  editorState,
+  onEditorStateChange,
 }: {
   lead: LeadItem;
   countries: CountryOption[];
+  editorState?: LeadEditorState;
+  onEditorStateChange?: (nextState: LeadEditorState) => void;
 }) {
-  const [draft, setDraft] = useState<LeadDraft>(() => buildDraft(lead));
-  const [baseline, setBaseline] = useState<LeadDraft>(() => buildDraft(lead));
+  const initialState = useMemo<LeadEditorState>(
+    () => ({
+      draft: buildDraft(lead),
+      baseline: buildDraft(lead),
+    }),
+    [lead]
+  );
+  const [localEditorState, setLocalEditorState] = useState<LeadEditorState>(initialState);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState("");
   const [savedMessage, setSavedMessage] = useState("");
 
+  const currentEditorState = editorState || localEditorState;
+  const draft = currentEditorState.draft;
+  const baseline = currentEditorState.baseline;
+
+  const updateEditorState = useCallback(
+    (nextState: LeadEditorState) => {
+      if (onEditorStateChange) {
+        onEditorStateChange(nextState);
+        return;
+      }
+      setLocalEditorState(nextState);
+    },
+    [onEditorStateChange]
+  );
+
+  const updateDraft = useCallback(
+    (updater: (prev: LeadDraft) => LeadDraft) => {
+      updateEditorState({
+        ...currentEditorState,
+        draft: updater(currentEditorState.draft),
+      });
+    },
+    [currentEditorState, updateEditorState]
+  );
+
   useEffect(() => {
-    const nextDraft = buildDraft(lead);
-    setDraft(nextDraft);
-    setBaseline(nextDraft);
+    if (!onEditorStateChange) {
+      updateEditorState(initialState);
+    }
     setError("");
     setSavedMessage("");
-  }, [lead]);
+  }, [initialState, onEditorStateChange, updateEditorState]);
 
   const resolvedCountries = useMemo(() => {
     if (!lead.country) return countries;
@@ -148,6 +236,7 @@ export default function Lead({
   }, [countries, lead.country]);
 
   const isDirty = !areDraftsEqual(draft, baseline);
+  const contactHref = useMemo(() => buildContactHref(lead), [lead]);
   const statusMetaEntry = statusMeta[draft.status] || {
     label: draft.status || "Unknown",
     colorScheme: "gray",
@@ -176,7 +265,10 @@ export default function Lead({
         throw new Error(payload?.error || "save_failed");
       }
 
-      setBaseline(draft);
+      updateEditorState({
+        draft,
+        baseline: draft,
+      });
       setSavedMessage("Saved");
       window.setTimeout(() => setSavedMessage(""), 1500);
     } catch {
@@ -192,26 +284,98 @@ export default function Lead({
         <VStack align="stretch" spacing="4">
           <HStack justify="space-between" flexWrap="wrap" align="start">
             <HStack spacing="3" align="center" flexWrap="wrap">
-              <Text fontSize="lg" fontWeight="700">
-                Lead #{lead.id}
-              </Text>
-              <Badge
-                colorScheme={statusMetaEntry.colorScheme}
-                display="inline-flex"
-                alignItems="center"
-                gap="1"
-                px="2"
-                py="1"
-                borderRadius="md"
-                textTransform="none"
-              >
-                <StatusIcon />
-                {statusMetaEntry.label}
-              </Badge>
+              <HStack spacing="2" align="center">
+                <Editable
+                  value={draft.name}
+                  onChange={(nextValue) =>
+                    updateDraft((prev) => ({ ...prev, name: nextValue }))
+                  }
+                  submitOnBlur
+                >
+                  <HStack spacing="2">
+                    <Text fontSize="lg" fontWeight="700" color="gray.500">
+                      Lead #{lead.id}
+                    </Text>
+                    <EditablePreview
+                      fontSize="lg"
+                      fontWeight="700"
+                      px="2"
+                      py="1"
+                      borderRadius="md"
+                      _hover={{ bg: "gray.50" }}
+                    />
+                    <EditableInput
+                      fontSize="lg"
+                      fontWeight="700"
+                      px="2"
+                      py="1"
+                      minW="220px"
+                    />
+                  </HStack>
+                </Editable>
+                {contactHref ? (
+                  <Tooltip label="Open contact" hasArrow>
+                    <Link href={contactHref} isExternal display="inline-flex">
+                      <IconButton
+                        aria-label="Open lead contact"
+                        title="Open contact"
+                        icon={<MdOpenInNew />}
+                        size="sm"
+                        variant="ghost"
+                      />
+                    </Link>
+                  </Tooltip>
+                ) : null}
+              </HStack>
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  size="sm"
+                  variant="ghost"
+                  px="0"
+                  minW="auto"
+                  h="auto"
+                  _hover={{ bg: "transparent" }}
+                  _active={{ bg: "transparent" }}
+                >
+                  <Badge
+                    colorScheme={statusMetaEntry.colorScheme}
+                    display="inline-flex"
+                    alignItems="center"
+                    gap="1"
+                    px="2"
+                    py="1"
+                    borderRadius="md"
+                    textTransform="none"
+                    cursor="pointer"
+                  >
+                    <StatusIcon />
+                    {statusMetaEntry.label}
+                  </Badge>
+                </MenuButton>
+                <MenuList>
+                  {statusOptions.map((option) => (
+                    <MenuItem
+                      key={option.value}
+                      onClick={() =>
+                        updateDraft((prev) => ({
+                          ...prev,
+                          status: option.value as LeadStatus,
+                        }))
+                      }
+                    >
+                      {option.label}
+                    </MenuItem>
+                  ))}
+                </MenuList>
+              </Menu>
               <UserAgent userAgent={lead.userAgent} />
             </HStack>
 
             <HStack spacing="2">
+              <Text fontSize="sm" color="gray.500">
+                {lead.createdAt ? new Date(lead.createdAt).toLocaleString("ru-RU") : ""}
+              </Text>
               {savedMessage ? (
                 <Text fontSize="sm" color="green.500">
                   {savedMessage}
@@ -235,55 +399,24 @@ export default function Lead({
             </HStack>
           </HStack>
 
-          <Text fontSize="sm" color="gray.500">
-            {lead.createdAt ? new Date(lead.createdAt).toLocaleString("ru-RU") : ""}
-          </Text>
-
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4">
-            <FormControl>
-              <FormLabel mb="1">Name</FormLabel>
-              <Input
-                value={draft.name}
-                onChange={(e) => setDraft((prev) => ({ ...prev, name: e.target.value }))}
-              />
-            </FormControl>
-
-            <FormControl>
-              <FormLabel mb="1">Status</FormLabel>
-              <Select
-                value={draft.status}
-                onChange={(e) =>
-                  setDraft((prev) => ({
-                    ...prev,
-                    status: e.target.value as LeadStatus,
-                  }))
-                }
-              >
-                {statusOptions.map((option) => (
-                  <option key={option.value} value={option.value}>
-                    {option.label}
-                  </option>
-                ))}
-              </Select>
-            </FormControl>
-
-            <FormControl>
+          <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing="4">
+            <FormControl gridColumn={{ base: "auto", lg: "1 / 2" }}>
               <FormLabel mb="1">Age</FormLabel>
               <Input
                 type="number"
                 value={draft.kid_age}
                 onChange={(e) =>
-                  setDraft((prev) => ({ ...prev, kid_age: e.target.value }))
+                  updateDraft((prev) => ({ ...prev, kid_age: e.target.value }))
                 }
               />
             </FormControl>
 
-            <FormControl>
+            <FormControl gridColumn={{ base: "auto", lg: "2 / 3" }}>
               <FormLabel mb="1">Country</FormLabel>
               <Select
                 value={draft.countryId}
                 onChange={(e) =>
-                  setDraft((prev) => ({ ...prev, countryId: e.target.value }))
+                  updateDraft((prev) => ({ ...prev, countryId: e.target.value }))
                 }
               >
                 <option value="">—</option>
@@ -295,52 +428,19 @@ export default function Lead({
               </Select>
             </FormControl>
 
-            <FormControl gridColumn={{ base: "auto", md: "1 / -1" }}>
-              <FormLabel mb="1">User-Agent</FormLabel>
-              <HStack spacing="2" align="center">
-                <UserAgent userAgent={draft.userAgent} />
-                <Input
-                  value={draft.userAgent}
-                  onChange={(e) =>
-                    setDraft((prev) => ({ ...prev, userAgent: e.target.value }))
-                  }
-                />
-              </HStack>
-            </FormControl>
-
-            <FormControl gridColumn={{ base: "auto", md: "1 / -1" }}>
+            <FormControl gridColumn={{ base: "auto", lg: "3 / 4" }}>
               <FormLabel mb="1">Admin comment</FormLabel>
-              <Textarea
+              <Input
                 value={draft.admin_comment}
                 onChange={(e) =>
-                  setDraft((prev) => ({ ...prev, admin_comment: e.target.value }))
+                  updateDraft((prev) => ({
+                    ...prev,
+                    admin_comment: e.target.value,
+                  }))
                 }
-                minH="110px"
               />
             </FormControl>
           </SimpleGrid>
-
-          {lead.lead_contacts.length ? (
-            <Box>
-              <Text fontSize="sm" fontWeight="600" mb="2">
-                Lead contacts
-              </Text>
-              <Stack spacing="2">
-                {lead.lead_contacts.map((contact) => (
-                  <Box key={contact.id} p="3" borderWidth="1px" borderRadius="md">
-                    <Text fontSize="sm" fontWeight="600">
-                      {contact.socialnetworkName || "Contact"} {contact.username ? `@${contact.username}` : ""}
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      user_id: {contact.user_id}
-                      {contact.isBanned ? " | banned" : ""}
-                      {contact.isCallForbidden ? " | call forbidden" : ""}
-                    </Text>
-                  </Box>
-                ))}
-              </Stack>
-            </Box>
-          ) : null}
 
           <Divider />
 

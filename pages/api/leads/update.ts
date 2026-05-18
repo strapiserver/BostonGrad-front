@@ -24,6 +24,20 @@ const UPDATE_LEAD = gql`
   }
 `;
 
+const isAdminCommentInputError = (error: unknown) => {
+  const errors = (error as any)?.response?.errors;
+  if (!Array.isArray(errors)) return false;
+
+  return errors.some((item: any) => {
+    const message = String(item?.message || "");
+    return (
+      message.includes("Field") &&
+      message.includes("admin_comment") &&
+      (message.includes("LeadInput") || message.includes("input"))
+    );
+  });
+};
+
 const isValidBody = (body: any): body is Body => {
   if (!body || typeof body !== "object") return false;
   if (typeof body.id !== "string" || !body.id.trim()) return false;
@@ -81,10 +95,24 @@ export default async function handler(
 
   try {
     const id = body.id.trim();
-    const result = (await requestStrapiAsService(UPDATE_LEAD, {
-      id,
-      data,
-    })) as { updateLead?: { data?: { id?: string | number } } };
+    let result: { updateLead?: { data?: { id?: string | number } } };
+
+    try {
+      result = (await requestStrapiAsService(UPDATE_LEAD, {
+        id,
+        data,
+      })) as { updateLead?: { data?: { id?: string | number } } };
+    } catch (error) {
+      if (!isAdminCommentInputError(error)) {
+        throw error;
+      }
+
+      const { admin_comment: _adminComment, ...fallbackData } = data;
+      result = (await requestStrapiAsService(UPDATE_LEAD, {
+        id,
+        data: fallbackData,
+      })) as { updateLead?: { data?: { id?: string | number } } };
+    }
 
     const leadId = String(result?.updateLead?.data?.id || "");
     if (!leadId) {

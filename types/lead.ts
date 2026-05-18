@@ -66,3 +66,8 @@ export type LeadDraft = {
   userAgent: string;
   admin_comment: string;
 };
+
+export type LeadEditorState = {
+  draft: LeadDraft;
+  baseline: LeadDraft;
+};

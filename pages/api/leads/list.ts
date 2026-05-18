@@ -80,6 +80,89 @@ const LEADS_QUERY = `
   }
 `;
 
+const LEADS_QUERY_FALLBACK = `
+  query LeadsDashboard {
+    leads(sort: "createdAt:desc", pagination: { start: 0, limit: 300 }) {
+      data {
+        id
+        attributes {
+          name
+          status
+          kid_age
+          userAgent
+          createdAt
+          country {
+            data {
+              id
+              attributes {
+                name
+              }
+            }
+          }
+          lead_contacts {
+            data {
+              id
+              attributes {
+                username
+                user_id
+                isBanned
+                isCallForbidden
+                socialnetwork {
+                  data {
+                    id
+                    attributes {
+                      name
+                    }
+                  }
+                }
+              }
+            }
+          }
+          responses(pagination: { start: 0, limit: 300 }) {
+            data {
+              id
+              attributes {
+                answer
+                question {
+                  data {
+                    id
+                    attributes {
+                      name
+                      text
+                      stage
+                      isBoolean
+                      isOptional
+                      options {
+                        __typename
+                        ... on ComponentSharedOption {
+                          option
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const isMissingAdminCommentFieldError = (error: unknown) => {
+  const errors = (error as any)?.response?.errors;
+  if (!Array.isArray(errors)) return false;
+
+  return errors.some((item: any) => {
+    const message = String(item?.message || "");
+    return (
+      message.includes('Cannot query field "admin_comment"') &&
+      message.includes('on type "Lead"')
+    );
+  });
+};
+
 const normalizeLeads = (raw: any): LeadItem[] => {
   const rows = raw?.leads?.data || [];
   if (!Array.isArray(rows)) return [];
@@ -168,7 +251,18 @@ export default async function handler(
   }
 
   try {
-    const data = await requestStrapiAsService<any>(LEADS_QUERY);
+    let data: any;
+
+    try {
+      data = await requestStrapiAsService<any>(LEADS_QUERY);
+    } catch (error) {
+      if (!isMissingAdminCommentFieldError(error)) {
+        throw error;
+      }
+
+      data = await requestStrapiAsService<any>(LEADS_QUERY_FALLBACK);
+    }
+
     return res.status(200).json({ success: true, leads: normalizeLeads(data) });
   } catch (error) {
     console.error("Leads list failed", error);
