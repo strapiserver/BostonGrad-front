@@ -115,44 +115,126 @@ const normalizeHandle = (value: string) => String(value || "").trim().replace(/^
 const isExternalUrl = (value: string) => /^https?:\/\//i.test(String(value || "").trim());
 const looksNumeric = (value: string) => /^\d+$/.test(String(value || "").trim());
 
-const buildContactHref = (lead: LeadItem) => {
-  for (const contact of lead.lead_contacts) {
-    const network = String(contact.socialnetworkName || "").trim().toLowerCase();
-    const username = normalizeHandle(contact.username);
-    const userId = String(contact.user_id || "").trim();
-    const rawValue = username || userId;
-    if (!rawValue) continue;
+type ContactLinkInfo = {
+  id: string;
+  networkLabel: string;
+  valueLabel: string;
+  href: string;
+  actionLabel: string;
+  isExternal: boolean;
+};
 
-    if (isExternalUrl(contact.username)) return String(contact.username).trim();
-    if (isExternalUrl(contact.user_id)) return String(contact.user_id).trim();
+const buildContactLink = (contact: LeadItem["lead_contacts"][number]): ContactLinkInfo | null => {
+  const networkLabel = String(contact.socialnetworkName || "").trim() || "Contact";
+  const network = networkLabel.toLowerCase();
+  const username = normalizeHandle(contact.username);
+  const userId = String(contact.user_id || "").trim();
+  const rawValue = username || userId;
+  if (!rawValue) return null;
 
-    if (network.includes("telegram")) {
-      const slug = username || normalizeHandle(userId);
-      if (slug && !looksNumeric(slug)) return `https://t.me/${slug}`;
-    }
+  if (isExternalUrl(contact.username)) {
+    return {
+      id: contact.id,
+      networkLabel,
+      valueLabel: String(contact.username).trim(),
+      href: String(contact.username).trim(),
+      actionLabel: "Open",
+      isExternal: true,
+    };
+  }
 
-    if (network.includes("facebook")) {
-      const slug = username || normalizeHandle(userId);
-      if (slug && !looksNumeric(slug)) return `https://facebook.com/${slug}`;
-    }
+  if (isExternalUrl(contact.user_id)) {
+    return {
+      id: contact.id,
+      networkLabel,
+      valueLabel: String(contact.user_id).trim(),
+      href: String(contact.user_id).trim(),
+      actionLabel: "Open",
+      isExternal: true,
+    };
+  }
 
-    if (network.includes("instagram")) {
-      const slug = username || normalizeHandle(userId);
-      if (slug && !looksNumeric(slug)) return `https://instagram.com/${slug}`;
-    }
-
-    if (network.includes("email")) {
-      return `mailto:${rawValue}`;
-    }
-
-    if (network.includes("whatsapp") || network === "wa") {
-      const phone = rawValue.replace(/[^\d+]/g, "");
-      if (phone) return `https://wa.me/${phone.replace(/^\+/, "")}`;
+  if (network.includes("telegram")) {
+    const slug = username || normalizeHandle(userId);
+    if (slug && !looksNumeric(slug)) {
+      return {
+        id: contact.id,
+        networkLabel,
+        valueLabel: `@${slug}`,
+        href: `https://t.me/${slug}`,
+        actionLabel: "Open",
+        isExternal: true,
+      };
     }
   }
 
-  return "";
+  if (network.includes("facebook")) {
+    const slug = username || normalizeHandle(userId);
+    if (slug && !looksNumeric(slug)) {
+      return {
+        id: contact.id,
+        networkLabel,
+        valueLabel: slug,
+        href: `https://facebook.com/${slug}`,
+        actionLabel: "Open",
+        isExternal: true,
+      };
+    }
+  }
+
+  if (network.includes("instagram")) {
+    const slug = username || normalizeHandle(userId);
+    if (slug && !looksNumeric(slug)) {
+      return {
+        id: contact.id,
+        networkLabel,
+        valueLabel: `@${slug}`,
+        href: `https://instagram.com/${slug}`,
+        actionLabel: "Open",
+        isExternal: true,
+      };
+    }
+  }
+
+  if (network.includes("email")) {
+    return {
+      id: contact.id,
+      networkLabel,
+      valueLabel: rawValue,
+      href: `mailto:${rawValue}`,
+      actionLabel: "Email",
+      isExternal: false,
+    };
+  }
+
+  if (network.includes("whatsapp") || network === "wa") {
+    const phone = rawValue.replace(/[^\d+]/g, "");
+    if (phone) {
+      return {
+        id: contact.id,
+        networkLabel,
+        valueLabel: rawValue,
+        href: `https://wa.me/${phone.replace(/^\+/, "")}`,
+        actionLabel: "Open",
+        isExternal: true,
+      };
+    }
+  }
+
+  return {
+    id: contact.id,
+    networkLabel,
+    valueLabel: rawValue,
+    href: "",
+    actionLabel: "",
+    isExternal: false,
+  };
 };
+
+const buildContactLinks = (lead: LeadItem) =>
+  lead.lead_contacts
+    .map((contact) => buildContactLink(contact))
+    .filter((contact): contact is ContactLinkInfo => Boolean(contact));
 
 const buildDraft = (lead: LeadItem): LeadDraft => ({
   name: lead.name || "",
@@ -236,7 +318,8 @@ export default function Lead({
   }, [countries, lead.country]);
 
   const isDirty = !areDraftsEqual(draft, baseline);
-  const contactHref = useMemo(() => buildContactHref(lead), [lead]);
+  const contactLinks = useMemo(() => buildContactLinks(lead), [lead]);
+  const primaryContactLink = contactLinks.find((contact) => contact.href) || null;
   const statusMetaEntry = statusMeta[draft.status] || {
     label: draft.status || "Unknown",
     colorScheme: "gray",
@@ -313,9 +396,13 @@ export default function Lead({
                     />
                   </HStack>
                 </Editable>
-                {contactHref ? (
+                {primaryContactLink?.href ? (
                   <Tooltip label="Open contact" hasArrow>
-                    <Link href={contactHref} isExternal display="inline-flex">
+                    <Link
+                      href={primaryContactLink.href}
+                      isExternal={primaryContactLink.isExternal}
+                      display="inline-flex"
+                    >
                       <IconButton
                         aria-label="Open lead contact"
                         title="Open contact"
@@ -441,6 +528,57 @@ export default function Lead({
               />
             </FormControl>
           </SimpleGrid>
+
+          {contactLinks.length ? (
+            <>
+              <Divider />
+              <VStack align="stretch" spacing="2">
+                <Text fontSize="sm" fontWeight="700" color="gray.600">
+                  Contacts
+                </Text>
+                <Stack spacing="2">
+                  {contactLinks.map((contact) => (
+                    <HStack
+                      key={contact.id}
+                      justify="space-between"
+                      align={{ base: "start", md: "center" }}
+                      flexDirection={{ base: "column", md: "row" }}
+                      spacing={{ base: "1", md: "3" }}
+                      borderWidth="1px"
+                      borderColor="gray.200"
+                      borderRadius="md"
+                      px="3"
+                      py="2"
+                    >
+                      <HStack spacing="2" flexWrap="wrap">
+                        <Badge colorScheme="purple" textTransform="none">
+                          {contact.networkLabel}
+                        </Badge>
+                        <Text fontSize="sm" color="gray.800" wordBreak="break-word">
+                          {contact.valueLabel}
+                        </Text>
+                      </HStack>
+                      {contact.href ? (
+                        <Link
+                          href={contact.href}
+                          isExternal={contact.isExternal}
+                          fontSize="sm"
+                          fontWeight="600"
+                          color="blue.500"
+                        >
+                          {contact.actionLabel}
+                        </Link>
+                      ) : (
+                        <Text fontSize="sm" color="gray.400">
+                          No link
+                        </Text>
+                      )}
+                    </HStack>
+                  ))}
+                </Stack>
+              </VStack>
+            </>
+          ) : null}
 
           <Divider />
 
