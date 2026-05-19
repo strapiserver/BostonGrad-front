@@ -12,7 +12,7 @@ const UniNavButton = ({ direction, onClick }: UniNavButtonProps) => {
 
   return (
     <Box
-      display={{ base: "block", lg: "none" }}
+      display={{ base: "none", md: "block" }}
       position="absolute"
       left={direction === "left" ? { base: "1", md: "6" } : undefined}
       right={direction === "right" ? { base: "1", md: "6" } : undefined}

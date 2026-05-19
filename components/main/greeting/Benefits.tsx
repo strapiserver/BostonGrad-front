@@ -13,7 +13,7 @@ export default function Benefits({ benefits }: { benefits?: IMainBenefit[] }) {
       bg="linear-gradient(180deg, rgba(120,40,40,0.45) 0%, rgba(70,20,20,0.45) 100%)"
       border="1px solid rgba(246,216,148,0.6)"
       borderRadius="2xl"
-      px={{ base: "5", md: "5" }}
+      px={{ base: "2", md: "5" }}
       py={{ base: "4", md: "4" }}
       boxShadow="inset 0 0 0 1px rgba(255,255,255,0.08)"
     >
@@ -28,7 +28,7 @@ export default function Benefits({ benefits }: { benefits?: IMainBenefit[] }) {
                   <Icon color="#f6d894" size={22} style={{ flexShrink: 0 }} />
                   <Text
                     color="white"
-                    fontSize={{ base: "lg", md: "xl" }}
+                    fontSize={{ base: "md", md: "xl" }}
                     lineHeight={{ base: "1.3", md: "1.3" }}
                     textShadow="0 1px 8px rgba(0,0,0,0.35)"
                     textTransform="none"

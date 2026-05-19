@@ -85,20 +85,22 @@ export default function GreetingImage({
                   px="6"
                   pt="7"
                   color="#f6d894"
-                  fontSize="3xl"
+                  fontSize="xl"
                   fontWeight="800"
                   lineHeight="1.04"
                   textTransform="uppercase"
+                  wordBreak="keep-all"
+                  overflowWrap="normal"
                   textShadow="0 2px 0 rgba(70,20,20,0.45), 0 8px 18px rgba(0,0,0,0.45)"
                 >
                   {mainSingle.title}
                 </Text>
                 <Text
                   px="6"
-                  mt="20"
+                  mt="10"
                   pt="2"
                   color="rgba(255,255,255,0.95)"
-                  fontSize="lg"
+                  fontSize="ь"
                   fontWeight="500"
                   letterSpacing="0.02em"
                   textTransform="uppercase"
@@ -126,6 +128,8 @@ export default function GreetingImage({
                   ) : null}
                 </Text>
               </Box>
+
+              {/* это включает заголовок для десктопа */}
               <OverlayContent
                 title={mainSingle.title}
                 subtitle={mainSingle.subtitle}
