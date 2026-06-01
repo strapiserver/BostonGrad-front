@@ -22,6 +22,7 @@ type CachedToken = {
 };
 
 let cachedToken: CachedToken | null = null;
+const STRAPI_GRAPHQL_TIMEOUT_MS = 30_000;
 
 const getGraphqlUrl = () => {
   const env = process.env.NODE_ENV;
@@ -32,7 +33,7 @@ const getGraphqlUrl = () => {
 
 const createClient = (jwt?: string) =>
   new GraphQLClient(getGraphqlUrl(), {
-    timeout: 15000,
+    timeout: STRAPI_GRAPHQL_TIMEOUT_MS,
     headers: jwt ? { Authorization: `Bearer ${jwt}` } : undefined,
   });
 

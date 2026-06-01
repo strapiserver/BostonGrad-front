@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://bostongrad.com</loc><lastmod>2026-05-11T05:48:32.268Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/quiz</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/story-1</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/story-2</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/story-3</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/living</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/universities</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/summer-school</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/ny</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/bc</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/bu</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/harvard</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/mit</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/neu</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/columbia</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://bostongrad.com/articles/nh</loc><lastmod>2026-05-11T05:48:32.271Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com</loc><lastmod>2026-06-01T20:57:51.350Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/confidential-policy</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/quiz</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/story-1</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/story-2</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/story-3</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/living</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/universities</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/summer-school</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/ny</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/bc</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/bu</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/harvard</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/mit</loc><lastmod>2026-06-01T20:57:51.352Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/neu</loc><lastmod>2026-06-01T20:57:51.353Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/columbia</loc><lastmod>2026-06-01T20:57:51.353Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://bostongrad.com/articles/nh</loc><lastmod>2026-06-01T20:57:51.353Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>

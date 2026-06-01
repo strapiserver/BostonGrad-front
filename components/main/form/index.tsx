@@ -26,6 +26,7 @@ const { fieldCommon } = settings;
 const { placeholderColor, ...fieldCommonInputStyles } = fieldCommon;
 const fieldIconColor = "#5a2a2a";
 const fieldIconSize = 22;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function Forms({
   countries = [],
@@ -37,6 +38,7 @@ export default function Forms({
   title?: string;
 }) {
   const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const showSelectIcons = useBreakpointValue({ base: false, md: true });
   const ageOptions = [
     { value: "12", label: "до 14" },
@@ -125,8 +127,43 @@ export default function Forms({
     }, 300);
   };
 
+  const notifyError = (message: string) => {
+    setError(message);
+    if (typeof window !== "undefined") {
+      window.alert(message);
+    }
+  };
+
+  const appendLeadStartCode = (
+    url: string,
+    channel: string,
+    leadStartCode?: string,
+  ) => {
+    if (!leadStartCode) return url;
+
+    try {
+      const nextUrl = new URL(url);
+      if (channel === "telegram") {
+        nextUrl.searchParams.set("start", leadStartCode);
+        return nextUrl.toString();
+      }
+      if (channel === "facebook") {
+        nextUrl.searchParams.set("ref", leadStartCode);
+        return nextUrl.toString();
+      }
+      if (channel === "whatsapp") {
+        nextUrl.searchParams.set("text", `start ${leadStartCode}`);
+        return nextUrl.toString();
+      }
+      return nextUrl.toString();
+    } catch {
+      return url;
+    }
+  };
+
   const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (isSubmitting) return;
     setError("");
 
     const formData = new FormData(e.currentTarget);
@@ -147,8 +184,23 @@ export default function Forms({
       selectedNetwork?.url || socialNetworkUrl,
     );
 
+    if (!name) {
+      notifyError("Заполните поле: Ваше имя");
+      return;
+    }
+
+    if (!email) {
+      notifyError("Заполните поле: Email");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      notifyError("Введите корректный Email");
+      return;
+    }
+
     if (!socialNetworkUrl) {
-      setError("Выберите социальную сеть");
+      notifyError("Заполните поле: Способ связи");
       return;
     }
 
@@ -157,51 +209,75 @@ export default function Forms({
     }
 
     if (typeof window !== "undefined") {
-      const botChannel = ["telegram", "facebook", "whatsapp"].includes(
-        selectedChannel,
-      );
-      if (botChannel) {
+      setIsSubmitting(true);
+      try {
         fbqTrack("Lead", {
-          source: "lead_form_external_handoff",
+          source: "lead_form_submit",
           channel: selectedChannel,
         });
-        redirectAfterPixel(socialNetworkUrl);
-        return;
-      }
-    }
 
-    if (typeof window !== "undefined") {
-      const noBotChannel =
-        selectedChannel === "email" ||
-        selectedChannel === "instagram" ||
-        selectedChannel === "vk";
-      if (noBotChannel) {
-        if (!name || !email || !kidAgeRaw || !country) {
-          setError("Заполните имя, email, страну и возраст ребенка");
+        const response = await fetch("/api/lead-submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            honeypot,
+            ...(kidAgeRaw ? { kid_age: Number(kidAgeRaw) } : {}),
+            ...(country ? { country } : {}),
+          }),
+        });
+        const result = (await response.json().catch(() => null)) as {
+          leadId?: string;
+          leadStartCode?: string;
+        } | null;
+        if (!response.ok || !result?.leadId) {
+          throw new Error("lead_submit_failed");
+        }
+
+        const botChannel = ["telegram", "facebook", "whatsapp"].includes(
+          selectedChannel,
+        );
+        if (botChannel) {
+          redirectAfterPixel(
+            appendLeadStartCode(
+              socialNetworkUrl,
+              selectedChannel,
+              result.leadStartCode,
+            ),
+          );
           return;
         }
+
+        const quizChannel =
+          selectedChannel === "email" ||
+          selectedChannel === "instagram" ||
+          selectedChannel === "vk";
+        if (!quizChannel) {
+          redirectAfterPixel(socialNetworkUrl);
+          return;
+        }
+
         const params = new URLSearchParams({
           channel: selectedChannel,
           target: socialNetworkUrl,
+          leadId: result.leadId,
           name,
           email,
-          kid_age: kidAgeRaw,
-          country,
         });
+        if (kidAgeRaw) params.set("kid_age", kidAgeRaw);
+        if (country) params.set("country", country);
         window.location.href = `/quiz?${params.toString()}`;
-        return;
+      } catch {
+        notifyError("Не удалось отправить заявку. Попробуйте снова.");
+      } finally {
+        setIsSubmitting(false);
       }
-
-      fbqTrack("Lead", {
-        source: "lead_form_external_handoff",
-        channel: selectedChannel,
-      });
-      redirectAfterPixel(socialNetworkUrl);
     }
   };
 
   return (
-    <Box w="100%" as="form" onSubmit={onSubmit} textTransform="none">
+    <Box w="100%" as="form" onSubmit={onSubmit} textTransform="none" noValidate>
       <Text
         color="#f6d894"
         fontSize={{ base: "lg", md: "2xl" }}
@@ -365,6 +441,7 @@ export default function Forms({
           w="100%"
           rightIcon={<RiSendPlaneFill />}
           type="submit"
+          isLoading={isSubmitting}
         >
           Отправить
         </Button>

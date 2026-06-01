@@ -30,6 +30,8 @@ type Props = {
   countries: CountryOption[];
 };
 
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 const contactLabelByChannel = (channel: string) => {
   const c = channel.toLowerCase();
   if (c === "email") return "Ваш Email";
@@ -46,6 +48,7 @@ export default function QuizPage({ countries }: Props) {
 
   const channel = String(router.query.channel || "email").toLowerCase();
   const target = String(router.query.target || "");
+  const leadId = String(router.query.leadId || "").trim();
   const name = String(router.query.name || "").trim();
   const email = String(router.query.email || "").trim();
   const kidAgeRaw = String(router.query.kid_age || "").trim();
@@ -75,16 +78,18 @@ export default function QuizPage({ countries }: Props) {
     const education = String(formData.get("education") || "").trim();
     const contactValue = String(formData.get("contact") || "").trim();
 
-    if (
-      !formName ||
-      !formKidAge ||
-      !formCountry ||
-      !formEmail ||
-      !together ||
-      !education ||
-      !contactValue
-    ) {
+    if (!formName || !formEmail || !together || !education || !contactValue) {
       setError("Заполните все поля опроса");
+      return;
+    }
+
+    if (!emailRegex.test(formEmail)) {
+      setError("Введите корректный Email");
+      return;
+    }
+
+    if (channel === "email" && !emailRegex.test(contactValue)) {
+      setError("Введите корректный Email");
       return;
     }
 
@@ -94,9 +99,10 @@ export default function QuizPage({ countries }: Props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          leadId,
           name: formName,
-          kid_age: Number(formKidAge),
-          country: formCountry,
+          ...(formKidAge ? { kid_age: Number(formKidAge) } : {}),
+          ...(formCountry ? { country: formCountry } : {}),
           together,
           education,
           contactChannel: channel,
