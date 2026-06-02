@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import { gql } from "graphql-request";
 import { requestStrapiAsService } from "../../services/server/strapiClient";
 import { createLeadMutation } from "../../services/queries";
 import { generateLeadStartCode } from "../../services/server/leadLinkCode";
@@ -32,7 +33,8 @@ const isValidBody = (body: any): body is LeadSubmitBody => {
   ) {
     return false;
   }
-  if (body.country !== undefined && typeof body.country !== "string") return false;
+  if (body.country !== undefined && typeof body.country !== "string")
+    return false;
   if (typeof body.honeypot !== "string") return false;
   return true;
 };
@@ -42,9 +44,145 @@ const submitByIp = new Map<string, number>();
 
 const getClientIp = (req: NextApiRequest) => {
   const forwarded = req.headers["x-forwarded-for"];
-  if (typeof forwarded === "string") return forwarded.split(",")[0]?.trim() || "";
+  if (typeof forwarded === "string")
+    return forwarded.split(",")[0]?.trim() || "";
   if (Array.isArray(forwarded) && forwarded.length) return forwarded[0] || "";
   return req.socket.remoteAddress || "";
+};
+
+const SOCIAL_BY_NAME = gql`
+  query SocialByName($name: String!) {
+    socialnetworks(
+      filters: { name: { eqi: $name } }
+      pagination: { start: 0, limit: 1 }
+    ) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+const CREATE_LEAD_CONTACT = gql`
+  mutation CreateLeadContact($data: LeadContactInput!) {
+    createLeadContact(data: $data) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+const UPDATE_LEAD = gql`
+  mutation UpdateLead($id: ID!, $data: LeadInput!) {
+    updateLead(id: $id, data: $data) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+const LEAD_CONTACTS = gql`
+  query LeadContacts($id: ID!) {
+    lead(id: $id) {
+      data {
+        id
+        attributes {
+          lead_contacts(pagination: { start: 0, limit: 100 }) {
+            data {
+              id
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
+const EMAIL_SOCIAL_NAME = "Email";
+let cachedEmailSocialId: string | null = null;
+
+const getSocialIdByName = async (name: string) => {
+  if (name === EMAIL_SOCIAL_NAME && cachedEmailSocialId) {
+    return cachedEmailSocialId;
+  }
+
+  const socialResult = (await requestStrapiAsService(SOCIAL_BY_NAME, {
+    name,
+  })) as { socialnetworks?: { data?: Array<{ id?: string | number }> } };
+
+  const socialId = String(socialResult?.socialnetworks?.data?.[0]?.id || "");
+  if (!socialId) {
+    throw new Error(`Socialnetwork not found: ${name}`);
+  }
+
+  if (name === EMAIL_SOCIAL_NAME) {
+    cachedEmailSocialId = socialId;
+  }
+
+  return socialId;
+};
+
+const createLeadContactRecord = async (email: string) => {
+  const socialId = await getSocialIdByName(EMAIL_SOCIAL_NAME);
+
+  const leadContactResult = (await requestStrapiAsService(CREATE_LEAD_CONTACT, {
+    data: {
+      socialnetwork: socialId,
+      user_id: email,
+      username: email,
+      isBanned: false,
+      isCallForbidden: false,
+    },
+  })) as { createLeadContact?: { data?: { id?: string | number } } };
+
+  const contactId = String(
+    leadContactResult?.createLeadContact?.data?.id || "",
+  );
+  if (!contactId) {
+    throw new Error("Lead contact not created");
+  }
+
+  return contactId;
+};
+
+const getExistingLeadContactIds = async (leadId: string) => {
+  const existingLead = (await requestStrapiAsService(LEAD_CONTACTS, {
+    id: leadId,
+  })) as {
+    lead?: {
+      data?: {
+        attributes?: {
+          lead_contacts?: { data?: Array<{ id?: string | number }> };
+        };
+      };
+    };
+  };
+
+  return (
+    existingLead?.lead?.data?.attributes?.lead_contacts?.data
+      ?.map((item) => String(item?.id || ""))
+      .filter(Boolean) || []
+  );
+};
+
+const ensureEmailContactForLead = async (leadId: string, email: string) => {
+  const normalizedEmail = email.trim();
+  if (!normalizedEmail) return;
+
+  const contactId = await createLeadContactRecord(normalizedEmail);
+  const existingContactIds = await getExistingLeadContactIds(leadId);
+  if (existingContactIds.includes(contactId)) {
+    return;
+  }
+
+  await requestStrapiAsService(UPDATE_LEAD, {
+    id: leadId,
+    data: {
+      lead_contacts: Array.from(new Set([...existingContactIds, contactId])),
+    },
+  });
 };
 
 export default async function handler(
@@ -53,7 +191,9 @@ export default async function handler(
 ) {
   if (req.method !== "POST") {
     res.setHeader("Allow", ["POST"]);
-    return res.status(405).json({ success: false, error: "Method Not Allowed" });
+    return res
+      .status(405)
+      .json({ success: false, error: "Method Not Allowed" });
   }
 
   if (!isValidBody(req.body)) {
@@ -94,10 +234,13 @@ export default async function handler(
 
     const leadIdRaw = result?.createLead?.data?.id;
     if (!leadIdRaw) {
-      return res.status(502).json({ success: false, error: "Lead not created" });
+      return res
+        .status(502)
+        .json({ success: false, error: "Lead not created" });
     }
 
     const leadId = String(leadIdRaw);
+    await ensureEmailContactForLead(leadId, email);
     const leadStartCode = generateLeadStartCode(leadId);
     return res.status(200).json({
       success: true,
@@ -107,6 +250,8 @@ export default async function handler(
     });
   } catch (error) {
     console.error("Lead submit failed", error);
-    return res.status(500).json({ success: false, error: "Internal Server Error" });
+    return res
+      .status(500)
+      .json({ success: false, error: "Internal Server Error" });
   }
 }
