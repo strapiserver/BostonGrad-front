@@ -29,3 +29,18 @@ a {
 * {
   box-sizing: border-box;
 }
+/* The site uses its own language menu instead of Google's injected controls. */
+#google_translate_element,
+.goog-te-banner-frame,
+.goog-te-balloon-frame,
+#goog-gt-tt {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+}
+
+body {
+  top: 0 !important;
+}

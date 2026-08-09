@@ -13,6 +13,7 @@ import SwipeableDrawer from "./drawer";
 import NavHeading from "../nav/NavHeading";
 import CitySelector from "./city";
 import NavBody from "../nav/NavBody";
+import Language from "../nav/Language";
 import { transparentize } from "@chakra-ui/theme-tools";
 
 const Header = () => {
@@ -48,6 +49,7 @@ const Header = () => {
           <Box display={{ base: "none", xl: "block" }}>
             <NavHeading />
           </Box>
+          <Language />
         </HStack>
       </HStack>
     </Flex>
