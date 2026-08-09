@@ -1,7 +1,6 @@
 import { Image, Box, useBreakpointValue, BoxProps } from "@chakra-ui/react";
 import React from "react";
 import { IImage } from "../../types/selector";
-import { cmsLinkPROD, cmsLinkDEV } from "../../services/utils";
 
 type ImageQualityMode = "low" | "medium" | "high";
 type ImageQualityBreakpoints = Partial<
@@ -65,8 +64,6 @@ const CustomImage = ({
   adaptiveQuality?: boolean;
   adaptiveQualityBreakpoints?: ImageQualityBreakpoints;
 } & BoxProps) => {
-  const env = process.env.NODE_ENV;
-  const SRC = env === "production" ? cmsLinkPROD : cmsLinkDEV;
   const qualityMode = useBreakpointValue<ImageQualityMode>(
     adaptiveQualityBreakpoints || {
       base: "high",
@@ -82,9 +79,7 @@ const CustomImage = ({
       : img?.url;
 
   const imageSrc = resolvedImageUrl
-    ? resolvedImageUrl.startsWith("http")
-      ? resolvedImageUrl
-      : `${SRC}${resolvedImageUrl}`
+    ? resolvedImageUrl
     : FALLBACK_IMAGE;
   const imageKey = `${img?.id || "fallback"}-${qualityMode || "high"}-${adaptiveQuality ? "adaptive" : "default"}`;
   const imageWidth = w === "auto" ? "auto" : "100%";

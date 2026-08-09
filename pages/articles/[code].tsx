@@ -2,30 +2,24 @@ import { IArticle } from "../../types/pages";
 import { addArticleCrossLinking } from "../../components/articles/pmArticle/helper";
 import { ISEO } from "../../types/general";
 import { nullSeo } from "../../components/shared/UniversalSeo";
-import { IImage } from "../../types/selector";
-import {
+import type {
   CountryOption,
   SocialNetworkItem,
-  getCmsBase,
-  loadCountries,
-  loadSocialNetworks,
-  resolveMediaUrl,
 } from "../../services/cmsPublic";
 import {
-  loadArticle,
-  loadArticleCodes,
-  TTL,
-} from "../../cache/loadX";
+  loadStaticArticle,
+  loadStaticArticleCodes,
+  staticContent,
+} from "../../services/staticContent";
 import { addPathsToSitemap } from "../../cache/cache";
 import GeneralArticle from "../../components/articles/generalArticle";
 const emptyProps = async () => ({
   props: {
     seo: nullSeo,
     article: null,
-    countries: await loadCountries(),
-    socialNetworks: await loadSocialNetworks(),
+    countries: staticContent.countries,
+    socialNetworks: staticContent.socialNetworks,
   },
-  revalidate: TTL.slow,
 });
 
 const articleToText = (article: IArticle): IArticle => {
@@ -42,19 +36,6 @@ const articleToText = (article: IArticle): IArticle => {
     .join("\n\n");
 
   return { ...article, text: fallbackText };
-};
-
-const articleWithResolvedMedia = (article: IArticle, baseUrl: string): IArticle => {
-  const resolveImage = (img?: IImage | null): IImage | null => {
-    if (!img?.url) return img || null;
-    return { ...img, url: resolveMediaUrl(baseUrl, img.url) };
-  };
-
-  return {
-    ...article,
-    preview: resolveImage(article.preview),
-    wallpaper: resolveImage(article.wallpaper),
-  };
 };
 
 const ArticlePage = (props: {
@@ -76,7 +57,7 @@ const ArticlePage = (props: {
 export async function getStaticProps({ params }: { params: { code: string } }) {
   try {
     const code = params.code;
-    const article = await loadArticle(code);
+    const article = loadStaticArticle(code);
     if (!article) {
       console.warn(
         `[getStaticProps] No article found for code: ${params.code}`
@@ -92,23 +73,17 @@ export async function getStaticProps({ params }: { params: { code: string } }) {
       updatedAt: article.updatedAt || new Date().toISOString(),
     } as ISEO;
 
-    const [articleCodes, countries, socialNetworks] = await Promise.all([
-      loadArticleCodes(),
-      loadCountries(),
-      loadSocialNetworks(),
-    ]);
+    const articleCodes = loadStaticArticleCodes();
     const linkedArticle = await addArticleCrossLinking(article, articleCodes);
-    const textArticle = articleToText(linkedArticle);
-    const readyArticle = articleWithResolvedMedia(textArticle, getCmsBase());
+    const readyArticle = articleToText(linkedArticle);
 
     return {
       props: {
         seo: seo || nullSeo,
         article: readyArticle || null,
-        countries,
-        socialNetworks,
+        countries: staticContent.countries,
+        socialNetworks: staticContent.socialNetworks,
       },
-      revalidate: TTL.slowest,
     };
   } catch (e) {
     console.error("[getStaticProps] Error:", e);
@@ -121,7 +96,7 @@ export async function getStaticProps({ params }: { params: { code: string } }) {
 export async function getStaticPaths() {
   try {
     const paths: { params: { code: string } }[] = [];
-    const articleCodes = (await loadArticleCodes()) as string[];
+    const articleCodes = loadStaticArticleCodes();
 
     articleCodes.forEach((code) => {
       paths.push({
@@ -138,7 +113,7 @@ export async function getStaticPaths() {
 
     return {
       paths: slicedPaths,
-      fallback: "blocking",
+      fallback: false,
     };
   } catch (e) {
     console.error("Articles [getStaticPaths] Error while generating paths", e);

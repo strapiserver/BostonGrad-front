@@ -1,11 +1,9 @@
 import { VStack, Box, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import { IMainSingle } from "../../../types/pages";
-import {
+import type {
   CountryOption,
   SocialNetworkItem,
-  getCmsBase,
-  resolveMediaUrl,
 } from "../../../services/cmsPublic";
 import OverlayContent from "./OverlayContent";
 
@@ -22,7 +20,6 @@ export default function GreetingImage({
     "rgba(243, 71, 71, 0.2)",
     "rgba(247, 197, 177, 0.1)",
   );
-  const cmsBase = getCmsBase();
   const mediaShiftTop = {
     base: 0,
     md: "-250px",
@@ -51,7 +48,7 @@ export default function GreetingImage({
             <Box position="relative" mt={mediaShiftTop}>
               <Box
                 as="img"
-                src={resolveMediaUrl(cmsBase, mainSingle.image.url)}
+                src={mainSingle.image.url}
                 alt={mainSingle.title || "Main image"}
                 w="100%"
                 h="auto"

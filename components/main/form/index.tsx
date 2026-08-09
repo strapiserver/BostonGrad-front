@@ -84,7 +84,7 @@ export default function Forms({
   const normalizeExternalUrl = (value: string) => {
     const trimmed = String(value || "").trim();
     if (!trimmed) return "";
-    if (/^https?:\/\//i.test(trimmed)) return trimmed;
+    if (/^(https?:\/\/|mailto:)/i.test(trimmed)) return trimmed;
     return `https://${trimmed}`;
   };
 
@@ -134,34 +134,7 @@ export default function Forms({
     }
   };
 
-  const appendLeadStartCode = (
-    url: string,
-    channel: string,
-    leadStartCode?: string,
-  ) => {
-    if (!leadStartCode) return url;
-
-    try {
-      const nextUrl = new URL(url);
-      if (channel === "telegram") {
-        nextUrl.searchParams.set("start", leadStartCode);
-        return nextUrl.toString();
-      }
-      if (channel === "facebook") {
-        nextUrl.searchParams.set("ref", leadStartCode);
-        return nextUrl.toString();
-      }
-      if (channel === "whatsapp") {
-        nextUrl.searchParams.set("text", `start ${leadStartCode}`);
-        return nextUrl.toString();
-      }
-      return nextUrl.toString();
-    } catch {
-      return url;
-    }
-  };
-
-  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (isSubmitting) return;
     setError("");
@@ -169,8 +142,6 @@ export default function Forms({
     const formData = new FormData(e.currentTarget);
     const name = String(formData.get("name") || "").trim();
     const email = String(formData.get("email") || "").trim();
-    const kidAgeRaw = String(formData.get("kid_age") || "").trim();
-    const country = String(formData.get("country") || "").trim();
     const honeypot = String(formData.get("contact_time") || "").trim();
     const socialNetworkUrlRaw = String(
       formData.get("socialnetwork") || "",
@@ -210,69 +181,12 @@ export default function Forms({
 
     if (typeof window !== "undefined") {
       setIsSubmitting(true);
-      try {
-        fbqTrack("Lead", {
-          source: "lead_form_submit",
-          channel: selectedChannel,
-        });
-
-        const response = await fetch("/api/lead-submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            name,
-            email,
-            honeypot,
-            ...(kidAgeRaw ? { kid_age: Number(kidAgeRaw) } : {}),
-            ...(country ? { country } : {}),
-          }),
-        });
-        const result = (await response.json().catch(() => null)) as {
-          leadId?: string;
-          leadStartCode?: string;
-        } | null;
-        if (!response.ok || !result?.leadId) {
-          throw new Error("lead_submit_failed");
-        }
-
-        const botChannel = ["telegram", "facebook", "whatsapp"].includes(
-          selectedChannel,
-        );
-        if (botChannel) {
-          redirectAfterPixel(
-            appendLeadStartCode(
-              socialNetworkUrl,
-              selectedChannel,
-              result.leadStartCode,
-            ),
-          );
-          return;
-        }
-
-        const quizChannel =
-          selectedChannel === "email" ||
-          selectedChannel === "instagram" ||
-          selectedChannel === "vk";
-        if (!quizChannel) {
-          redirectAfterPixel(socialNetworkUrl);
-          return;
-        }
-
-        const params = new URLSearchParams({
-          channel: selectedChannel,
-          target: socialNetworkUrl,
-          leadId: result.leadId,
-          name,
-          email,
-        });
-        if (kidAgeRaw) params.set("kid_age", kidAgeRaw);
-        if (country) params.set("country", country);
-        window.location.href = `/quiz?${params.toString()}`;
-      } catch {
-        notifyError("Не удалось отправить заявку. Попробуйте снова.");
-      } finally {
-        setIsSubmitting(false);
-      }
+      fbqTrack("Lead", {
+        source: "lead_form_contact",
+        channel: selectedChannel,
+      });
+      trackContactClick(selectedChannel, socialNetworkUrl);
+      redirectAfterPixel(socialNetworkUrl);
     }
   };
 

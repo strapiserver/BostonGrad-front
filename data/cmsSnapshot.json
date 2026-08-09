@@ -1,0 +1,2448 @@
+{
+  "recoveredAt": "2026-08-09",
+  "sourceLastModified": "2026-06-19T06:27:16.159Z",
+  "mainSingle": {
+    "id": "1",
+    "title": "Подготовка к поступлению в колледжи и университеты США",
+    "subtitle": "Курсы в Бостоне, поездка по кампусам университетов лиги плюща",
+    "seo_title": null,
+    "seo_subtitle": null,
+    "program_title": "Программа на 2 недели",
+    "reasons_title": "Почему выбирают нас",
+    "guarantee_title": "Мы не продаем тур. Мы готовим к поступлению.",
+    "price_title": "Стоимость программы",
+    "price_value": "От $3,000 за 2 недели",
+    "price_note": "Финальная стоимость зависит от состава программы",
+    "price_button_text": "Узнать точную стоимость",
+    "image": {
+      "id": "2993",
+      "name": "45.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "width": 1536,
+      "height": 1024,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_45.jpg",
+          "hash": "thumbnail_45_d9e422e539",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 234,
+          "height": 156,
+          "size": 11.41,
+          "url": "/uploads/thumbnail_45_d9e422e539.jpg"
+        },
+        "small": {
+          "name": "small_45.jpg",
+          "hash": "small_45_d9e422e539",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 480,
+          "height": 320,
+          "size": 38.15,
+          "url": "/uploads/small_45_d9e422e539.jpg"
+        },
+        "medium": {
+          "name": "medium_45.jpg",
+          "hash": "medium_45_d9e422e539",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 800,
+          "height": 533,
+          "size": 90.84,
+          "url": "/uploads/medium_45_d9e422e539.jpg"
+        },
+        "large": {
+          "name": "large_45.jpg",
+          "hash": "large_45_d9e422e539",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 1200,
+          "height": 800,
+          "size": 170.03,
+          "url": "/uploads/large_45_d9e422e539.jpg"
+        }
+      },
+      "url": "/uploads/45_d9e422e539.jpg"
+    },
+    "benefit": [
+      {
+        "id": "1",
+        "text": "Обучение в кампусе Гарварда"
+      },
+      {
+        "id": "2",
+        "text": "Посещение университетов Бостона, Нью-Хевена и Нью-Йорка"
+      },
+      {
+        "id": "3",
+        "text": "Полное сопровождение, проживание, трансфер и поддержка"
+      },
+      {
+        "id": "4",
+        "text": "Личное знакомство с сотрудниками университетов и студентами"
+      }
+    ],
+    "program_weeks": [
+      {
+        "id": "1",
+        "title": "Неделя 1 — Подготовка",
+        "items": [
+          {
+            "id": "1",
+            "icon": "📝",
+            "text": "Эссе"
+          },
+          {
+            "id": "2",
+            "icon": "🗓️",
+            "text": "Стратегия поступления"
+          },
+          {
+            "id": "3",
+            "icon": "🎓",
+            "text": "Собеседования"
+          },
+          {
+            "id": "4",
+            "icon": "📄",
+            "text": "Резюме & CV"
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "title": "Неделя 2 — Погружение",
+        "items": [
+          {
+            "id": "5",
+            "icon": "🏛️",
+            "text": "Экскурсии по вузам"
+          },
+          {
+            "id": "6",
+            "icon": "👥",
+            "text": "Нетворкинг"
+          },
+          {
+            "id": "7",
+            "icon": "🗽",
+            "text": "Поездка в Нью-Йорк"
+          }
+        ]
+      }
+    ],
+    "reasons": [
+      {
+        "id": "1",
+        "icon": "🏙️",
+        "title": "Понимание цели",
+        "subtitle": null
+      },
+      {
+        "id": "2",
+        "icon": "🎓",
+        "title": "Сильное портфолио",
+        "subtitle": null
+      },
+      {
+        "id": "3",
+        "icon": "🤝",
+        "title": "Контакты и опыт",
+        "subtitle": null
+      }
+    ],
+    "guarantees": [
+      {
+        "id": "8",
+        "icon": "🛡️",
+        "text": "Безопасность"
+      },
+      {
+        "id": "9",
+        "icon": "🧑‍🏫",
+        "text": "Топ-преподаватели"
+      },
+      {
+        "id": "10",
+        "icon": "🎯",
+        "text": "Контроль результата"
+      }
+    ]
+  },
+  "unis": [
+    {
+      "id": "1",
+      "header": "MIT",
+      "subheader": "Массачусетский технологический институт",
+      "image": {
+        "id": "2986",
+        "name": "mit.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 362,
+        "height": 270,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_mit.jpg",
+            "hash": "thumbnail_mit_a8bf787d81",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 209,
+            "height": 156,
+            "size": 9.26,
+            "url": "/uploads/thumbnail_mit_a8bf787d81.jpg"
+          }
+        },
+        "url": "/uploads/mit_a8bf787d81.jpg"
+      },
+      "article": {
+        "id": "22",
+        "code": "mit",
+        "header": "MIT"
+      }
+    },
+    {
+      "id": "2",
+      "header": "Harvard",
+      "subheader": "Гарвард",
+      "image": {
+        "id": "2988",
+        "name": "harvard.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 362,
+        "height": 270,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_harvard.jpg",
+            "hash": "thumbnail_harvard_dcb69280a2",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 209,
+            "height": 156,
+            "size": 9.32,
+            "url": "/uploads/thumbnail_harvard_dcb69280a2.jpg"
+          }
+        },
+        "url": "/uploads/harvard_dcb69280a2.jpg"
+      },
+      "article": {
+        "id": "21",
+        "code": "harvard",
+        "header": "Harvard University"
+      }
+    },
+    {
+      "id": "3",
+      "header": "Boston College",
+      "subheader": "Бостон Колледж",
+      "image": {
+        "id": "2989",
+        "name": "boston college.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 362,
+        "height": 270,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_boston college.jpg",
+            "hash": "thumbnail_boston_college_5e15bfa626",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 209,
+            "height": 156,
+            "size": 8.25,
+            "url": "/uploads/thumbnail_boston_college_5e15bfa626.jpg"
+          }
+        },
+        "url": "/uploads/boston_college_5e15bfa626.jpg"
+      },
+      "article": {
+        "id": "19",
+        "code": "bc",
+        "header": "Boston College"
+      }
+    },
+    {
+      "id": "4",
+      "header": "Boston University",
+      "subheader": "Бостонский университет",
+      "image": {
+        "id": "2987",
+        "name": "boston university.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 362,
+        "height": 270,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_boston university.jpg",
+            "hash": "thumbnail_boston_university_a5e4a64141",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 209,
+            "height": 156,
+            "size": 9.95,
+            "url": "/uploads/thumbnail_boston_university_a5e4a64141.jpg"
+          }
+        },
+        "url": "/uploads/boston_university_a5e4a64141.jpg"
+      },
+      "article": {
+        "id": "20",
+        "code": "bu",
+        "header": "Boston University"
+      }
+    },
+    {
+      "id": "5",
+      "header": "Northeastern",
+      "subheader": "Северо-Восточный университет",
+      "image": {
+        "id": "2990",
+        "name": "northeastern.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 362,
+        "height": 270,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_northeastern.jpg",
+            "hash": "thumbnail_northeastern_0bfd5f8e91",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 209,
+            "height": 156,
+            "size": 9.43,
+            "url": "/uploads/thumbnail_northeastern_0bfd5f8e91.jpg"
+          }
+        },
+        "url": "/uploads/northeastern_0bfd5f8e91.jpg"
+      },
+      "article": {
+        "id": "23",
+        "code": "neu",
+        "header": "Northeastern University"
+      }
+    },
+    {
+      "id": "6",
+      "header": "Columbia University",
+      "subheader": "Колумбийский университет",
+      "image": {
+        "id": "3015",
+        "name": "50d66bec-6402-4a6b-b527-ef04f6d29a81.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1448,
+        "height": 1086,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_50d66bec-6402-4a6b-b527-ef04f6d29a81.png",
+            "hash": "thumbnail_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 208,
+            "height": 156,
+            "size": 75.4,
+            "url": "/uploads/thumbnail_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f.png"
+          },
+          "small": {
+            "name": "small_50d66bec-6402-4a6b-b527-ef04f6d29a81.png",
+            "hash": "small_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 480,
+            "height": 360,
+            "size": 400.4,
+            "url": "/uploads/small_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f.png"
+          },
+          "medium": {
+            "name": "medium_50d66bec-6402-4a6b-b527-ef04f6d29a81.png",
+            "hash": "medium_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 800,
+            "height": 600,
+            "size": 1110.43,
+            "url": "/uploads/medium_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f.png"
+          },
+          "large": {
+            "name": "large_50d66bec-6402-4a6b-b527-ef04f6d29a81.png",
+            "hash": "large_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 1200,
+            "height": 900,
+            "size": 2479.22,
+            "url": "/uploads/large_50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f.png"
+          }
+        },
+        "url": "/uploads/50d66bec_6402_4a6b_b527_ef04f6d29a81_df7cb2728f.png"
+      },
+      "article": {
+        "id": "24",
+        "code": "columbia",
+        "header": "Columbia University"
+      }
+    },
+    {
+      "id": "7",
+      "header": "New Haven Universities",
+      "subheader": "Университеты в New Heaven",
+      "image": {
+        "id": "3013",
+        "name": "2f3d55df-e023-42cb-990e-db481b9c904b.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1448,
+        "height": 1086,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_2f3d55df-e023-42cb-990e-db481b9c904b.png",
+            "hash": "thumbnail_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 208,
+            "height": 156,
+            "size": 75.05,
+            "url": "/uploads/thumbnail_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61.png"
+          },
+          "small": {
+            "name": "small_2f3d55df-e023-42cb-990e-db481b9c904b.png",
+            "hash": "small_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 480,
+            "height": 360,
+            "size": 396.05,
+            "url": "/uploads/small_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61.png"
+          },
+          "medium": {
+            "name": "medium_2f3d55df-e023-42cb-990e-db481b9c904b.png",
+            "hash": "medium_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 800,
+            "height": 600,
+            "size": 1111.99,
+            "url": "/uploads/medium_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61.png"
+          },
+          "large": {
+            "name": "large_2f3d55df-e023-42cb-990e-db481b9c904b.png",
+            "hash": "large_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 1200,
+            "height": 900,
+            "size": 2512.39,
+            "url": "/uploads/large_2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61.png"
+          }
+        },
+        "url": "/uploads/2f3d55df_e023_42cb_990e_db481b9c904b_1d5989bc61.png"
+      },
+      "article": {
+        "id": "25",
+        "code": "nh",
+        "header": "New Haven University"
+      }
+    }
+  ],
+  "products": [
+    {
+      "id": "3",
+      "title": "Летняя Школа",
+      "rank": 0,
+      "subtitle_1": "Курсы в Гарварде",
+      "subtitle_2": "Помощь в поступлении",
+      "subtitle_3": "Лекции",
+      "image": {
+        "id": "2984",
+        "name": "study.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 340,
+        "height": 480,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_study.jpg",
+            "hash": "thumbnail_study_24f4dab036",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 110,
+            "height": 156,
+            "size": 4.94,
+            "url": "/uploads/thumbnail_study_24f4dab036.jpg"
+          }
+        },
+        "url": "/uploads/study_24f4dab036.jpg"
+      },
+      "icon_1": {
+        "id": "2942",
+        "name": "Upskill_Flow_Chart",
+        "alternativeText": null,
+        "caption": null,
+        "width": 208,
+        "height": 170,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Upskill_Flow_Chart",
+            "hash": "thumbnail_Upskill_Flow_Chart_fbbc6abfd4",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 191,
+            "height": 156,
+            "size": 10.11,
+            "url": "/uploads/thumbnail_Upskill_Flow_Chart_fbbc6abfd4.png"
+          }
+        },
+        "url": "/uploads/Upskill_Flow_Chart_fbbc6abfd4.png"
+      },
+      "icon_2": {
+        "id": "1580",
+        "name": "Action_Plan_Running",
+        "alternativeText": null,
+        "caption": null,
+        "width": 186,
+        "height": 192,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Action_Plan_Running",
+            "hash": "thumbnail_Action_Plan_Running_1b330274bb",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 151,
+            "height": 156,
+            "size": 6.89,
+            "url": "/uploads/thumbnail_Action_Plan_Running_1b330274bb.png"
+          }
+        },
+        "url": "/uploads/Action_Plan_Running_1b330274bb.png"
+      },
+      "icon_3": {
+        "id": "1930",
+        "name": "Career_Data_Analysis",
+        "alternativeText": null,
+        "caption": null,
+        "width": 169,
+        "height": 173,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Career_Data_Analysis",
+            "hash": "thumbnail_Career_Data_Analysis_4f4c84521c",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 152,
+            "height": 156,
+            "size": 8.38,
+            "url": "/uploads/thumbnail_Career_Data_Analysis_4f4c84521c.png"
+          }
+        },
+        "url": "/uploads/Career_Data_Analysis_4f4c84521c.png"
+      },
+      "article": {
+        "id": "17",
+        "code": "summer-school",
+        "header": "Летняя школа"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Проживание в двухместных номерах",
+      "rank": 2,
+      "subtitle_1": "Трансфер",
+      "subtitle_2": "Размещение",
+      "subtitle_3": "Завтрак",
+      "image": {
+        "id": "2982",
+        "name": "livivng.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 340,
+        "height": 480,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_livivng.jpg",
+            "hash": "thumbnail_livivng_94d5984b0c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 110,
+            "height": 156,
+            "size": 4.4,
+            "url": "/uploads/thumbnail_livivng_94d5984b0c.jpg"
+          }
+        },
+        "url": "/uploads/livivng_94d5984b0c.jpg"
+      },
+      "icon_1": {
+        "id": "1631",
+        "name": "Agile_Development_Team_Sprint",
+        "alternativeText": null,
+        "caption": null,
+        "width": 233,
+        "height": 142,
+        "formats": null,
+        "url": "/uploads/Agile_Development_Team_Sprint_9ebf992e16.png"
+      },
+      "icon_2": {
+        "id": "2132",
+        "name": "Employee_Benefits_Remote_Work",
+        "alternativeText": null,
+        "caption": null,
+        "width": 191,
+        "height": 169,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Employee_Benefits_Remote_Work",
+            "hash": "thumbnail_Employee_Benefits_Remote_Work_04937ef238",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 176,
+            "height": 156,
+            "size": 7.22,
+            "url": "/uploads/thumbnail_Employee_Benefits_Remote_Work_04937ef238.png"
+          }
+        },
+        "url": "/uploads/Employee_Benefits_Remote_Work_04937ef238.png"
+      },
+      "icon_3": {
+        "id": "2899",
+        "name": "Teamwork_Puzzle_Pieces",
+        "alternativeText": null,
+        "caption": null,
+        "width": 201,
+        "height": 125,
+        "formats": null,
+        "url": "/uploads/Teamwork_Puzzle_Pieces_08e32a1da1.png"
+      },
+      "article": {
+        "id": "14",
+        "code": "living",
+        "header": "Проживание и сопровождение"
+      }
+    },
+    {
+      "id": "6",
+      "title": "Посещение университетов лиги плюща. Встречи c сотрудниками и студентами",
+      "rank": null,
+      "subtitle_1": "Профессора",
+      "subtitle_2": "Администрация",
+      "subtitle_3": "Студенты",
+      "image": {
+        "id": "2985",
+        "name": "нью.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 340,
+        "height": 480,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_нью.jpg",
+            "hash": "thumbnail_nyu_ad491865ff",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 110,
+            "height": 156,
+            "size": 4.78,
+            "url": "/uploads/thumbnail_nyu_ad491865ff.jpg"
+          }
+        },
+        "url": "/uploads/nyu_ad491865ff.jpg"
+      },
+      "icon_1": {
+        "id": "1854",
+        "name": "Business_People_Teamwork_Success",
+        "alternativeText": null,
+        "caption": null,
+        "width": 203,
+        "height": 166,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Business_People_Teamwork_Success",
+            "hash": "thumbnail_Business_People_Teamwork_Success_14afc36a04",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 191,
+            "height": 156,
+            "size": 10.48,
+            "url": "/uploads/thumbnail_Business_People_Teamwork_Success_14afc36a04.png"
+          }
+        },
+        "url": "/uploads/Business_People_Teamwork_Success_14afc36a04.png"
+      },
+      "icon_2": {
+        "id": "1852",
+        "name": "Business_People_Team_Work",
+        "alternativeText": null,
+        "caption": null,
+        "width": 188,
+        "height": 181,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Business_People_Team_Work",
+            "hash": "thumbnail_Business_People_Team_Work_773b892fb9",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 162,
+            "height": 156,
+            "size": 7.02,
+            "url": "/uploads/thumbnail_Business_People_Team_Work_773b892fb9.png"
+          }
+        },
+        "url": "/uploads/Business_People_Team_Work_773b892fb9.png"
+      },
+      "icon_3": {
+        "id": "2889",
+        "name": "Teamwork_Communication",
+        "alternativeText": null,
+        "caption": null,
+        "width": 172,
+        "height": 195,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_Teamwork_Communication",
+            "hash": "thumbnail_Teamwork_Communication_981c2f3370",
+            "ext": ".png",
+            "mime": "image/png",
+            "path": null,
+            "width": 138,
+            "height": 156,
+            "size": 5.98,
+            "url": "/uploads/thumbnail_Teamwork_Communication_981c2f3370.png"
+          }
+        },
+        "url": "/uploads/Teamwork_Communication_981c2f3370.png"
+      },
+      "article": {
+        "id": "19",
+        "code": "bc",
+        "header": "Boston College"
+      }
+    }
+  ],
+  "stories": [
+    {
+      "id": "1",
+      "name": "Айгюн",
+      "age": 19,
+      "city": "Пятигорск",
+      "short_description": "Летняя программа в Northeastern + дальнейшая подача в США",
+      "article": {
+        "id": "11",
+        "code": "story-1",
+        "header": "История: Айгюн, 19 лет"
+      }
+    },
+    {
+      "id": "2",
+      "name": "Александр",
+      "age": 18,
+      "city": "Тбилиси",
+      "short_description": "2 недели академического английского и профильных воркшопов",
+      "article": {
+        "id": "12",
+        "code": "story-2",
+        "header": "История: Александр, 18 лет"
+      }
+    },
+    {
+      "id": "3",
+      "name": "Дина",
+      "age": 21,
+      "city": "Алматы",
+      "short_description": "Подготовка портфолио и учебный трек по business analytics",
+      "article": {
+        "id": "13",
+        "code": "story-3",
+        "header": "История: Дина, 21 лет"
+      }
+    }
+  ],
+  "visa": {
+    "id": "1",
+    "header": "Приглашение в летнюю школу",
+    "subheader": "Участники получают приглашение в летнюю школу, которое используется при оформлении визы B1, предназначенной для деловых поездок.",
+    "icon": {
+      "id": "1578",
+      "name": "Action_Plan_Notes",
+      "alternativeText": null,
+      "caption": null,
+      "width": 201,
+      "height": 158,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_Action_Plan_Notes",
+          "hash": "thumbnail_Action_Plan_Notes_e471b63f33",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 198,
+          "height": 156,
+          "size": 6.61,
+          "url": "/uploads/thumbnail_Action_Plan_Notes_e471b63f33.png"
+        }
+      },
+      "url": "/uploads/Action_Plan_Notes_e471b63f33.png"
+    },
+    "image": {
+      "id": "3020",
+      "name": "visa.png",
+      "alternativeText": null,
+      "caption": null,
+      "width": 800,
+      "height": 120,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_visa.png",
+          "hash": "thumbnail_visa_3c9a790787",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 245,
+          "height": 37,
+          "size": 15.13,
+          "url": "/uploads/thumbnail_visa_3c9a790787.png"
+        },
+        "small": {
+          "name": "small_visa.png",
+          "hash": "small_visa_3c9a790787",
+          "ext": ".png",
+          "mime": "image/png",
+          "path": null,
+          "width": 480,
+          "height": 72,
+          "size": 38.27,
+          "url": "/uploads/small_visa_3c9a790787.png"
+        }
+      },
+      "url": "/uploads/visa_3c9a790787.png"
+    },
+    "article": null
+  },
+  "realPicture": {
+    "id": "1",
+    "title": "Наша команда",
+    "subtitle": "Более двух лет опыта организации летних школ и поездок по кампусам университетов.",
+    "main_image": {
+      "id": "3024",
+      "name": "photo_2026-05-06_15-09-07.jpg",
+      "alternativeText": null,
+      "caption": null,
+      "width": 1280,
+      "height": 960,
+      "formats": {
+        "thumbnail": {
+          "name": "thumbnail_photo_2026-05-06_15-09-07.jpg",
+          "hash": "thumbnail_photo_2026_05_06_15_09_07_859b1568f8",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 208,
+          "height": 156,
+          "size": 10.12,
+          "url": "/uploads/thumbnail_photo_2026_05_06_15_09_07_859b1568f8.jpg"
+        },
+        "small": {
+          "name": "small_photo_2026-05-06_15-09-07.jpg",
+          "hash": "small_photo_2026_05_06_15_09_07_859b1568f8",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 480,
+          "height": 360,
+          "size": 48.45,
+          "url": "/uploads/small_photo_2026_05_06_15_09_07_859b1568f8.jpg"
+        },
+        "medium": {
+          "name": "medium_photo_2026-05-06_15-09-07.jpg",
+          "hash": "medium_photo_2026_05_06_15_09_07_859b1568f8",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 800,
+          "height": 600,
+          "size": 130.72,
+          "url": "/uploads/medium_photo_2026_05_06_15_09_07_859b1568f8.jpg"
+        },
+        "large": {
+          "name": "large_photo_2026-05-06_15-09-07.jpg",
+          "hash": "large_photo_2026_05_06_15_09_07_859b1568f8",
+          "ext": ".jpg",
+          "mime": "image/jpeg",
+          "path": null,
+          "width": 1200,
+          "height": 900,
+          "size": 278.39,
+          "url": "/uploads/large_photo_2026_05_06_15_09_07_859b1568f8.jpg"
+        }
+      },
+      "url": "/uploads/photo_2026_05_06_15_09_07_859b1568f8.jpg"
+    },
+    "small_images": [
+      {
+        "id": "3029",
+        "name": "team1 copy.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 480,
+        "height": 640,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_team1 copy.jpg",
+            "hash": "thumbnail_team1_copy_a49e5c9e4a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 117,
+            "height": 156,
+            "size": 6.6,
+            "url": "/uploads/thumbnail_team1_copy_a49e5c9e4a.jpg"
+          },
+          "small": {
+            "name": "small_team1 copy.jpg",
+            "hash": "small_team1_copy_a49e5c9e4a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 360,
+            "height": 480,
+            "size": 46.88,
+            "url": "/uploads/small_team1_copy_a49e5c9e4a.jpg"
+          }
+        },
+        "url": "/uploads/team1_copy_a49e5c9e4a.jpg"
+      },
+      {
+        "id": "3025",
+        "name": "team4.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 480,
+        "height": 640,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_team4.jpg",
+            "hash": "thumbnail_team4_e621767263",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 117,
+            "height": 156,
+            "size": 5.96,
+            "url": "/uploads/thumbnail_team4_e621767263.jpg"
+          },
+          "small": {
+            "name": "small_team4.jpg",
+            "hash": "small_team4_e621767263",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 360,
+            "height": 480,
+            "size": 34.85,
+            "url": "/uploads/small_team4_e621767263.jpg"
+          }
+        },
+        "url": "/uploads/team4_e621767263.jpg"
+      },
+      {
+        "id": "3028",
+        "name": "team2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 480,
+        "height": 640,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_team2.jpg",
+            "hash": "thumbnail_team2_34de806f87",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 117,
+            "height": 156,
+            "size": 5.98,
+            "url": "/uploads/thumbnail_team2_34de806f87.jpg"
+          },
+          "small": {
+            "name": "small_team2.jpg",
+            "hash": "small_team2_34de806f87",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 360,
+            "height": 480,
+            "size": 43.72,
+            "url": "/uploads/small_team2_34de806f87.jpg"
+          }
+        },
+        "url": "/uploads/team2_34de806f87.jpg"
+      },
+      {
+        "id": "3021",
+        "name": "photo_2026-05-06_15-09-26.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 960,
+        "height": 1280,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_photo_2026-05-06_15-09-26.jpg",
+            "hash": "thumbnail_photo_2026_05_06_15_09_26_d554012fa7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 117,
+            "height": 156,
+            "size": 5.44,
+            "url": "/uploads/thumbnail_photo_2026_05_06_15_09_26_d554012fa7.jpg"
+          },
+          "medium": {
+            "name": "medium_photo_2026-05-06_15-09-26.jpg",
+            "hash": "medium_photo_2026_05_06_15_09_26_d554012fa7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 600,
+            "height": 800,
+            "size": 65.41,
+            "url": "/uploads/medium_photo_2026_05_06_15_09_26_d554012fa7.jpg"
+          },
+          "small": {
+            "name": "small_photo_2026-05-06_15-09-26.jpg",
+            "hash": "small_photo_2026_05_06_15_09_26_d554012fa7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 360,
+            "height": 480,
+            "size": 28.82,
+            "url": "/uploads/small_photo_2026_05_06_15_09_26_d554012fa7.jpg"
+          },
+          "large": {
+            "name": "large_photo_2026-05-06_15-09-26.jpg",
+            "hash": "large_photo_2026_05_06_15_09_26_d554012fa7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 900,
+            "height": 1200,
+            "size": 125.1,
+            "url": "/uploads/large_photo_2026_05_06_15_09_26_d554012fa7.jpg"
+          }
+        },
+        "url": "/uploads/photo_2026_05_06_15_09_26_d554012fa7.jpg"
+      }
+    ]
+  },
+  "countries": [
+    {
+      "id": "3",
+      "name": "🇰🇬 Кыргызстан"
+    },
+    {
+      "id": "2",
+      "name": "🇰🇿 Казахстан"
+    },
+    {
+      "id": "5",
+      "name": "🇺🇿 Узбекистан"
+    },
+    {
+      "id": "1",
+      "name": "🇷🇺 Россия"
+    }
+  ],
+  "socialNetworks": [
+    {
+      "name": "Email",
+      "url": "mailto:bostongrad.support@gmail.com",
+      "icon": {
+        "id": "97",
+        "name": "email.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/email_e2189a2233.png"
+      }
+    },
+    {
+      "name": "Telegram",
+      "url": "https://t.me/bostongrad_bot",
+      "icon": {
+        "id": "96",
+        "name": "telegram.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/telegram_c649a4461a.png"
+      }
+    },
+    {
+      "name": "WhatsApp",
+      "url": "https://wa.me/17814832305",
+      "icon": {
+        "id": "101",
+        "name": "whatsapp.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/whatsapp_2d452a3a16.png"
+      }
+    },
+    {
+      "name": "Instagram",
+      "url": "https://ig.me/m/bostongrad",
+      "icon": {
+        "id": "99",
+        "name": "instagram.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/instagram_7d2ce2e07c.png"
+      }
+    },
+    {
+      "name": "Facebook",
+      "url": "https://m.me/bostongradofficial",
+      "icon": {
+        "id": "98",
+        "name": "facebook.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/facebook_858ec3eeb8.png"
+      }
+    },
+    {
+      "name": "VK",
+      "url": "https://vk.com",
+      "icon": {
+        "id": "100",
+        "name": "vk.png",
+        "alternativeText": null,
+        "caption": null,
+        "width": 40,
+        "height": 40,
+        "formats": null,
+        "url": "/uploads/vk_03b99c4f43.png"
+      }
+    }
+  ],
+  "articles": [
+    {
+      "id": "11",
+      "code": "story-1",
+      "header": "История: Айгюн, 19 лет",
+      "subheader": "Пятигорск • индивидуальный трек подготовки к поступлению",
+      "seo_title": "Айгюн, 19 лет: история подготовки к поступлению",
+      "seo_description": "Кейс Айгюн (Пятигорск): этапы подготовки, программа и результат по поступлению.",
+      "text": "Летняя программа в Northeastern + дальнейшая подача в США\n\n## С чего начали\n\n- Провели диагностический созвон и определили академические цели.\n- Сформировали список приоритетных программ и университетов.\n- Зафиксировали требования по документам и дедлайнам.\n\n## Что сделали в программе\n\n- Персональная работа над учебным треком и портфолио.\n- Подготовка структуры мотивационного эссе и CV.\n- Сопровождение по стратегии подачи в вузы.\n\n## Результат\n\nЕсть понятный пошаговый план подготовки, собранный пакет ключевых материалов и четкая траектория подачи на программы.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-25T04:30:34.681Z",
+      "preview": null,
+      "wallpaper": null
+    },
+    {
+      "id": "12",
+      "code": "story-2",
+      "header": "История: Александр, 18 лет",
+      "subheader": "Тбилиси • индивидуальный трек подготовки к поступлению",
+      "seo_title": "Александр, 18 лет: история подготовки к поступлению",
+      "seo_description": "Кейс Александр (Тбилиси): этапы подготовки, программа и результат по поступлению.",
+      "text": "2 недели академического английского и профильных воркшопов\n\n## С чего начали\n\n- Провели диагностический созвон и определили академические цели.\n- Сформировали список приоритетных программ и университетов.\n- Зафиксировали требования по документам и дедлайнам.\n\n## Что сделали в программе\n\n- Персональная работа над учебным треком и портфолио.\n- Подготовка структуры мотивационного эссе и CV.\n- Сопровождение по стратегии подачи в вузы.\n\n## Результат\n\nЕсть понятный пошаговый план подготовки, собранный пакет ключевых материалов и четкая траектория подачи на программы.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-16T03:12:14.878Z",
+      "preview": null,
+      "wallpaper": null
+    },
+    {
+      "id": "13",
+      "code": "story-3",
+      "header": "История: Дина, 21 лет",
+      "subheader": "Алматы • индивидуальный трек подготовки к поступлению",
+      "seo_title": "Дина, 21 лет: история подготовки к поступлению",
+      "seo_description": "Кейс Дина (Алматы): этапы подготовки, программа и результат по поступлению.",
+      "text": "Подготовка портфолио и учебный трек по business analytics\n\n## С чего начали\n\n- Провели диагностический созвон и определили академические цели.\n- Сформировали список приоритетных программ и университетов.\n- Зафиксировали требования по документам и дедлайнам.\n\n## Что сделали в программе\n\n- Персональная работа над учебным треком и портфолио.\n- Подготовка структуры мотивационного эссе и CV.\n- Сопровождение по стратегии подачи в вузы.\n\n## Результат\n\nЕсть понятный пошаговый план подготовки, собранный пакет ключевых материалов и четкая траектория подачи на программы.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-16T03:12:14.970Z",
+      "preview": null,
+      "wallpaper": null
+    },
+    {
+      "id": "14",
+      "code": "living",
+      "header": "Проживание и сопровождение",
+      "subheader": "Отдельная комната, все необходимые удобства, завтрак включен",
+      "seo_title": null,
+      "seo_description": null,
+      "text": "# Проживание в двухместных номерах\n\n## Комфортное размещение, безопасная локация и сопровождение кураторов\n\nВо время программы BostonGrad каждый участник проживает в отдельной комнате. Мы не размещаем подростков по несколько человек в одной комнате, потому что для двухнедельной образовательной поездки особенно важны личное пространство, полноценный отдых и чувство безопасности.\n\nПосле насыщенного дня — занятий, кампус-визитов, экскурсий и перемещений по городу — у ребенка есть собственное пространство, где можно восстановиться, спокойно подготовиться к следующему дню, связаться с родителями и отдохнуть.\n\n---\n\n## Почему мы выбираем отдельные комнаты\n\n### Личное пространство\n\nПодростку важно иметь место, где он может спокойно отдохнуть, переодеться, позвонить родителям, сделать заметки или просто побыть один после активного дня.\n\n### Полноценный сон и восстановление\n\nПрограмма насыщенная: занятия, университетские визиты, прогулки по Бостону, экскурсии и поездка в Нью-Йорк. Отдельная комната помогает ребенку лучше высыпаться и сохранять энергию на протяжении всей поездки.\n\n### Меньше бытового стресса\n\nКогда участник живет один в комнате, меньше конфликтов из-за режима сна, личных вещей, шума или привычек другого человека. Это особенно важно для подростков, которые впервые едут в США без родителей.\n\n### Больше самостоятельности\n\nПрограмма помогает ребенку не только узнать больше о поступлении в США, но и мягко почувствовать студенческую самостоятельность: свой распорядок, ответственность за вещи, подготовка к следующему дню и соблюдение правил проживания.\n\n---\n\n## Где живут участники\n\nУчастники размещаются в безопасном и удобном районе с доступом к основным точкам программы. Мы подбираем проживание так, чтобы группе было удобно добираться до занятий, университетских кампусов, экскурсий и мест встреч.\n\nПри выборе размещения мы обращаем внимание на:\n\n- безопасность района;\n- удобную транспортную доступность;\n- чистоту и комфорт;\n- наличие необходимых бытовых условий;\n- возможность организованного контроля и сопровождения группы.\n\nФинальный вариант проживания зависит от дат программы, размера группы и доступности объектов на момент бронирования.\n\n---\n\n## Что есть у участника\n\nКаждый участник получает отдельную комнату для проживания и отдыха.\n\nВ зависимости от конкретного варианта размещения могут быть доступны:\n\n- отдельная кровать;\n- место для хранения вещей;\n- рабочее место или зона для занятий;\n- Wi-Fi;\n- доступ к ванной комнате;\n- общие зоны для отдыха или встреч группы;\n- завтрак или организованное питание, если это включено в выбранный формат программы.\n\nТочные условия проживания указываются в финальной программе перед бронированием.\n\n---\n\n## Контроль и сопровождение\n\nМы понимаем, что для родителей вопрос проживания — один из самых важных. Поэтому размещение организуется не как самостоятельная поездка ребенка, а как часть общей программы с сопровождением.\n\nКураторы находятся на связи с участниками и родителями, помогают с организационными вопросами и следят за соблюдением правил программы.\n\nУчастники заранее получают понятные правила:\n\n- время сбора группы;\n- правила возвращения после мероприятий;\n- правила поведения в месте проживания;\n- контакты кураторов;\n- действия в случае срочной ситуации.\n\n---\n\n## Связь с родителями\n\nРодители получают информацию о проживании до начала программы. Во время поездки мы поддерживаем связь и можем отправлять обновления по программе, перемещениям и ключевым событиям.\n\nНаша задача — чтобы родителям было понятно:\n\n- где находится ребенок;\n- кто сопровождает группу;\n- как организован день;\n- к кому обращаться при вопросах;\n- как устроено проживание и безопасность.\n\n---\n\n## Проживание как часть образовательного опыта\n\nДля многих участников эта поездка становится первым опытом жизни в американской образовательной среде. Отдельная комната помогает ребенку почувствовать больше самостоятельности, но при этом оставаться в безопасной структуре программы.\n\nЭто баланс между комфортом, контролем и взрослением.\n\n---\n\n## Отдельная комната — больше спокойствия для родителей\n\nИндивидуальное размещение дает ребенку личное пространство, а родителям — дополнительное чувство уверенности. У участника есть собственное место для отдыха, хранения вещей, подготовки к следующему дню и связи с семьей.\n\nМы создаем условия, в которых подросток может не только активно участвовать в программе, но и комфортно восстанавливаться после каждого дня.\n\n\n## Получить подробности о проживании\n\nОставьте заявку, и мы отправим программу, расскажем о формате проживания, датах, стоимости и условиях участия.\n\n[Получить программу](/quiz?channel=email)",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-05-09T00:35:02.357Z",
+      "preview": {
+        "id": "2996",
+        "name": "apt.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_apt.jpg",
+            "hash": "thumbnail_apt_79af7f5306",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 5.06,
+            "url": "/uploads/thumbnail_apt_79af7f5306.jpg"
+          },
+          "small": {
+            "name": "small_apt.jpg",
+            "hash": "small_apt_79af7f5306",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 42.6,
+            "url": "/uploads/small_apt_79af7f5306.jpg"
+          },
+          "medium": {
+            "name": "medium_apt.jpg",
+            "hash": "medium_apt_79af7f5306",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 108.76,
+            "url": "/uploads/medium_apt_79af7f5306.jpg"
+          }
+        },
+        "url": "/uploads/apt_79af7f5306.jpg"
+      },
+      "wallpaper": {
+        "id": "2999",
+        "name": "apt2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_apt2.jpg",
+            "hash": "thumbnail_apt2_1c7265d02d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 7.37,
+            "url": "/uploads/thumbnail_apt2_1c7265d02d.jpg"
+          },
+          "small": {
+            "name": "small_apt2.jpg",
+            "hash": "small_apt2_1c7265d02d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 21.42,
+            "url": "/uploads/small_apt2_1c7265d02d.jpg"
+          },
+          "medium": {
+            "name": "medium_apt2.jpg",
+            "hash": "medium_apt2_1c7265d02d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 46.1,
+            "url": "/uploads/medium_apt2_1c7265d02d.jpg"
+          },
+          "large": {
+            "name": "large_apt2.jpg",
+            "hash": "large_apt2_1c7265d02d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 82.22,
+            "url": "/uploads/large_apt2_1c7265d02d.jpg"
+          }
+        },
+        "url": "/uploads/apt2_1c7265d02d.jpg"
+      }
+    },
+    {
+      "id": "16",
+      "code": "universities",
+      "header": "Университеты Бостона",
+      "subheader": "Тур по кампусам лучших университетов мира",
+      "seo_title": null,
+      "seo_description": null,
+      "text": "# Университеты Бостона\n\n## Кампус-туры, экскурсии и погружение в атмосферу американских университетов\n\nБостон — один из самых сильных образовательных центров США. Здесь рядом находятся университеты с разной историей, атмосферой, академическим подходом и студенческой культурой. Поэтому во время программы BostonGrad участники не просто посмотрят город, а смогут увидеть, как устроена университетская среда изнутри.\n\nВ программу входят кампус-визиты, прогулки по университетским районам, экскурсии и обсуждения с гидом. Мы поможем участникам понять, чем отличаются разные типы университетов, какая среда может подойти именно им и как заранее готовиться к поступлению.\n\n> Кампус-визиты не являются официальной программой университетов, если это отдельно не указано. Мы организуем образовательные экскурсии и сопровождаем участников по университетским районам и кампусам.\n\n---\n\n## Что входит в кампус-туры\n\nВо время программы участники посетят ключевые университетские локации Бостона и Кембриджа. Каждый визит будет сопровождаться гидом, который поможет не просто “посмотреть здания”, а понять контекст: чем известен университет, какая там атмосфера, какие студенты там учатся и что важно учитывать при выборе будущего учебного пути.\n\n### Во время кампус-туров участники смогут:\n\n- увидеть кампусы и университетские районы;\n- узнать, чем отличаются разные университеты Бостона;\n- почувствовать атмосферу студенческой жизни;\n- понять, какие направления и академические среды им ближе;\n- задать вопросы гиду;\n- обсудить, как такие университеты оценивают будущих абитуриентов;\n- сделать фото и видео для личных впечатлений и будущей мотивации.\n\n---\n\n## Зачем это нужно будущему абитуриенту\n\nМногие школьники хотят “учиться в Америке”, но не всегда понимают, чем отличаются университеты, какие бывают кампусы и какая среда им подходит. Кампус-туры помогают сделать мечту более конкретной.\n\nПосле таких визитов ребенок лучше понимает:\n\n- хочет ли он учиться в большом городском университете или в более классической кампусной среде;\n- насколько ему близки технологии, research, business, liberal arts или практико-ориентированное обучение;\n- как выглядит повседневная жизнь студентов в США;\n- почему важно заранее готовить академический профиль, extracurricular activities, проекты и английский язык.\n\n---\n\n# Какие университеты мы посетим\n\n## Harvard  \n### Гарвард\n\nHarvard — один из самых узнаваемых университетов мира и важная часть академической истории Бостона и Кембриджа. Во время визита участники смогут увидеть университетскую среду, исторические здания, Harvard Yard и атмосферу классического американского campus experience.\n\n### Что обсудим во время визита:\n\n- как выглядит исторический кампус;\n- почему Harvard стал символом элитного образования;\n- чем отличается академическая культура selective universities;\n- что важно понимать будущему абитуриенту при подготовке к поступлению в топовые университеты.\n\n---\n\n## MIT  \n### Массачусетский технологический институт\n\nMIT — университет, который ассоциируется с технологиями, инженерией, наукой, инновациями и предпринимательством. Визит в MIT помогает участникам почувствовать атмосферу места, где создаются новые идеи, стартапы и научные проекты.\n\n### Что обсудим во время визита:\n\n- чем отличается технологический университет от классического liberal arts подхода;\n- почему research, проекты и практический опыт важны для сильного профиля;\n- какие качества нужны студентам, которые хотят развиваться в STEM-направлениях;\n- как школьнику заранее готовиться к инженерным, научным и технологическим программам.\n\n---\n\n## Boston University  \n### Бостонский университет\n\nBoston University — большой городской университет, расположенный в самом Бостоне. Его формат помогает участникам увидеть, как может выглядеть учеба в динамичной городской среде, где кампус интегрирован в жизнь большого города.\n\n### Что обсудим во время визита:\n\n- чем отличается городской университет от закрытого campus-style университета;\n- какие преимущества дает учеба в большом городе;\n- как студенты совмещают академическую жизнь, карьерные возможности и городскую среду;\n- кому может подойти такой формат обучения.\n\n---\n\n## Boston College  \n### Бостон Колледж\n\nBoston College — университет с классической кампусной атмосферой, красивой архитектурой и более традиционным ощущением студенческой среды. Такой визит помогает участникам сравнить городские университеты с более спокойной и структурированной campus environment.\n\n### Что обсудим во время визита:\n\n- как выглядит классический американский кампус;\n- почему атмосфера университета важна при выборе;\n- чем campus-based университет отличается от городского формата;\n- каким студентам может подойти такая среда.\n\n---\n\n## Northeastern  \n### Северо-Восточный университет\n\nNortheastern известен практико-ориентированным подходом и сильной связью между учебой, карьерой и профессиональным опытом. Визит в Northeastern помогает участникам увидеть более современную модель университета, где большое внимание уделяется реальным навыкам и будущей карьере.\n\n### Что обсудим во время визита:\n\n- почему практический опыт важен для студентов;\n- как университетская среда может быть связана с карьерой;\n- чем Northeastern отличается от более классических университетов;\n- почему internships, projects и professional experience становятся важной частью профиля.\n\n---\n\n# Роль гида во время кампус-туров\n\nВо время визитов участников сопровождает гид. Его задача — не просто провести группу по маршруту, а помочь понять смысл каждого университета и связать увиденное с реальной подготовкой к поступлению.\n\nГид помогает участникам:\n\n- ориентироваться на кампусах и в городе;\n- понимать историю и особенности университетов;\n- сравнивать разные форматы обучения;\n- задавать правильные вопросы о будущей учебе;\n- обсуждать, какая среда подходит ребенку;\n- связывать впечатления от кампусов с admissions strategy.\n\n---\n\n# Атмосфера, которую невозможно понять по фотографиям\n\nФотографии университетов можно найти в интернете, но они не дают полного ощущения места. Когда ребенок сам проходит по кампусу, видит студентов, здания, библиотеки, учебные пространства и городскую среду вокруг университета, он начинает лучше понимать, к чему стремится.\n\nИменно поэтому кампус-туры — важная часть программы. Они дают участникам не только впечатления, но и мотивацию, более зрелое понимание образования в США и конкретное представление о будущем университетском пути.\n\n---\n\n# Что участник получит после кампус-туров\n\nПосле посещения университетов участники смогут лучше сформулировать:\n\n- какие университеты им интересны;\n- какая образовательная среда кажется наиболее комфортной;\n- какие направления они хотят изучать;\n- какие навыки и достижения нужно развивать заранее;\n- какие вопросы стоит обсудить с родителями и консультантами после поездки.\n\nКампус-туры помогают превратить абстрактную идею “поступить в США” в более понятный и реалистичный план.\n\n---\n\n## Хотите узнать маршрут кампус-туров?\n\nОставьте заявку, и мы отправим подробную программу: какие университеты входят в маршрут, как проходит сопровождение, сколько длится каждый визит и что ребенок получит после поездки.\n",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-28T07:10:33.269Z",
+      "preview": {
+        "id": "2998",
+        "name": "uni.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_uni.jpg",
+            "hash": "thumbnail_uni_d233a34917",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 7.31,
+            "url": "/uploads/thumbnail_uni_d233a34917.jpg"
+          },
+          "small": {
+            "name": "small_uni.jpg",
+            "hash": "small_uni_d233a34917",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 59.63,
+            "url": "/uploads/small_uni_d233a34917.jpg"
+          },
+          "medium": {
+            "name": "medium_uni.jpg",
+            "hash": "medium_uni_d233a34917",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 150.57,
+            "url": "/uploads/medium_uni_d233a34917.jpg"
+          }
+        },
+        "url": "/uploads/uni_d233a34917.jpg"
+      },
+      "wallpaper": {
+        "id": "3000",
+        "name": "boston.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_boston.jpg",
+            "hash": "thumbnail_boston_9e1219b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 10.29,
+            "url": "/uploads/thumbnail_boston_9e1219b4b6.jpg"
+          },
+          "small": {
+            "name": "small_boston.jpg",
+            "hash": "small_boston_9e1219b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 37.32,
+            "url": "/uploads/small_boston_9e1219b4b6.jpg"
+          },
+          "medium": {
+            "name": "medium_boston.jpg",
+            "hash": "medium_boston_9e1219b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 100.54,
+            "url": "/uploads/medium_boston_9e1219b4b6.jpg"
+          },
+          "large": {
+            "name": "large_boston.jpg",
+            "hash": "large_boston_9e1219b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 215.07,
+            "url": "/uploads/large_boston_9e1219b4b6.jpg"
+          }
+        },
+        "url": "/uploads/boston_9e1219b4b6.jpg"
+      }
+    },
+    {
+      "id": "17",
+      "code": "summer-school",
+      "header": "Летняя школа",
+      "subheader": "Узнайте как подготовиться к поступлению в университеты Бостона",
+      "seo_title": null,
+      "seo_description": null,
+      "text": "# Летняя школа на 1 неделю\n\n## Узнайте, как подготовиться к поступлению в университеты Бостона\n\nОдна неделя в Бостоне — это интенсивная образовательная программа для школьников и будущих абитуриентов 14–18 лет, которые хотят понять, как устроено поступление в университеты США и с чего начинать подготовку.\n\nУчастники познакомятся с системой американского высшего образования, узнают, какие документы и достижения важны для поступления, посетят университетские кампусы и погрузятся в атмосферу студенческого Бостона.\n\nПрограмма подходит тем, кто только начинает думать об обучении в США, а также тем, кто уже рассматривает поступление в американские университеты и хочет получить более понятный план действий.\n\n---\n\n## Что входит в недельную программу\n\n### Admissions-интенсив\n\nУчастники узнают, как устроен процесс поступления в университеты США: от выбора направления и университета до подготовки академического профиля, extracurricular activities, эссе и рекомендаций.\n\nМы объясняем сложную систему простым языком, чтобы ребенок и родители понимали, какие шаги нужно делать заранее.\n\n### Кампус-туры\n\nВ программу входят визиты в университетские районы и кампусы Бостона и Кембриджа. Участники увидят разные типы университетской среды: классические кампусы, городские университеты, исследовательские и технологические пространства.\n\nКампус-туры помогают ребенку не просто посмотреть красивые здания, а почувствовать атмосферу американского образования и понять, какая среда ему ближе.\n\n### Визит в MIT\n\nMIT — один из главных символов науки, технологий и инноваций в мире. Во время визита участники смогут увидеть кампусную среду, почувствовать атмосферу технологического университета и обсудить, какие качества важны для студентов, которые хотят развиваться в STEM-направлениях.\n\n> Визит в MIT не является официальной программой университета, если это отдельно не указано. Мы организуем образовательный кампус-визит и сопровождаем участников по маршруту.\n\n### Лекции и практические занятия\n\nВ течение недели участники проходят занятия по ключевым темам поступления:\n\n- как выбрать университет и направление;\n- чем отличаются Harvard, MIT, Boston University, Boston College и Northeastern;\n- что такое academic profile;\n- почему важны extracurricular activities;\n- как школьнику развивать портфолио;\n- какую роль играют эссе, рекомендации и английский язык;\n- какие ошибки часто совершают будущие абитуриенты.\n\n---\n\n## Помощь в поступлении\n\nГлавная цель недельной программы — дать участнику понятную картину поступления в США и помочь определить первые шаги.\n\nВо время программы участники разберут:\n\n- какие университеты могут подойти под их интересы;\n- какие предметы, проекты и активности стоит развивать;\n- какие дедлайны важно учитывать;\n- что нужно улучшить в академическом и личном профиле;\n- как начать готовиться к поступлению заранее.\n\nМы не обещаем гарантированное поступление в конкретный университет. Наша задача — помочь ребенку и родителям понять систему, увидеть реальные требования и сформировать более осознанную стратегию подготовки.\n\n---\n\n## Для кого подходит программа\n\n### Для школьников 14–16 лет\n\nЕсли ребенок еще не определился с направлением, программа поможет ему увидеть разные варианты будущего: технологии, бизнес, science, liberal arts, research, entrepreneurship и другие сферы.\n\n### Для абитуриентов 16–18 лет\n\nЕсли поступление уже ближе, программа поможет понять, какие элементы профиля нужно усилить: оценки, английский, проекты, активности, эссе и выбор университетов.\n\n### Для родителей\n\nРодители получают более ясное понимание, как устроено поступление в США, какие шаги нужно планировать заранее и почему подготовка требует времени.\n\n---\n\n## Примерная структура недели\n\n### День 1 — Orientation\n\nЗнакомство с программой, правилами, группой и городом. Обсуждение целей участников и ожиданий от поездки.\n\n### День 2 — Как устроено поступление в США\n\nРазбор системы admissions: университеты, majors, дедлайны, документы, academic profile и extracurricular activities.\n\n### День 3 — Кампус-визиты и университетская среда\n\nПосещение университетских районов Бостона и обсуждение различий между разными типами университетов.\n\n### День 4 — MIT и STEM-направления\n\nВизит в MIT, разговор о технологиях, инженерии, research, проектах и подготовке к STEM-программам.\n\n### День 5 — Портфолио и личная стратегия\n\nКак школьнику развивать сильный профиль: академические достижения, проекты, волонтерство, leadership, research и extracurricular activities.\n\n### День 6 — Лекции, обсуждения и индивидуальные выводы\n\nУчастники формулируют свои интересы, вопросы и следующие шаги для подготовки к поступлению.\n\n### День 7 — Финальная встреча и итоги\n\nОбсуждение впечатлений, выводов, университетов и дальнейшего плана подготовки.\n\n---\n\n## Что участник получит за неделю\n\nПосле программы участник лучше поймет:\n\n- как устроено поступление в университеты США;\n- чем отличаются университеты Бостона;\n- какие направления ему интересны;\n- какие шаги нужно делать до подачи документов;\n- как развивать сильный academic и extracurricular profile;\n- какая университетская среда ему ближе.\n\nГлавный результат — не просто поездка, а более ясное понимание будущего образовательного пути.\n\n---\n\n## Почему Бостон\n\nБостон — один из самых сильных образовательных центров США. Здесь находятся Harvard, MIT, Boston University, Boston College, Northeastern и многие другие университеты.\n\nДля будущего абитуриента это уникальная возможность за короткое время увидеть разные университетские форматы и понять, как выглядит академическая среда в США.\n\n---\n\n## Что включено\n\n- admissions-интенсив;\n- лекции и практические занятия;\n- кампус-визиты;\n- визит в MIT;\n- проживание;\n- транспорт по программе;\n- сопровождение;\n- помощь в понимании стратегии поступления.\n\n---\n\n## Что не включено\n\n- международный перелет;\n- виза;\n- медицинская страховка, если не включена в выбранный формат;\n- личные расходы;\n- дополнительное питание, если оно не входит в программу.\n\n---\n\n## Узнать подробности программы\n\nОставьте заявку, и мы отправим подробную программу на 1 неделю, расскажем о датах, стоимости, проживании, кампус-турах и формате занятий.\n",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-28T07:13:00.303Z",
+      "preview": {
+        "id": "2995",
+        "name": "student.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_student.jpg",
+            "hash": "thumbnail_student_83b187700d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 5.16,
+            "url": "/uploads/thumbnail_student_83b187700d.jpg"
+          },
+          "medium": {
+            "name": "medium_student.jpg",
+            "hash": "medium_student_83b187700d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 60.06,
+            "url": "/uploads/medium_student_83b187700d.jpg"
+          },
+          "small": {
+            "name": "small_student.jpg",
+            "hash": "small_student_83b187700d",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 27.68,
+            "url": "/uploads/small_student_83b187700d.jpg"
+          }
+        },
+        "url": "/uploads/student_83b187700d.jpg"
+      },
+      "wallpaper": {
+        "id": "3001",
+        "name": "lib.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_lib.jpg",
+            "hash": "thumbnail_lib_34e2223442",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 11.3,
+            "url": "/uploads/thumbnail_lib_34e2223442.jpg"
+          },
+          "small": {
+            "name": "small_lib.jpg",
+            "hash": "small_lib_34e2223442",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 42.01,
+            "url": "/uploads/small_lib_34e2223442.jpg"
+          },
+          "medium": {
+            "name": "medium_lib.jpg",
+            "hash": "medium_lib_34e2223442",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 108.82,
+            "url": "/uploads/medium_lib_34e2223442.jpg"
+          },
+          "large": {
+            "name": "large_lib.jpg",
+            "hash": "large_lib_34e2223442",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 222.97,
+            "url": "/uploads/large_lib_34e2223442.jpg"
+          }
+        },
+        "url": "/uploads/lib_34e2223442.jpg"
+      }
+    },
+    {
+      "id": "18",
+      "code": "ny",
+      "header": "Поездка в Нью-Йорк",
+      "subheader": "Посмотрите Нью-Йорк глазами будущего студента: университеты, экскурсии и атмосфера большого города — с полным сопровождением.",
+      "seo_title": null,
+      "seo_description": null,
+      "text": "# Поездка в Нью-Йорк\n\n## Образовательная экскурсия, сопровождение и знакомство с университетской атмосферой Нью-Йорка\n\nПоездка в Нью-Йорк входит в двухнедельный формат программы BostonGrad. Это не просто туристическая часть, а продолжение образовательного опыта: участники увидят другой крупный университетский город США, познакомятся с его атмосферой, посетят знаковые места и смогут сравнить Бостон и Нью-Йорк как возможные направления для будущего обучения.\n\nВо время поездки группу сопровождает куратор и гид. Мы заранее организуем маршрут, транспорт, экскурсии и основные точки посещения, чтобы участники могли безопасно и комфортно познакомиться с городом.\n\n---\n\n## Что входит в поездку\n\n### Сопровождение\n\nГруппа находится под сопровождением на протяжении всей поездки. Участники не перемещаются по городу самостоятельно без согласования с кураторами.\n\nСопровождение включает:\n\n- организованный выезд из Бостона;\n- помощь с ориентацией в городе;\n- контроль времени и маршрута;\n- сопровождение во время экскурсий;\n- связь с участниками и родителями;\n- помощь в бытовых и организационных вопросах.\n\n---\n\n### Экскурсии по Нью-Йорку\n\nНью-Йорк — один из самых узнаваемых городов мира и важный культурный, деловой и образовательный центр США. Во время поездки участники увидят город не только как туристы, но и как будущие студенты, которым важно понять ритм, масштаб и возможности американской городской среды.\n\nВ программу могут входить:\n\n- обзорная прогулка по ключевым районам города;\n- знакомство с Manhattan;\n- посещение знаковых городских локаций;\n- прогулки по университетским районам;\n- обсуждение отличий Нью-Йорка и Бостона как городов для учебы;\n- фото- и видеомоменты для личных впечатлений.\n\nФинальный маршрут зависит от дат поездки, погодных условий, расписания группы и доступности отдельных локаций.\n\n---\n\n### Посещение университетов Нью-Йорка\n\nВо время поездки участники смогут познакомиться с университетской средой Нью-Йорка и увидеть, как отличается обучение в большом мегаполисе от учебы в более академическом Бостоне.\n\nВозможные университетские локации для посещения:\n\n- Columbia University;\n- New York University;\n- другие университетские районы и образовательные пространства Нью-Йорка, если это входит в маршрут конкретной группы.\n\n> Посещение университетов не является официальной программой университетов, если это отдельно не указано. Мы организуем образовательные кампус-визиты, прогулки по университетским районам и сопровождение участников по маршруту.\n\n---\n\n## Зачем будущему абитуриенту поездка в Нью-Йорк\n\nДля школьника, который рассматривает обучение в США, важно увидеть не только университеты, но и среду вокруг них. Нью-Йорк помогает участникам понять, как может выглядеть студенческая жизнь в большом городе: быстрый ритм, международная атмосфера, карьерные возможности, культурная среда и высокий уровень самостоятельности.\n\nПосле поездки участники смогут лучше сравнить:\n\n- Бостон и Нью-Йорк как города для учебы;\n- кампусную и городскую университетскую среду;\n- спокойную академическую атмосферу и динамику мегаполиса;\n- разные типы университетского опыта в США.\n\n---\n\n## Роль гида\n\nВо время поездки участников сопровождает гид, который помогает сделать экскурсию более содержательной. Его задача — не просто показать город, а объяснить контекст: чем Нью-Йорк отличается от Бостона, почему многие студенты выбирают обучение в мегаполисе и какие возможности дает такая среда.\n\nГид помогает участникам:\n\n- ориентироваться в городе;\n- понимать историю и особенности районов;\n- сравнивать образовательные среды;\n- задавать вопросы;\n- связывать увиденное с будущими учебными и карьерными целями.\n\n---\n\n## Безопасность во время поездки\n\nМы понимаем, что поездка в Нью-Йорк с подростками требует особого внимания к организации. Поэтому маршрут планируется заранее, а группа перемещается вместе с сопровождающими.\n\nДля безопасности участников мы заранее определяем:\n\n- точки сбора;\n- расписание дня;\n- правила перемещения;\n- контакты кураторов;\n- время возвращения;\n- порядок действий в случае срочной ситуации.\n\nУчастники получают понятные инструкции до начала поездки и находятся на связи с сопровождающими.\n\n---\n\n## Что участник получит от поездки\n\nПоездка в Нью-Йорк помогает участникам расширить представление об обучении в США и увидеть еще один возможный формат университетской жизни.\n\nПосле поездки ребенок лучше поймет:\n\n- подходит ли ему жизнь в большом городе;\n- чем отличаются университеты Бостона и Нью-Йорка;\n- насколько важна среда вокруг университета;\n- какие возможности дает обучение в мегаполисе;\n- какой формат будущей учебы ему ближе.\n\n---\n\n## Часть двухнедельной программы\n\nПоездка в Нью-Йорк входит в двухнедельный формат BostonGrad. Однонедельная программа включает школу, admissions-интенсив и кампус-туры в Бостоне, а двухнедельная программа дополнительно дает возможность увидеть Нью-Йорк и сравнить две разные образовательные среды.\n\n### 1 неделя\n\n- admissions-интенсив;\n- лекции;\n- кампус-туры в Бостоне;\n- проживание;\n- сопровождение.\n\n### 2 недели\n\n- admissions-интенсив;\n- кампус-туры в Бостоне;\n- проживание;\n- сопровождение;\n- поездка в Нью-Йорк;\n- экскурсии;\n- посещение университетских локаций Нью-Йорка;\n- финальные выводы и план дальнейших шагов.\n\n---\n\n## Узнать подробности поездки\n\nОставьте заявку, и мы отправим подробную программу двухнедельного формата: маршрут, даты, стоимость, условия проживания, сопровождение и детали поездки в Нью-Йорк.\n\n[Получить программу](#application-form)",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-28T07:17:20.036Z",
+      "preview": {
+        "id": "2997",
+        "name": "ny.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_ny.jpg",
+            "hash": "thumbnail_ny_10dc24fcdf",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 5.67,
+            "url": "/uploads/thumbnail_ny_10dc24fcdf.jpg"
+          },
+          "small": {
+            "name": "small_ny.jpg",
+            "hash": "small_ny_10dc24fcdf",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 48.51,
+            "url": "/uploads/small_ny_10dc24fcdf.jpg"
+          },
+          "medium": {
+            "name": "medium_ny.jpg",
+            "hash": "medium_ny_10dc24fcdf",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 124.41,
+            "url": "/uploads/medium_ny_10dc24fcdf.jpg"
+          }
+        },
+        "url": "/uploads/ny_10dc24fcdf.jpg"
+      },
+      "wallpaper": {
+        "id": "3002",
+        "name": "ny2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_ny2.jpg",
+            "hash": "thumbnail_ny2_cde2c5b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 11.18,
+            "url": "/uploads/thumbnail_ny2_cde2c5b4b6.jpg"
+          },
+          "small": {
+            "name": "small_ny2.jpg",
+            "hash": "small_ny2_cde2c5b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 40.62,
+            "url": "/uploads/small_ny2_cde2c5b4b6.jpg"
+          },
+          "medium": {
+            "name": "medium_ny2.jpg",
+            "hash": "medium_ny2_cde2c5b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 103.32,
+            "url": "/uploads/medium_ny2_cde2c5b4b6.jpg"
+          },
+          "large": {
+            "name": "large_ny2.jpg",
+            "hash": "large_ny2_cde2c5b4b6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 211.41,
+            "url": "/uploads/large_ny2_cde2c5b4b6.jpg"
+          }
+        },
+        "url": "/uploads/ny2_cde2c5b4b6.jpg"
+      }
+    },
+    {
+      "id": "19",
+      "code": "bc",
+      "header": "Boston College",
+      "subheader": "Топ-программы в бизнесе, экономике и биологии",
+      "seo_title": null,
+      "seo_description": null,
+      "text": "Boston College — один из ведущих частных исследовательских университетов США, расположенный в Chestnut Hill, рядом с Бостоном. Университет был основан в 1863 году и известен своим академическим уровнем, красивым кампусом и сильной сетью выпускников.\n\n## Особенности университета\n\nBoston College сочетает классическое liberal arts образование с профессиональной подготовкой. Университет особенно известен своим иезуитским подходом к образованию: здесь делают акцент не только на знаниях, но и на развитии личности, лидерства, ответственности и умения мыслить критически.\n\nКампус Boston College часто называют одним из самых красивых в США. Его архитектура, зеленые пространства и близость к Бостону создают атмосферу традиционного американского университета, но при этом дают студентам доступ к карьерным и исследовательским возможностям большого города.\n\n## Поступление\n\nПоступление в Boston College считается очень конкурентным. Acceptance rate обычно находится примерно в диапазоне 14–16%, поэтому университет относится к категории selective universities.\n\nДля поступления важны сильные оценки, академическая подготовка, extracurricular activities, мотивационное эссе и общее соответствие ценностям университета.\n\n## Основные направления обучения\n\nBoston College особенно силен в следующих направлениях:\n\n- Business\n- Finance\n- Economics\n- Biology\n- Psychology\n- Political Science\n- Communication\n- Nursing\n- Education\n\nОдной из самых известных школ университета является Carroll School of Management, которая высоко ценится среди студентов, интересующихся бизнесом, финансами и менеджментом.\n\n## Рейтинги\n\nBoston College стабильно входит в число сильных национальных университетов США. В американских рейтингах он обычно находится примерно в топ-40 среди National Universities.\n\nНа мировом уровне Boston College не всегда конкурирует с крупнейшими исследовательскими гигантами вроде Harvard, MIT или Stanford, но имеет сильную академическую репутацию, особенно в США.\n\n## Карьерные возможности\n\nУниверситет имеет сильную alumni network и хорошую репутацию среди работодателей. Выпускники Boston College часто строят карьеру в финансах, консалтинге, медицине, образовании, юриспруденции, бизнесе и nonprofit sector.\n\nБлизость к Бостону также дает студентам доступ к стажировкам, исследовательским центрам, компаниям и профессиональным мероприятиям.\n\n## Почему стоит посетить Boston College\n\nBoston College интересен тем, что показывает другой тип американского университета: не городской кампус в центре мегаполиса, а классический закрытый кампус с сильной академической культурой и студенческой жизнью.\n\nВо время визита студенты могут увидеть, как выглядит жизнь в selective private university, понять атмосферу campus-based education и сравнить Boston College с другими университетами Бостона, такими как Harvard, MIT, Boston University и Northeastern.\n\n## Итог\n\nBoston College — это престижный частный университет рядом с Бостоном, который сочетает академическую строгость, красивый кампус, сильные программы и развитую карьерную сеть. Он особенно подходит студентам, которые ищут баланс между качественным образованием, традиционной университетской атмосферой и доступом к возможностям большого города.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-29T04:28:38.644Z",
+      "preview": {
+        "id": "3003",
+        "name": "bc1.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_bc1.jpg",
+            "hash": "thumbnail_bc1_65107d82f7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 4.89,
+            "url": "/uploads/thumbnail_bc1_65107d82f7.jpg"
+          },
+          "small": {
+            "name": "small_bc1.jpg",
+            "hash": "small_bc1_65107d82f7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 36.5,
+            "url": "/uploads/small_bc1_65107d82f7.jpg"
+          },
+          "medium": {
+            "name": "medium_bc1.jpg",
+            "hash": "medium_bc1_65107d82f7",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 79.26,
+            "url": "/uploads/medium_bc1_65107d82f7.jpg"
+          }
+        },
+        "url": "/uploads/bc1_65107d82f7.jpg"
+      },
+      "wallpaper": {
+        "id": "3004",
+        "name": "bc2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_bc2.jpg",
+            "hash": "thumbnail_bc2_9bca941ee1",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 11.77,
+            "url": "/uploads/thumbnail_bc2_9bca941ee1.jpg"
+          },
+          "small": {
+            "name": "small_bc2.jpg",
+            "hash": "small_bc2_9bca941ee1",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 43.01,
+            "url": "/uploads/small_bc2_9bca941ee1.jpg"
+          },
+          "medium": {
+            "name": "medium_bc2.jpg",
+            "hash": "medium_bc2_9bca941ee1",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 118.75,
+            "url": "/uploads/medium_bc2_9bca941ee1.jpg"
+          },
+          "large": {
+            "name": "large_bc2.jpg",
+            "hash": "large_bc2_9bca941ee1",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 253.52,
+            "url": "/uploads/large_bc2_9bca941ee1.jpg"
+          }
+        },
+        "url": "/uploads/bc2_9bca941ee1.jpg"
+      }
+    },
+    {
+      "id": "20",
+      "code": "bu",
+      "header": "Boston University",
+      "subheader": "Крупный исследовательский университет с сильными программами и карьерными возможностями",
+      "seo_title": "Boston University — обучение в Бостоне | Летняя школа Bostongrad",
+      "seo_description": "Узнайте всё о Boston University: программы, поступление, кампус и карьерные возможности. Посетите университет с Bostongrad",
+      "text": "# Boston University\n\n## Крупный исследовательский университет с сильными программами и карьерными возможностями\n\nBoston University (BU) — один из крупнейших частных университетов США, расположенный в центре Бостона. Основанный в 1839 году, университет известен своим глобальным подходом к образованию, сильными исследовательскими программами и тесной связью с индустрией.\n\n## Общая информация\n\n- Тип: частный исследовательский университет  \n- Локация: Бостон, Массачусетс  \n- Студенты: ~37,000  \n- Undergraduate: ~18,000  \n- Соотношение студент/преподаватель: ~10:1  \n\nBU отличается тем, что его кампус интегрирован в город: здания университета расположены вдоль реки Charles River, что создает уникальную urban-campus атмосферу.\n\n## Особенности университета\n\nBoston University — это университет с сильным акцентом на исследования, практику и международное образование.\n\n- Городской кампус — жизнь и учеба в центре Бостона  \n- Более 300 программ обучения  \n- Сильные международные программы и обмены  \n- Активная исследовательская деятельность  \n- Тесные связи с индустрией и стажировками  \n\nBU подходит студентам, которые хотят сочетать учебу с реальным опытом работы уже во время обучения.\n\n## Поступление\n\nПоступление в Boston University считается конкурентным:\n\n- Acceptance rate: ~10–12%  \n- Средний SAT: 1400–1500  \n\nПрием основан не только на оценках, но и на extracurricular activities, эссе и общем профиле кандидата.\n\n## Основные направления (Majors)\n\nBoston University предлагает широкий выбор программ. Наиболее популярные направления:\n\n- Business (Questrom School of Business)  \n- Computer Science  \n- Biology  \n- Economics  \n- Communication & Media  \n- International Relations  \n- Engineering  \n- Pre-Med направления  \n\nBU особенно известен программами в области медиа, бизнеса и международных отношений.\n\n## Структура университета\n\nBoston University включает несколько школ и колледжей:\n\n- College of Arts & Sciences  \n- Questrom School of Business  \n- College of Engineering  \n- College of Communication  \n- School of Public Health  \n- School of Medicine  \n\nЭто позволяет студентам выбирать как академические, так и профессиональные треки.\n\n## Рейтинги\n\n- США (U.S. News): примерно #40–45 среди National Universities  \n- Мир: входит примерно в топ-100 университетов  \n\nBU считается сильным исследовательским университетом с глобальной репутацией.\n\n## Карьерные возможности\n\nBoston University имеет сильные карьерные результаты:\n\n- Высокий уровень трудоустройства после выпуска  \n- Доступ к стажировкам в Бостоне (биотех, финансы, медиа, стартапы)  \n- Активная alumni network по всему миру  \n\nГородская среда дает студентам большое преимущество: многие начинают карьеру еще во время учебы.\n\n## Почему стоит посетить Boston University\n\nBU — это пример современного urban university, где обучение тесно связано с реальной жизнью и карьерой.\n\nВо время визита можно:\n\n- увидеть кампус вдоль Charles River  \n- почувствовать атмосферу города  \n- понять разницу между campus-based и city-based университетами  \n- оценить масштаб и разнообразие программ  \n\n## Итог\n\nBoston University — это динамичный, международный и карьерно-ориентированный университет. Он идеально подходит студентам, которые хотят учиться в центре города, получать практический опыт и строить карьеру уже во время обучения.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-29T04:35:19.698Z",
+      "preview": {
+        "id": "3006",
+        "name": "bu.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_bu.jpg",
+            "hash": "thumbnail_bu_94e35661e6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 4.71,
+            "url": "/uploads/thumbnail_bu_94e35661e6.jpg"
+          },
+          "small": {
+            "name": "small_bu.jpg",
+            "hash": "small_bu_94e35661e6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 41.5,
+            "url": "/uploads/small_bu_94e35661e6.jpg"
+          },
+          "medium": {
+            "name": "medium_bu.jpg",
+            "hash": "medium_bu_94e35661e6",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 113.35,
+            "url": "/uploads/medium_bu_94e35661e6.jpg"
+          }
+        },
+        "url": "/uploads/bu_94e35661e6.jpg"
+      },
+      "wallpaper": {
+        "id": "3005",
+        "name": "bu2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_bu2.jpg",
+            "hash": "thumbnail_bu2_423c4fe01e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 10.94,
+            "url": "/uploads/thumbnail_bu2_423c4fe01e.jpg"
+          },
+          "small": {
+            "name": "small_bu2.jpg",
+            "hash": "small_bu2_423c4fe01e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 38.97,
+            "url": "/uploads/small_bu2_423c4fe01e.jpg"
+          },
+          "medium": {
+            "name": "medium_bu2.jpg",
+            "hash": "medium_bu2_423c4fe01e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 99.45,
+            "url": "/uploads/medium_bu2_423c4fe01e.jpg"
+          },
+          "large": {
+            "name": "large_bu2.jpg",
+            "hash": "large_bu2_423c4fe01e",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 195.34,
+            "url": "/uploads/large_bu2_423c4fe01e.jpg"
+          }
+        },
+        "url": "/uploads/bu2_423c4fe01e.jpg"
+      }
+    },
+    {
+      "id": "21",
+      "code": "harvard",
+      "header": "Harvard University",
+      "subheader": "Легендарный Ivy League университет рядом с Бостоном",
+      "seo_title": "Harvard University — университет Ivy League рядом с Бостоном | Bostongrad",
+      "seo_description": "Узнайте о Harvard University: поступление, рейтинги, кампус, популярные направления и особенности Ivy League. Посетите Harvard вместе с Bostongrad.",
+      "text": "# Harvard University\n\n## Легендарный Ivy League университет рядом с Бостоном\n\nHarvard University — один из самых известных и престижных университетов мира. Он расположен в Cambridge, Massachusetts, рядом с Бостоном, и был основан в 1636 году. Harvard считается старейшим высшим учебным заведением США и символом академического превосходства.\n\n## Общая информация\n\n- Тип: частный исследовательский университет\n- Лига: Ivy League\n- Локация: Cambridge, Massachusetts\n- Основан: 1636\n- Студенты: около 22,000+\n- Соотношение студент/преподаватель: около 10:1\n\nКампус Harvard расположен вокруг Harvard Yard — исторического центра университета. Это одно из самых узнаваемых мест в американском высшем образовании.\n\n## Особенности университета\n\nHarvard известен сочетанием сильной академической базы, исследовательских ресурсов и глобальной репутации.\n\nКлючевые особенности:\n\n- Ivy League статус\n- Один из самых узнаваемых университетских брендов в мире\n- Сильнейшие исследовательские центры\n- Большая сеть выпускников по всему миру\n- Доступ к ресурсам Бостона и Cambridge\n- Возможности для междисциплинарного обучения\n\nHarvard особенно интересен студентам, которые хотят увидеть, как устроен университет мирового уровня с сильной академической культурой и историей.\n\n## Поступление\n\nПоступление в Harvard является крайне конкурентным.\n\n- Acceptance rate: около 3–4%\n- Для Class of 2029 Harvard сообщил 47,893 applicants и 2,003 admitted students\n- Университет оценивает не только оценки и тесты, но и лидерство, эссе, extracurricular activities, рекомендации и личную историю кандидата\n\nHarvard относится к категории самых selective universities в мире.\n\n## Основные направления обучения\n\nHarvard предлагает широкий выбор академических направлений. Среди популярных и сильных областей:\n\n- Economics\n- Computer Science\n- Government / Political Science\n- Biology\n- Psychology\n- Applied Mathematics\n- Engineering\n- Social Sciences\n- History\n- Pre-Med направления\n\nHarvard также известен сильными graduate schools, включая Harvard Business School, Harvard Law School, Harvard Medical School и Harvard Kennedy School.\n\n## Рейтинги\n\nHarvard стабильно входит в число лучших университетов мира.\n\n- World ranking: около топ-5 в мировых рейтингах\n- Times Higher Education World University Rankings 2026: #5 в мире\n- QS World University Rankings 2026: #5 в мире\n- США: стабильно входит в группу самых престижных национальных университетов\n\nОсобенно сильные области Harvard включают life sciences, medicine, law, business, economics, social sciences и humanities.\n\n## Карьерные возможности\n\nHarvard имеет одну из самых сильных alumni networks в мире. Выпускники университета работают в бизнесе, науке, медицине, праве, политике, технологиях, финансах и международных организациях.\n\nКлючевые преимущества:\n\n- глобальная репутация диплома\n- сильная сеть выпускников\n- доступ к стажировкам и research opportunities\n- близость к Boston biotech, finance, medicine и startup ecosystem\n\n## Почему стоит посетить Harvard с Bostongrad\n\nHarvard — один из главных университетов, которые стоит увидеть во время образовательной поездки в Бостон. Визит помогает студентам понять атмосферу Ivy League, увидеть исторический кампус и сравнить Harvard с другими университетами региона, такими как MIT, Boston University, Boston College и Northeastern.\n\nВо время посещения студенты могут:\n\n- увидеть Harvard Yard\n- познакомиться с атмосферой кампуса\n- понять, чем отличается Ivy League университет\n- узнать больше о поступлении в selective universities\n- вдохновиться академической средой Cambridge\n\n## Итог\n\nHarvard University — это не просто университет, а символ академического лидерства, глобальных возможностей и высокого уровня отбора. Для участников Bostongrad визит в Harvard помогает увидеть, как выглядит образование мирового класса, и лучше понять, к чему стремиться при подготовке к поступлению в США.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-29T04:46:38.163Z",
+      "preview": {
+        "id": "3007",
+        "name": "harvard.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_harvard.jpg",
+            "hash": "thumbnail_harvard_787d086f3c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 4.08,
+            "url": "/uploads/thumbnail_harvard_787d086f3c.jpg"
+          },
+          "medium": {
+            "name": "medium_harvard.jpg",
+            "hash": "medium_harvard_787d086f3c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 65.4,
+            "url": "/uploads/medium_harvard_787d086f3c.jpg"
+          },
+          "small": {
+            "name": "small_harvard.jpg",
+            "hash": "small_harvard_787d086f3c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 27.44,
+            "url": "/uploads/small_harvard_787d086f3c.jpg"
+          }
+        },
+        "url": "/uploads/harvard_787d086f3c.jpg"
+      },
+      "wallpaper": {
+        "id": "3008",
+        "name": "harvard2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_harvard2.jpg",
+            "hash": "thumbnail_harvard2_d16e1f0c74",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 11.72,
+            "url": "/uploads/thumbnail_harvard2_d16e1f0c74.jpg"
+          },
+          "small": {
+            "name": "small_harvard2.jpg",
+            "hash": "small_harvard2_d16e1f0c74",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 40.42,
+            "url": "/uploads/small_harvard2_d16e1f0c74.jpg"
+          },
+          "medium": {
+            "name": "medium_harvard2.jpg",
+            "hash": "medium_harvard2_d16e1f0c74",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 102.42,
+            "url": "/uploads/medium_harvard2_d16e1f0c74.jpg"
+          },
+          "large": {
+            "name": "large_harvard2.jpg",
+            "hash": "large_harvard2_d16e1f0c74",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 211.01,
+            "url": "/uploads/large_harvard2_d16e1f0c74.jpg"
+          }
+        },
+        "url": "/uploads/harvard2_d16e1f0c74.jpg"
+      }
+    },
+    {
+      "id": "22",
+      "code": "mit",
+      "header": "MIT",
+      "subheader": "Мировой лидер в технологиях, науке и инновациях",
+      "seo_title": "MIT — лучший технологический университет мира | Bostongrad",
+      "seo_description": "Узнайте о MIT: поступление, рейтинги, программы и кампус. Посетите Massachusetts Institute of Technology вместе с Bostongrad и погрузитесь в мир технологий.",
+      "text": "# Massachusetts Institute of Technology (MIT)\n\n## Мировой лидер в технологиях, науке и инновациях\n\nMIT — один из самых сильных технологических университетов мира, расположенный в Cambridge, Massachusetts, рядом с Бостоном. Основанный в 1861 году, институт известен своим фокусом на науке, инженерии и практическом применении знаний.\n\n## Общая информация\n\n- Тип: частный исследовательский университет  \n- Локация: Cambridge, Massachusetts  \n- Основан: 1861  \n- Студенты: ~11,000  \n- Соотношение студент/преподаватель: ~3:1  \n\nMIT отличается высокой концентрацией исследований и инноваций, а также тесной связью с индустрией и стартап-экосистемой.\n\n## Особенности университета\n\nMIT — это не классический университет, а место, где создаются технологии будущего.\n\nКлючевые особенности:\n\n- Сильнейший фокус на STEM (Science, Technology, Engineering, Math)  \n- Практический подход к обучению (\"learning by doing\")  \n- Лидерство в области стартапов и предпринимательства  \n- Доступ к cutting-edge исследованиям  \n- Культура инноваций и экспериментов  \n\nMIT тесно связан с технологическими компаниями, лабораториями и стартапами в Boston/Cambridge.\n\n## Поступление\n\nMIT — один из самых конкурентных университетов мира:\n\n- Acceptance rate: ~4%  \n- SAT (средний): 1500–1570  \n\nПри поступлении оцениваются не только академические достижения, но и проекты, исследования, олимпиадный опыт и реальные навыки.\n\n## Основные направления (Majors)\n\nMIT специализируется на технических и научных дисциплинах:\n\n- Computer Science  \n- Engineering (Mechanical, Electrical, Aerospace)  \n- Physics  \n- Mathematics  \n- Artificial Intelligence  \n- Data Science  \n- Biology / Biotechnology  \n- Economics  \n\nMIT также силен в interdisciplinary областях, где пересекаются технологии и бизнес.\n\n## Структура университета\n\nMIT включает 5 школ:\n\n- School of Engineering  \n- School of Science  \n- School of Architecture and Planning  \n- Sloan School of Management  \n- School of Humanities, Arts, and Social Sciences  \n\nЭто позволяет студентам комбинировать технические и гуманитарные направления.\n\n## Рейтинги\n\nMIT стабильно занимает топовые позиции в мире:\n\n- QS World University Rankings 2026: #1 в мире  \n- Times Higher Education: топ-5 в мире  \n- США: один из лучших университетов страны  \n\nMIT особенно силен в Computer Science, Engineering, Physics и Technology.\n\n## Карьерные возможности\n\nВыпускники MIT востребованы по всему миру:\n\n- Высокий уровень трудоустройства  \n- Работа в топ-компаниях (Google, Apple, Tesla, startups)  \n- Сильная предпринимательская культура  \n- Доступ к венчурному капиталу  \n\nMIT считается одним из лучших университетов для запуска стартапов.\n\n## Почему стоит посетить MIT с Bostongrad\n\nMIT — обязательная точка для студентов, интересующихся технологиями и наукой.\n\nВо время визита можно:\n\n- увидеть инновационный кампус  \n- понять культуру технологического образования  \n- познакомиться с research environment  \n- сравнить MIT с Harvard и другими университетами  \n\nЭто помогает студентам лучше понять, подходит ли им STEM-направление.\n\n## Итог\n\nMIT — это глобальный центр технологий и инноваций. Университет идеально подходит для студентов, которые хотят создавать новые технологии, работать в науке или запускать стартапы.\n\nДля участников Bostongrad визит в MIT — это возможность увидеть будущее науки и технологий изнутри.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-29T05:16:40.745Z",
+      "preview": {
+        "id": "3010",
+        "name": "mit.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_mit.jpg",
+            "hash": "thumbnail_mit_d5b2fa7a18",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 4.62,
+            "url": "/uploads/thumbnail_mit_d5b2fa7a18.jpg"
+          },
+          "medium": {
+            "name": "medium_mit.jpg",
+            "hash": "medium_mit_d5b2fa7a18",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 55.32,
+            "url": "/uploads/medium_mit_d5b2fa7a18.jpg"
+          },
+          "small": {
+            "name": "small_mit.jpg",
+            "hash": "small_mit_d5b2fa7a18",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 24.87,
+            "url": "/uploads/small_mit_d5b2fa7a18.jpg"
+          }
+        },
+        "url": "/uploads/mit_d5b2fa7a18.jpg"
+      },
+      "wallpaper": {
+        "id": "3009",
+        "name": "mit2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_mit2.jpg",
+            "hash": "thumbnail_mit2_91329181f8",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 8.49,
+            "url": "/uploads/thumbnail_mit2_91329181f8.jpg"
+          },
+          "small": {
+            "name": "small_mit2.jpg",
+            "hash": "small_mit2_91329181f8",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 30.15,
+            "url": "/uploads/small_mit2_91329181f8.jpg"
+          },
+          "medium": {
+            "name": "medium_mit2.jpg",
+            "hash": "medium_mit2_91329181f8",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 76.8,
+            "url": "/uploads/medium_mit2_91329181f8.jpg"
+          },
+          "large": {
+            "name": "large_mit2.jpg",
+            "hash": "large_mit2_91329181f8",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 153.96,
+            "url": "/uploads/large_mit2_91329181f8.jpg"
+          }
+        },
+        "url": "/uploads/mit2_91329181f8.jpg"
+      }
+    },
+    {
+      "id": "23",
+      "code": "neu",
+      "header": "Northeastern University",
+      "subheader": "Практическое образование с сильным фокусом на карьере",
+      "seo_title": "Northeastern University — учеба и стажировки в Бостоне | Bostongrad",
+      "seo_description": "Узнайте о Northeastern University: co-op программа, поступление, рейтинги и кампус. Посетите университет вместе с Bostongrad и получите опыт будущего образования.",
+      "text": "# Northeastern University\n\n## Практическое образование с сильным фокусом на карьере\n\nNortheastern University — один из самых быстрорастущих и современных университетов США, расположенный в центре Бостона. Основанный в 1898 году, университет известен своей уникальной системой co-op (оплачиваемых стажировок), которая позволяет студентам получать реальный опыт работы во время обучения.\n\n## Общая информация\n\n- Тип: частный исследовательский университет  \n- Локация: Бостон, Массачусетс  \n- Основан: 1898  \n- Студенты: ~28,000+  \n- Соотношение студент/преподаватель: ~14:1  \n\nКампус расположен прямо в городе, что дает студентам прямой доступ к компаниям, стартапам и профессиональной среде.\n\n## Особенности университета\n\nГлавная особенность Northeastern — это интеграция учебы и работы.\n\nКлючевые особенности:\n\n- Co-op программа (6–18 месяцев оплачиваемого опыта)  \n- Сильный фокус на карьере и практических навыках  \n- Городской кампус в центре Бостона  \n- Тесные связи с индустрией  \n- Международные кампусы и программы  \n\nСтуденты Northeastern часто заканчивают университет уже с опытом работы в крупных компаниях.\n\n## Поступление\n\nNortheastern становится все более конкурентным:\n\n- Acceptance rate: ~6–7%  \n- SAT (средний): 1450–1530  \n\nУниверситет оценивает академические результаты, активность вне учебы и карьерную мотивацию.\n\n## Основные направления (Majors)\n\nПопулярные направления:\n\n- Computer Science  \n- Business  \n- Engineering  \n- Data Science  \n- Economics  \n- Biology  \n- Health Sciences  \n- International Business  \n\nNortheastern особенно силен в областях, где важен практический опыт и взаимодействие с индустрией.\n\n## Структура университета\n\nОсновные школы:\n\n- Khoury College of Computer Sciences  \n- D’Amore-McKim School of Business  \n- College of Engineering  \n- College of Science  \n- College of Social Sciences and Humanities  \n\nЭто позволяет комбинировать разные направления и строить interdisciplinary образование.\n\n## Рейтинги\n\n- США (U.S. News): примерно #50–55  \n- Мир: входит в топ-200 университетов  \n\nNortheastern известен не только рейтингами, но и сильными карьерными результатами студентов.\n\n## Карьерные возможности\n\nГлавное преимущество Northeastern — трудоустройство:\n\n- До 90% студентов участвуют в co-op  \n- Оплачиваемые стажировки в топ-компаниях  \n- Высокий уровень employment после выпуска  \n- Сильная связь с индустрией  \n\nСтуденты получают 1–2 года опыта работы еще до окончания университета.\n\n## Почему стоит посетить Northeastern с Bostongrad\n\nNortheastern показывает современный подход к образованию.\n\nВо время визита студенты могут:\n\n- понять систему co-op  \n- увидеть urban campus  \n- узнать, как совмещать учебу и карьеру  \n- сравнить с Harvard, MIT и другими университетами  \n\nЭто помогает понять, подходит ли формат практико-ориентированного обучения.\n\n## Итог\n\nNortheastern University — это университет нового поколения, где обучение тесно связано с карьерой. Он идеально подходит студентам, которые хотят получить не только диплом, но и реальный опыт работы.\n\nДля участников Bostongrad это возможность увидеть, как выглядит образование, ориентированное на будущее и индустрию.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-04-29T05:22:19.829Z",
+      "preview": {
+        "id": "3012",
+        "name": "neu.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_neu.jpg",
+            "hash": "thumbnail_neu_689c99a86a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 6.05,
+            "url": "/uploads/thumbnail_neu_689c99a86a.jpg"
+          },
+          "small": {
+            "name": "small_neu.jpg",
+            "hash": "small_neu_689c99a86a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 42.9,
+            "url": "/uploads/small_neu_689c99a86a.jpg"
+          },
+          "medium": {
+            "name": "medium_neu.jpg",
+            "hash": "medium_neu_689c99a86a",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 92.64,
+            "url": "/uploads/medium_neu_689c99a86a.jpg"
+          }
+        },
+        "url": "/uploads/neu_689c99a86a.jpg"
+      },
+      "wallpaper": {
+        "id": "3011",
+        "name": "neu2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_neu2.jpg",
+            "hash": "thumbnail_neu2_030ad7ed23",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 11.55,
+            "url": "/uploads/thumbnail_neu2_030ad7ed23.jpg"
+          },
+          "small": {
+            "name": "small_neu2.jpg",
+            "hash": "small_neu2_030ad7ed23",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 45.09,
+            "url": "/uploads/small_neu2_030ad7ed23.jpg"
+          },
+          "medium": {
+            "name": "medium_neu2.jpg",
+            "hash": "medium_neu2_030ad7ed23",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 120.55,
+            "url": "/uploads/medium_neu2_030ad7ed23.jpg"
+          },
+          "large": {
+            "name": "large_neu2.jpg",
+            "hash": "large_neu2_030ad7ed23",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 240.18,
+            "url": "/uploads/large_neu2_030ad7ed23.jpg"
+          }
+        },
+        "url": "/uploads/neu2_030ad7ed23.jpg"
+      }
+    },
+    {
+      "id": "24",
+      "code": "columbia",
+      "header": "Columbia University",
+      "subheader": "Ivy League университет в центре Нью-Йорка",
+      "seo_title": "Columbia University — Ivy League университет в Нью-Йорке | Bostongrad",
+      "seo_description": "Узнайте о Columbia University: поступление, рейтинги, кампус и программы. Посетите университет в Нью-Йорке вместе с Bostongrad и изучите образование Ivy League.",
+      "text": "# Columbia University (New York)\n\n## Ivy League университет в центре Нью-Йорка\n\nColumbia University — один из самых престижных университетов мира и член Ivy League, расположенный в Нью-Йорке. Основанный в 1754 году, он является одним из старейших университетов США и известен своим академическим уровнем, глобальным влиянием и расположением в одном из главных городов мира.\n\n## Общая информация\n\n- Тип: частный исследовательский университет  \n- Лига: Ivy League  \n- Локация: New York City (Manhattan)  \n- Основан: 1754  \n- Студенты: ~33,000+  \n- Соотношение студент/преподаватель: ~6:1  \n\nГлавный кампус расположен в районе Morningside Heights, рядом с Central Park и бизнес-центрами города.\n\n## Особенности университета\n\nColumbia сочетает классическое образование Ivy League с возможностями мегаполиса.\n\nКлючевые особенности:\n\n- Core Curriculum — уникальная обязательная программа гуманитарных дисциплин  \n- Расположение в Нью-Йорке — доступ к компаниям, медиа, финансам и международным организациям  \n- Сильная исследовательская база  \n- Глобальная сеть выпускников  \n- Высокий академический стандарт  \n\nColumbia особенно подходит студентам, которые хотят учиться в академически сильной среде и одновременно быть в центре мировой экономики и культуры.\n\n## Поступление\n\nПоступление в Columbia крайне конкурентное:\n\n- Acceptance rate: ~3–4%  \n- Средний SAT: 1500–1560  \n\nУниверситет оценивает академические достижения, эссе, лидерство, extracurricular activities и личные качества кандидата.\n\n## Основные направления (Majors)\n\nПопулярные и сильные направления:\n\n- Economics  \n- Political Science  \n- Computer Science  \n- Engineering  \n- Business (через Columbia Business School — graduate)  \n- Journalism  \n- International Relations  \n- Biology / Pre-Med  \n- Finance  \n\nColumbia также известен своей Graduate School of Journalism и School of International and Public Affairs (SIPA).\n\n## Структура университета\n\nОсновные школы:\n\n- Columbia College  \n- Columbia Engineering  \n- School of General Studies  \n- Columbia Business School  \n- Columbia Law School  \n- College of Physicians and Surgeons  \n\nЭто позволяет студентам выбирать как undergraduate, так и профессиональные направления.\n\n## Рейтинги\n\nColumbia стабильно входит в топ университетов мира:\n\n- QS World University Rankings: топ-25 в мире  \n- Times Higher Education: топ-20 в мире  \n- США: входит в топ-15 национальных университетов  \n\nУниверситет особенно силен в экономике, политике, журналистике, бизнесе и международных отношениях.\n\n## Карьерные возможности\n\nColumbia предоставляет уникальные карьерные возможности благодаря расположению:\n\n- Доступ к Wall Street, медиакомпаниям, стартапам  \n- Стажировки во время учебы  \n- Сильная alumni network  \n- Карьера в финансах, политике, медиа, международных организациях  \n\nМногие студенты начинают карьеру еще во время обучения.\n\n## Почему стоит посетить Columbia с Bostongrad\n\nColumbia — ключевой университет для понимания образования в Нью-Йорке.\n\nВо время визита студенты могут:\n\n- увидеть кампус Ivy League в мегаполисе  \n- понять Core Curriculum  \n- сравнить New York vs Boston образование  \n- познакомиться с карьерными возможностями  \n\nЭто дает представление о том, как учеба может сочетаться с жизнью в глобальном городе.\n\n## Итог\n\nColumbia University — это сочетание академического престижа Ivy League и возможностей Нью-Йорка. Университет идеально подходит студентам, которые хотят получить сильное образование и сразу выйти в глобальную карьерную среду.\n\nДля участников Bostongrad визит в Columbia — это возможность увидеть, как выглядит образование мирового уровня в одном из самых влиятельных городов мира.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-05-02T19:02:35.555Z",
+      "preview": {
+        "id": "3017",
+        "name": "cu.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_cu.jpg",
+            "hash": "thumbnail_cu_ea31321e56",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 5.49,
+            "url": "/uploads/thumbnail_cu_ea31321e56.jpg"
+          },
+          "small": {
+            "name": "small_cu.jpg",
+            "hash": "small_cu_ea31321e56",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 39.78,
+            "url": "/uploads/small_cu_ea31321e56.jpg"
+          },
+          "medium": {
+            "name": "medium_cu.jpg",
+            "hash": "medium_cu_ea31321e56",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 93.99,
+            "url": "/uploads/medium_cu_ea31321e56.jpg"
+          }
+        },
+        "url": "/uploads/cu_ea31321e56.jpg"
+      },
+      "wallpaper": {
+        "id": "3016",
+        "name": "cu2.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_cu2.jpg",
+            "hash": "thumbnail_cu2_eccb68bf4c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 9.72,
+            "url": "/uploads/thumbnail_cu2_eccb68bf4c.jpg"
+          },
+          "small": {
+            "name": "small_cu2.jpg",
+            "hash": "small_cu2_eccb68bf4c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 33.38,
+            "url": "/uploads/small_cu2_eccb68bf4c.jpg"
+          },
+          "medium": {
+            "name": "medium_cu2.jpg",
+            "hash": "medium_cu2_eccb68bf4c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 84.11,
+            "url": "/uploads/medium_cu2_eccb68bf4c.jpg"
+          },
+          "large": {
+            "name": "large_cu2.jpg",
+            "hash": "large_cu2_eccb68bf4c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 168.46,
+            "url": "/uploads/large_cu2_eccb68bf4c.jpg"
+          }
+        },
+        "url": "/uploads/cu2_eccb68bf4c.jpg"
+      }
+    },
+    {
+      "id": "25",
+      "code": "nh",
+      "header": "New Haven University",
+      "subheader": "Ivy League университет с акцентом на гуманитарные науки и лидерство",
+      "seo_title": "Ivy League университет в New Haven | Bostongrad",
+      "seo_description": "Узнайте об Ivy League университете в New Haven: поступление, рейтинги, программы и кампус. Посетите вместе с Bostongrad.",
+      "text": "# New Haven University (Ivy League)\n\n## Ivy League университет с акцентом на гуманитарные науки и лидерство\n\nОдин из ведущих университетов Ivy League, расположенный в городе New Haven, Connecticut. Основанный в 1701 году, университет известен сильными программами в гуманитарных науках, праве, политике и искусстве, а также своей уникальной системой колледжей.\n\n## Общая информация\n\n- Тип: частный исследовательский университет  \n- Лига: Ivy League  \n- Локация: New Haven, Connecticut  \n- Основан: 1701  \n- Студенты: ~14,500+  \n- Соотношение студент/преподаватель: ~6:1  \n\nУниверситет сочетает исторический кампус, академическую строгость и развитую студенческую жизнь.\n\n## Особенности университета\n\nКлючевые особенности:\n\n- Residential College System — студенты распределяются по колледжам внутри университета  \n- Сильный фокус на humanities и liberal arts  \n- Высокий уровень преподавания  \n- Развитая культурная среда  \n- Акцент на лидерстве и критическом мышлении  \n\nАтмосфера университета более collaborative, чем конкурентная.\n\n## Поступление\n\n- Acceptance rate: ~4–5%  \n- Средний SAT: 1500–1560  \n\nПоступление крайне конкурентное и требует сильного академического и личного профиля.\n\n## Основные направления (Majors)\n\n- Political Science  \n- Economics  \n- History  \n- Global Affairs  \n- Biology  \n- Psychology  \n- English  \n- Art & Theater  \n- Computer Science  \n\nОсобенно сильные области: право, политика, гуманитарные науки.\n\n## Структура\n\n- Undergraduate college  \n- Law School  \n- School of Medicine  \n- School of Management  \n- Art & Drama schools  \n\n## Рейтинги\n\n- Мир: топ-15–20  \n- США: топ-5–10  \n\n## Карьерные возможности\n\n- Сильная alumni network  \n- Карьера в политике, праве, бизнесе  \n- Высокий employment rate  \n- Глобальные возможности  \n\n## Почему стоит посетить с Bostongrad\n\n- Понять Ivy League систему  \n- Увидеть residential colleges  \n- Сравнить с университетами Бостона  \n- Оценить атмосферу классического кампуса  \n\n## Итог\n\nЭто один из ключевых университетов США с сильной гуманитарной базой и уникальной системой обучения. Подходит студентам, ориентированным на лидерство, право, политику и академическую карьеру.",
+      "type": "blog",
+      "stats": {},
+      "chapters": [],
+      "updatedAt": "2026-05-02T19:06:20.538Z",
+      "preview": {
+        "id": "3018",
+        "name": "nh.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 600,
+        "height": 900,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_nh.jpg",
+            "hash": "thumbnail_nh_5c4be6541c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 104,
+            "height": 156,
+            "size": 4.46,
+            "url": "/uploads/thumbnail_nh_5c4be6541c.jpg"
+          },
+          "small": {
+            "name": "small_nh.jpg",
+            "hash": "small_nh_5c4be6541c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 320,
+            "height": 480,
+            "size": 33.54,
+            "url": "/uploads/small_nh_5c4be6541c.jpg"
+          },
+          "medium": {
+            "name": "medium_nh.jpg",
+            "hash": "medium_nh_5c4be6541c",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 533,
+            "height": 800,
+            "size": 81.43,
+            "url": "/uploads/medium_nh_5c4be6541c.jpg"
+          }
+        },
+        "url": "/uploads/nh_5c4be6541c.jpg"
+      },
+      "wallpaper": {
+        "id": "3019",
+        "name": "nh2 copy.jpg",
+        "alternativeText": null,
+        "caption": null,
+        "width": 1536,
+        "height": 1024,
+        "formats": {
+          "thumbnail": {
+            "name": "thumbnail_nh2 copy.jpg",
+            "hash": "thumbnail_nh2_copy_f38ac5b1b0",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 234,
+            "height": 156,
+            "size": 12.04,
+            "url": "/uploads/thumbnail_nh2_copy_f38ac5b1b0.jpg"
+          },
+          "small": {
+            "name": "small_nh2 copy.jpg",
+            "hash": "small_nh2_copy_f38ac5b1b0",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 480,
+            "height": 320,
+            "size": 45.05,
+            "url": "/uploads/small_nh2_copy_f38ac5b1b0.jpg"
+          },
+          "medium": {
+            "name": "medium_nh2 copy.jpg",
+            "hash": "medium_nh2_copy_f38ac5b1b0",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 800,
+            "height": 533,
+            "size": 119.58,
+            "url": "/uploads/medium_nh2_copy_f38ac5b1b0.jpg"
+          },
+          "large": {
+            "name": "large_nh2 copy.jpg",
+            "hash": "large_nh2_copy_f38ac5b1b0",
+            "ext": ".jpg",
+            "mime": "image/jpeg",
+            "path": null,
+            "width": 1200,
+            "height": 800,
+            "size": 246.69,
+            "url": "/uploads/large_nh2_copy_f38ac5b1b0.jpg"
+          }
+        },
+        "url": "/uploads/nh2_copy_f38ac5b1b0.jpg"
+      }
+    }
+  ]
+}

@@ -1,5 +1,4 @@
 import { Box, useToken, useColorModeValue } from "@chakra-ui/react";
-import { cmsLinkPROD, cmsLinkDEV } from "../../services/utils";
 
 interface IImageFormat {
   url: string;
@@ -44,9 +43,6 @@ const CircularIcon = ({
     "hue-rotate(-140deg) brightness(0.1)"
   );
 
-  const env = process.env.NODE_ENV;
-  const SRC = env === "production" ? cmsLinkPROD : cmsLinkDEV;
-
   const optimizedUrl =
     icon?.formats?.thumbnail?.url ||
     icon?.formats?.small?.url ||
@@ -81,7 +77,7 @@ const CircularIcon = ({
       {icon && (
         <Box
           as="img"
-          src={SRC + optimizedUrl}
+          src={optimizedUrl}
           alt={icon?.alternativeText || iconAlt || ""}
           width="100%"
           height="100%"

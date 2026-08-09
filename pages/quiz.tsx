@@ -19,10 +19,8 @@ import {
   RiUser3Line,
 } from "react-icons/ri";
 import CustomSelect from "../components/shared/CustomSelect";
-import {
-  CountryOption,
-  loadCountries,
-} from "../services/cmsPublic";
+import type { CountryOption } from "../services/cmsPublic";
+import { staticContent } from "../services/staticContent";
 import gridPattern from "../public/grid.png";
 import { fbqTrack } from "../services/metaPixel";
 
@@ -48,7 +46,6 @@ export default function QuizPage({ countries }: Props) {
 
   const channel = String(router.query.channel || "email").toLowerCase();
   const target = String(router.query.target || "");
-  const leadId = String(router.query.leadId || "").trim();
   const name = String(router.query.name || "").trim();
   const email = String(router.query.email || "").trim();
   const kidAgeRaw = String(router.query.kid_age || "").trim();
@@ -71,8 +68,6 @@ export default function QuizPage({ countries }: Props) {
 
     const formData = new FormData(e.currentTarget);
     const formName = String(formData.get("name") || name).trim();
-    const formKidAge = String(formData.get("kid_age") || kidAgeRaw).trim();
-    const formCountry = String(formData.get("country") || country).trim();
     const formEmail = String(formData.get("email") || email).trim();
     const together = String(formData.get("together") || "").trim();
     const education = String(formData.get("education") || "").trim();
@@ -94,43 +89,13 @@ export default function QuizPage({ countries }: Props) {
     }
 
     setIsSubmitting(true);
-    try {
-      const response = await fetch("/api/lead-quiz-submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          leadId,
-          name: formName,
-          ...(formKidAge ? { kid_age: Number(formKidAge) } : {}),
-          ...(formCountry ? { country: formCountry } : {}),
-          together,
-          education,
-          contactChannel: channel,
-          contactValue,
-          emailContact: formEmail,
-        }),
-      });
-      const result = (await response.json().catch(() => null)) as {
-        leadId?: string;
-      } | null;
-      if (!response.ok) throw new Error("submit_failed");
-      setIsSent(true);
-      fbqTrack("Lead", {
-        source: "quiz",
-        channel,
-        lead_id: result?.leadId,
-      });
+    setIsSent(true);
+    fbqTrack("Lead", { source: "quiz_contact", channel });
 
-      if (channel !== "email" && target) {
-        setTimeout(() => {
-          window.location.href = target;
-        }, 850);
-      }
-    } catch {
-      setError("Не удалось отправить анкету. Попробуйте снова.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    const destination = target || "mailto:bostongrad.support@gmail.com";
+    setTimeout(() => {
+      window.location.href = destination;
+    }, 850);
   };
 
   return (
@@ -372,18 +337,5 @@ export default function QuizPage({ countries }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  try {
-    const countries = await loadCountries();
-    return {
-      props: {
-        countries,
-      },
-      revalidate: 300,
-    };
-  } catch {
-    return {
-      props: { countries: [] },
-      revalidate: 300,
-    };
-  }
+  return { props: { countries: staticContent.countries } };
 };
