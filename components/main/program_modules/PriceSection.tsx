@@ -22,6 +22,7 @@ import {
 } from "react-icons/ri";
 import { palette } from "./shared";
 import { fbqTrackCustom } from "../../../services/metaPixel";
+import { translateContent, useI18n } from "../../../services/i18n";
 
 type PriceSectionProps = {
   priceTitle?: string;
@@ -71,10 +72,14 @@ const priceCards = [
 ];
 
 const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
+  const { t } = useI18n();
+  const localizedOneWeek = translateContent(oneWeekIncluded, t);
+  const localizedTwoWeeks = translateContent(twoWeekExtras, t);
+  const localizedPriceCards = translateContent(priceCards, t);
   const scrollToPageEnd = () => {
     fbqTrackCustom("ClickApply", {
       source: "price_section",
-      label: priceButtonText || "Узнать точную стоимость",
+      label: priceButtonText || t("Узнать точную стоимость"),
     });
 
     if (typeof window === "undefined") return;
@@ -132,7 +137,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
               lineHeight="1.04"
               textShadow="0 8px 24px rgba(0,0,0,0.24)"
             >
-              {priceTitle || "Стоимость программы"}
+              {priceTitle || t("Стоимость программы")}
             </Text>
             <Button
               type="button"
@@ -154,7 +159,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
               borderRadius="14px"
               rightIcon={<RiArrowRightLine />}
             >
-              {priceButtonText || "Узнать точную стоимость"}
+              {priceButtonText || t("Узнать точную стоимость")}
             </Button>
           </VStack>
 
@@ -163,7 +168,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
             spacing="4"
             alignItems="stretch"
           >
-            {priceCards.map((card) => (
+            {localizedPriceCards.map((card) => (
               <Box
                 key={card.title}
                 position="relative"
@@ -202,7 +207,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
                       fontSize={{ base: "md", md: "lg" }}
                       fontWeight="900"
                     >
-                      от
+                      {t("от")}
                     </Text>
                     <Text
                       color="#fff1c9"
@@ -223,8 +228,8 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
 
         <SimpleGrid columns={{ base: 1, md: 2 }} spacing="4">
           {[
-            ["Первая неделя", "входит в оба формата", oneWeekIncluded],
-            ["Вторая неделя", "дополнительно к базовому пакету", twoWeekExtras],
+            [t("Первая неделя"), t("входит в оба формата"), localizedOneWeek],
+            [t("Вторая неделя"), t("дополнительно к базовому пакету"), localizedTwoWeeks],
           ].map(([title, subtitle, items], index) => (
             <Box
               key={title as string}
@@ -310,8 +315,7 @@ const PriceSection = ({ priceTitle, priceButtonText }: PriceSectionProps) => {
             flexShrink={0}
           />
           <Text fontSize={{ base: "xs", md: "sm" }} lineHeight="1.5">
-            Точная стоимость рассчитывается индивидуально под даты поездки и
-            выбранный формат участия.
+            {t("Точная стоимость рассчитывается индивидуально под даты поездки и выбранный формат участия.")}
           </Text>
         </HStack>
       </VStack>

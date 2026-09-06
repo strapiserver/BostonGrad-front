@@ -15,6 +15,7 @@ import { SocialNetworkItem } from "../../services/cmsPublic";
 import CustomImage from "../shared/CustomImage";
 import { palette } from "./program_modules/shared";
 import { fbqTrackCustom } from "../../services/metaPixel";
+import { useI18n } from "../../services/i18n";
 
 type ConnectionProps = {
   socialNetworks?: SocialNetworkItem[] | null;
@@ -154,6 +155,7 @@ const getConnectionLinks = (socialNetworks?: SocialNetworkItem[] | null) => {
 };
 
 export default function Connection({ socialNetworks }: ConnectionProps) {
+  const { t } = useI18n();
   const links = getConnectionLinks(socialNetworks);
 
   return (
@@ -166,7 +168,7 @@ export default function Connection({ socialNetworks }: ConnectionProps) {
     >
       <HStack
         as="section"
-        aria-label="Связаться с нами"
+        aria-label={t("Связаться с нами")}
         w="100%"
         minH={{ base: "68px", md: "64px" }}
         px={{ base: "4", md: "6" }}
@@ -191,7 +193,7 @@ export default function Connection({ socialNetworks }: ConnectionProps) {
           lineHeight="1.1"
           textAlign={{ base: "center", md: "left" }}
         >
-          Связаться с нами
+          {t("Связаться с нами")}
         </Text>
 
         <HStack

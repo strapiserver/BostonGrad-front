@@ -28,6 +28,7 @@ import {
   PriceSection,
   ReasonsSection,
 } from "./program_modules";
+import { useI18n, useLocalizedContent } from "../../services/i18n";
 
 const MainPageContent = ({
   unis,
@@ -48,6 +49,14 @@ const MainPageContent = ({
   visa?: IVisa | null;
   realPicture?: IRealPicture | null;
 }) => {
+  const { t } = useI18n();
+  const localizedMain = useLocalizedContent(mainSingle);
+  const localizedUnis = useLocalizedContent(unis);
+  const localizedCountries = useLocalizedContent(countries);
+  const localizedStories = useLocalizedContent(stories);
+  const localizedProducts = useLocalizedContent(products);
+  const localizedVisa = useLocalizedContent(visa);
+  const localizedPicture = useLocalizedContent(realPicture);
   const router = useRouter();
   const dispatch = useAppDispatch();
   const { slug } = router.query;
@@ -60,10 +69,10 @@ const MainPageContent = ({
 
   return (
     <VStack align="stretch" w="100%">
-      {mainSingle ? (
+      {localizedMain ? (
         <GreetingImage
-          mainSingle={mainSingle}
-          countries={countries || []}
+          mainSingle={localizedMain}
+          countries={localizedCountries || []}
           socialNetworks={socialNetworks || []}
         />
       ) : null}
@@ -74,21 +83,21 @@ const MainPageContent = ({
         position="relative"
         zIndex={4}
       >
-        <UniPreview unis={unis} />
+        <UniPreview unis={localizedUnis} />
       </Box>
 
       <Box id="programs">
-        <CustomTitle as="h2" title={"Что входит в программу"} />
+        <CustomTitle as="h2" title={t("Что входит в программу")} />
       </Box>
       <Box id="products">
-        <Products products={products || []} />
+        <Products products={localizedProducts || []} />
       </Box>
       <Box id="real-picture">
-        <RealPictureSection realPicture={realPicture} />
+        <RealPictureSection realPicture={localizedPicture} />
       </Box>
 
       <Box id="summer-invite" mt={{ base: "2", md: "4" }}>
-        <SummerInvite visa={visa} />
+        <SummerInvite visa={localizedVisa} />
       </Box>
 
       <Box id="program-modules">
@@ -98,10 +107,10 @@ const MainPageContent = ({
           mt={{ base: 8, md: 10 }}
         >
           <PriceSection
-            priceTitle={mainSingle?.price_title}
-            priceButtonText={mainSingle?.price_button_text}
+            priceTitle={localizedMain?.price_title}
+            priceButtonText={localizedMain?.price_button_text}
           />
-          <ReasonsSection reasonsTitle={mainSingle?.reasons_title} />
+          <ReasonsSection reasonsTitle={localizedMain?.reasons_title} />
           <Connection socialNetworks={socialNetworks || []} />
           <BostonValueSection />
           <NewYorkValueSection />
@@ -124,8 +133,8 @@ const MainPageContent = ({
         borderTop="1px solid rgba(255,210,130,0.5)"
       >
         <Forms
-          title="Получите PDF-программу и консультацию по датам"
-          countries={countries || []}
+          title={t("Получите PDF-программу и консультацию по датам")}
+          countries={localizedCountries || []}
           socialNetworks={socialNetworks || []}
         />
       </Box>

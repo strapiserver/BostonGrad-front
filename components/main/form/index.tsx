@@ -21,6 +21,7 @@ import { IImage } from "../../../types/selector";
 import settings from "./settings.json";
 import { FormEvent, useState } from "react";
 import { fbqTrack, fbqTrackCustom } from "../../../services/metaPixel";
+import { useI18n } from "../../../services/i18n";
 
 const { fieldCommon } = settings;
 const { placeholderColor, ...fieldCommonInputStyles } = fieldCommon;
@@ -37,6 +38,7 @@ export default function Forms({
   socialNetworks?: { name: string; icon: IImage | null; url: string }[];
   title?: string;
 }) {
+  const { t } = useI18n();
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const showSelectIcons = useBreakpointValue({ base: false, md: true });
@@ -156,22 +158,22 @@ export default function Forms({
     );
 
     if (!name) {
-      notifyError("Заполните поле: Ваше имя");
+      notifyError(t("Заполните поле: Ваше имя"));
       return;
     }
 
     if (!email) {
-      notifyError("Заполните поле: Email");
+      notifyError(t("Заполните поле: Email"));
       return;
     }
 
     if (!emailRegex.test(email)) {
-      notifyError("Введите корректный Email");
+      notifyError(t("Введите корректный Email"));
       return;
     }
 
     if (!socialNetworkUrl) {
-      notifyError("Заполните поле: Способ связи");
+      notifyError(t("Заполните поле: Способ связи"));
       return;
     }
 
@@ -218,7 +220,7 @@ export default function Forms({
             type="text"
             name="name"
             borderRadius="lg"
-            placeholder="Ваше имя"
+            placeholder={t("Ваше имя")}
             h={{ base: "52px", md: "56px" }}
             pl="10"
             fontSize={{ base: "md", md: "2xl" }}
@@ -250,7 +252,7 @@ export default function Forms({
         {/* <FormLabel>Возраст ребенка</FormLabel> */}
         <CustomSelect
           name="kid_age"
-          placeholder="Возраст ребенка"
+          placeholder={t("Возраст ребенка")}
           autoSelectFirst={false}
           h={{ base: "52px", md: "56px" }}
           fontSize={{ base: "md", md: "2xl" }}
@@ -273,7 +275,7 @@ export default function Forms({
         {/* <FormLabel>Страна</FormLabel> */}
         <CustomSelect
           name="country"
-          placeholder="Страна"
+          placeholder={t("Страна")}
           options={countryOptions}
           autoSelectFirst={false}
           h={{ base: "52px", md: "56px" }}
@@ -295,7 +297,7 @@ export default function Forms({
 
         <CustomSelect
           name="socialnetwork"
-          placeholder="Способ связи"
+          placeholder={t("Способ связи")}
           options={socialNetworkOptions}
           onValueChange={trackSocialNetworkSelect}
           autoSelectFirst={false}
@@ -357,7 +359,7 @@ export default function Forms({
           type="submit"
           isLoading={isSubmitting}
         >
-          Отправить
+          {t("Отправить")}
         </Button>
         {error ? (
           <Text

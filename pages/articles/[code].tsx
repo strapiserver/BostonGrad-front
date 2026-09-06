@@ -13,6 +13,7 @@ import {
 } from "../../services/staticContent";
 import { addPathsToSitemap } from "../../cache/cache";
 import GeneralArticle from "../../components/articles/generalArticle";
+import { useLocalizedContent } from "../../services/i18n";
 const emptyProps = async () => ({
   props: {
     seo: nullSeo,
@@ -44,11 +45,13 @@ const ArticlePage = (props: {
   countries?: CountryOption[];
   socialNetworks?: SocialNetworkItem[];
 }) => {
+  const localizedArticle = useLocalizedContent(props.article);
+  const localizedCountries = useLocalizedContent(props.countries);
   return (
     <GeneralArticle
-      article={props.article}
+      article={localizedArticle}
       seo={props.seo}
-      countries={props.countries || []}
+      countries={localizedCountries || []}
       socialNetworks={props.socialNetworks || []}
     />
   );

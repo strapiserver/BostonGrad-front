@@ -3,8 +3,10 @@ import logoLQ from "../../../public/logoLQ.png";
 import { HStack, Text, Image, Link } from "@chakra-ui/react";
 import NextLink from "next/link";
 import { base } from "../../../services/utils";
+import { useI18n } from "../../../services/i18n";
 
 export default function WebsiteData() {
+  const { t } = useI18n();
   const websiteDomain = base || "bostongrad.com";
 
   return (
@@ -39,7 +41,7 @@ export default function WebsiteData() {
         color="bg.700"
         _hover={{ color: "bg.500" }}
       >
-        Политика конфиденциальности
+        {t("Политика конфиденциальности")}
       </Link>
     </HStack>
   );

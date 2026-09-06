@@ -5,6 +5,7 @@ import CustomImage from "../shared/CustomImage";
 import { LinkWrapper } from "../shared/LinkWrapper";
 import { RiArrowRightLine } from "react-icons/ri";
 import { fbqTrackCustom } from "../../services/metaPixel";
+import { useI18n } from "../../services/i18n";
 
 const iconToImage = (value?: IImage | null) => value || null;
 
@@ -16,6 +17,7 @@ const productLink = (product: IProduct) => {
 };
 
 export default function Product({ product }: { product: IProduct }) {
+  const { t } = useI18n();
   const href = productLink(product);
   const subtitles = [
     { text: product.subtitle_1, icon: iconToImage(product.icon_1) },
@@ -152,7 +154,7 @@ export default function Product({ product }: { product: IProduct }) {
                   letterSpacing="0.04em"
                   textTransform="uppercase"
                 >
-                  Подробнее
+            {t("Подробнее")}
                 </Text>
                 <Box as={RiArrowRightLine} boxSize={{ base: "16px", md: "20px" }} />
               </HStack>

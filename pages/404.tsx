@@ -4,14 +4,16 @@ import { Box, Button, Center, Flex } from "@chakra-ui/react";
 import Link from "next/link";
 import { Box3D } from "../styles/theme/custom";
 import ErrorWrapper from "../components/shared/ErrorWrapper";
+import { useI18n } from "../services/i18n";
 function NotFound() {
+  const { t } = useI18n();
   return (
     <Flex width="100%" justifyContent="center" alignItems="center" mt="5">
       <Box3D minW="400px" minH="200px" variant="extra_contrast">
         <ErrorWrapper
           isError={true}
           primaryMessage="404"
-          secondaryMessage="Страницы пока не существует"
+          secondaryMessage={t("Страницы пока не существует")}
         >
           <Box />
         </ErrorWrapper>

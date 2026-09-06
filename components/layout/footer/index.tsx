@@ -1,8 +1,11 @@
 import { Box, Divider, Flex, Grid } from "@chakra-ui/react";
 import WebsiteData from "./WebsiteData";
 import FooterLinks from "./FooterLinks";
+import { useI18n } from "../../../services/i18n";
 
 const Footer = () => {
+  const { t } = useI18n();
+  const localizeLinks = (links: typeof aboutLinks) => links.map((link) => ({ ...link, label: t(link.label) }));
   return (
     <Box id="site-end" w="100%" px={{ base: "2", lg: "12%" }}>
       <Flex flexDir="column" justifyContent="space-between" alignItems="center">
@@ -16,9 +19,9 @@ const Footer = () => {
           templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }}
           justifyContent="center"
         >
-          <FooterLinks links={aboutLinks} title={"BostonGrad"} />
-          <FooterLinks links={programLinks} title={"Программа"} />
-          <FooterLinks links={navigationLinks} title={"Навигация"} />
+          <FooterLinks links={localizeLinks(aboutLinks)} title={"BostonGrad"} />
+          <FooterLinks links={localizeLinks(programLinks)} title={t("Программа")} />
+          <FooterLinks links={localizeLinks(navigationLinks)} title={t("Навигация")} />
         </Grid>
         <Divider mt="8" />
         <WebsiteData />

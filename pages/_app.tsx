@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAppDispatch } from "../redux/hooks";
 import { setLoadingStatus } from "../redux/mainReducer";
 import MetaPixel from "../components/meta/MetaPixel";
+import { I18nProvider } from "../services/i18n";
 
 const RouteLoadingHandler = () => {
   const router = useRouter();
@@ -193,14 +194,16 @@ function MyApp({ Component, pageProps }: AppProps) {
         theme={theme}
         colorModeManager={lightOnlyColorModeManager as any}
       >
-        <Provider store={store}>
-          <Layout>
-            <RouteLoadingHandler />
-            <RouteLoadingOverlay />
-            <DefaultSeo {...seoConfig} />
-            <Component {...pageProps} />
-          </Layout>
-        </Provider>
+        <I18nProvider>
+          <Provider store={store}>
+            <Layout>
+              <RouteLoadingHandler />
+              <RouteLoadingOverlay />
+              <DefaultSeo {...seoConfig} />
+              <Component {...pageProps} />
+            </Layout>
+          </Provider>
+        </I18nProvider>
       </ChakraProvider>
     </>
   );

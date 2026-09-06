@@ -6,13 +6,15 @@ import {
   sectionShell,
   sectionTitleCommon,
 } from "./shared";
+import { translateContent, useI18n } from "../../../services/i18n";
 
 type ReasonsSectionProps = {
   reasonsTitle?: string;
 };
 
 const ReasonsSection = ({ reasonsTitle }: ReasonsSectionProps) => {
-  const reasonCards = [
+  const { t } = useI18n();
+  const reasonCards = translateContent([
     {
       title: "Понятная стратегия",
       subtitle:
@@ -37,12 +39,12 @@ const ReasonsSection = ({ reasonsTitle }: ReasonsSectionProps) => {
         "После программы ребенок понимает, что делать дальше для поступления.",
       icon: "target",
     },
-  ];
+  ], t);
 
   return (
     <Box {...sectionShell} p={{ base: 4, md: 6 }}>
       <Text as="h2" {...sectionTitleCommon}>
-        {reasonsTitle || "Почему родители выбирают БостонГрад"}
+        {reasonsTitle || t("Почему родители выбирают БостонГрад")}
       </Text>
       <SimpleGrid columns={{ base: 1, md: 2 }} spacing="3">
         {reasonCards.map((reason, index) => (
